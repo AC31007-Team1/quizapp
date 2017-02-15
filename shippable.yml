@@ -1,0 +1,54 @@
+language: java                          
+
+node_js:                                      
+  - oraclejdk8                  
+
+services:                                       
+  - mysql                   
+
+env:                                                
+
+matrix:                                                                 
+
+build:                                                  
+
+  pre_ci:                               
+
+  pre_ci_boot:                          
+    image_name:
+    image_tag:
+    pull:
+    options:
+  ci:
+    - mysql -e "GRANT ALL ON *.* TO shippable@localhost IDENTIFIED BY ''; FLUSH PRIVILEGES;"
+    - mysql -e 'create database 16agileteam1db;'
+  post_ci:
+    
+  on_success:
+    
+  on_failure:
+    
+  cache:
+  cache_dir_list:
+    - #dir1
+  push:
+
+integrations:
+  notifications:
+    - integrationName: QuizApp
+      type: slack
+      recipients:
+        - "#general"
+      branches:
+        only:
+          - master
+          - beta
+      on_success: always
+      on_failure: always
+      on_pull_request: never
+      on_start: never
+
+  hub:
+    - integrationName:
+      type:
+      agent_only:
