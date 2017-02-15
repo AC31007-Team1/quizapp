@@ -1,15 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="jumbotron">
-            <div class="container">
-                <h2>Log In</h2>
+<%@include file="header.jsp"%>
+<title>Student Login</title>
+</head>
+<body>
+    <%@include file="navbar.jsp"%>
+    <br>
+    <div class="jumbotron">
+        <h1 class="display-3">Student Login</h1>
+
+
+        <div class="row marketing">
+            <div class="col-lg-6">
                 <form action="Login" method="post">  
                     <div class="input-group">
                         <input type="text" class="form-control" name="name" placeholder="Username" aria-describedby="basic-addon1">
@@ -21,6 +21,7 @@
                 </form>
             </div>
         </div>
-    </body>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <%@include file="footer.jsp"%>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>

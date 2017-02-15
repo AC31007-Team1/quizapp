@@ -16,7 +16,7 @@ public class UserLogin {
         this.password = password;  
     }  
     public boolean validate(){  
-        if(password.equals("admin")){  
+        if(password.equals("admin")){
             return true;  
         }  
         else{  
