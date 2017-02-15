@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login-error
-    Created on : 15-Feb-2017, 11:44:33
-    Author     : anthonygrimes
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
