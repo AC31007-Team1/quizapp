@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import quizapp.bean.UserLogin;
 
 @WebServlet(name = "StudentLogin", urlPatterns = {"/StudentLogin"})
 public class StudentLogin extends HttpServlet {
@@ -32,7 +31,7 @@ public class StudentLogin extends HttpServlet {
         String name=request.getParameter("name");  
         String password=request.getParameter("password");  
           
-        UserLogin bean=new UserLogin(); //change here 
+        quizapp.bean.StudentLogin bean=new quizapp.bean.StudentLogin(); //change here 
         bean.setName(name);  
         bean.setPassword(password);  
         request.setAttribute("bean",bean);  

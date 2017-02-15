@@ -1,6 +1,6 @@
 package quizapp.bean;
 
-public class UserLogin {
+public class StudentLogin {
     private String name,password;  
   
     public String getName() {  
