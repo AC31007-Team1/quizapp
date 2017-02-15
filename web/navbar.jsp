@@ -4,6 +4,7 @@
     Author     : Think
 --%>
 
+<%@page import="quizapp.bean.*"%>
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,7 +16,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">Home<span class="sr-only">(current)</span></a>
             </li>
-
+          
             <li class="nav-item">
                 <a class="nav-link" href="/quizapp/CreateAccount">Create Account</a>
             </li>
@@ -26,6 +27,7 @@
                     <a class="dropdown-item" href="/quizapp/StaffLogin">Staff Login</a>
                 </div>
             </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search for a Quiz">
