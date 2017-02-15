@@ -1,13 +1,13 @@
 package quizapp.bean;
 
-public class StudentLogin {
-    private String matricID,password;  
+public class StaffLogin {
+    private String staffID,password;  
   
     public String getName() {  
-        return matricID;  
+        return staffID;  
     }  
-    public void setName(String matricID) {  
-        this.matricID = matricID;  
+    public void setName(String staffID) {  
+        this.staffID = staffID;  
     }  
     public String getPassword() {  
         return password;  
