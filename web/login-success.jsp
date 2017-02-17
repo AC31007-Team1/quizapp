@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="quizapp.bean.UserLogin"%>
+<%@page import="quizapp.bean.StudentLogin"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,11 +13,11 @@
     </head>
     <div class="alert alert-success" role="alert">
         <strong>Shablamzo!</strong> You logged in successfully. 
-        <%UserLogin bean = (UserLogin) request.getAttribute("bean");
+        <%StudentLogin bean = (StudentLogin) request.getAttribute("bean");
        out.print("Welcome, " + bean.getName() + ".");%>
     </div><br> 
 
-    <a href ="index.html"><button type="button"  class="btn btn-success">Return to Home Page</button></a>
+    <a href ="index.jsp"><button type="button"  class="btn btn-success"><strong>Return to Home Page</strong></button></a>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

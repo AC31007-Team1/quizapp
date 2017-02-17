@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import quizapp.bean.UserLogin;
 
-@WebServlet(name = "StudentLogin", urlPatterns = {"/StudentLogin"})
-public class StudentLogin extends HttpServlet {
+@WebServlet(name = "StaffLogin", urlPatterns = {"/StaffLogin"})
+public class StaffLoginController extends HttpServlet {
 
     
     @Override  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
-                RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
+                RequestDispatcher rd=request.getRequestDispatcher("stafflogin.jsp");  
                 rd.forward(request, response);  
     //doPost(req, resp);  
     }
@@ -29,10 +28,10 @@ public class StudentLogin extends HttpServlet {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
           
-        String name=request.getParameter("name");  
+        String name=request.getParameter("staffID");  
         String password=request.getParameter("password");  
           
-        UserLogin bean=new UserLogin(); //change here 
+        quizapp.bean.StaffLogin bean=new quizapp.bean.StaffLogin(); //change here 
         bean.setName(name);  
         bean.setPassword(password);  
         request.setAttribute("bean",bean);  
