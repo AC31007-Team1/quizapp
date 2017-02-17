@@ -5,14 +5,14 @@
     <%@include file="navbar.jsp"%>
     <br>
     <div class="jumbotron">
-        <h1 class="display-3">Student Login</h1>
+        <h1 class="display-3">Student Login Portal</h1>
 
 
         <div class="row marketing">
             <div class="col-lg-6">
-                <form action="Login" method="post">  
+                <form action="StudentLogin" method="post">  
                     <div class="input-group">
-                        <input type="text" class="form-control" name="name" placeholder="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" name="matricID" placeholder="Matriculation Number" aria-describedby="basic-addon1">
                     </div><br>
                     <div class="input-group">
                         <input type="password" class="form-control" name="password" placeholder="Password" aria-describedby="basic-addon1">

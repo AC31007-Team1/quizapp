@@ -4,14 +4,51 @@ You have been warned.
 You will probably want navbar.jsp as well.
 --%>
 <%@include file="header.jsp"%>
-    <title>INDEX TEST</title>
+<title>INDEX TEST</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>
-    
-    <h1>Hello World!</h1>
-    <a href="/quizapp/Login">LOGIN</a>
-    <a href="/quizapp/CreateAccount">ehllo</a>
-    <a href="/quizapp/QuizQuestions">thanks warren</a>
+
+    <div class="panel panel-default"
+        <!-- Table -->
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    Quiz ID
+                </th>
+                <th>
+                    Module Name
+                </th>
+                <th>
+                    School of Study
+                </th>
+                <th>
+                    Quiz Name
+                </th>
+                <th>
+                    Date Created
+                </th>
+            </tr>
+            <tbody>
+            <td>
+                1
+            </td>
+            <td>
+                Fartonomics
+            </td>
+            <td>
+                School of Foobar
+            </td>
+            <td> 
+                How to Mockup Tables in Bootstrap 101
+            </td>
+            <td>
+                2017.12.23
+            </td>
+            </tbody>
+        </table>
+    </div>
+
     <%@include file="footer.jsp"%>
 
