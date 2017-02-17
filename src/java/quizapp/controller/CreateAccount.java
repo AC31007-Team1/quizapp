@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.model.AddAccount;
-import quizapp.bean.AccountCreationData;
 
 /**
  *
@@ -42,18 +41,21 @@ public class CreateAccount extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String uName = request.getParameter("username");
+        String uName = request.getParameter("firstname");
         String uEmail = request.getParameter("email");
         String uSoul = request.getParameter("soulChoice");
+        
 
         switch (uSoul) {
             //staff
             case "0":
-                AccountCreationData acdStaff = new AccountCreationData();
-                acdStaff.setStaffData(uName, uEmail);
+                String staffID = request.getParameter("staffID");
+                //AccountCreationData acdStaff = new AccountCreationData();
+                //acdStaff.setStaffData(uName, uEmail);
                 AddAccount staffRegModel = new AddAccount();
-                if (staffRegModel.insertStaffAccount(uName, uEmail)) {
+                if (staffRegModel.insertStaffAccount(staffID, uName, uEmail)) {
                     response.sendRedirect("/quizapp/CreateAccountSuccess");
+                    break;
                 }
                 else{
                     response.sendRedirect("/quizapp/CreateAccountError");
@@ -61,9 +63,9 @@ public class CreateAccount extends HttpServlet {
                 }
             //student
             case "1":
-                String sMatric = request.getParameter("matric");
-                AccountCreationData acdStudent = new AccountCreationData();
-                acdStudent.setStudentData(uName, uEmail, sMatric);
+                int sMatric = Integer.parseInt(request.getParameter("matric"));
+                //AccountCreationData acdStudent = new AccountCreationData();
+                //acdStudent.setStudentData(uName, uEmail, sMatric);
                 AddAccount studentRegModel = new AddAccount();
                 if (studentRegModel.insertStudentAccount()) {
                     response.sendRedirect("/quizapp/CreateAccountSuccess");
