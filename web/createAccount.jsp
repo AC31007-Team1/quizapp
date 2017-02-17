@@ -14,23 +14,26 @@
         <div class="col-lg-6">
             <form action="CreateAccount" method="post">  
                 <div class="input-group">
-                    <input type="text" class="form-control" name="firstname" placeholder="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="firstname" placeholder="Firstname" aria-describedby="basic-addon1">
                 </div><br>
                 <div class="input-group">
-                    <input type="email" class="form-control" name="email" placeholder="abc@email.com" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="lastname" placeholder="Lastname" aria-describedby="basic-addon1">
+                </div><br>
+                <div class="input-group">
+                    <input type="email" class="form-control" name="email" placeholder="staff@dundee.ac.uk" aria-describedby="basic-addon1">
                 </div><br>
                 <div class ="input-group">
                     <select name ="soulChoice" class="form-control" id="selS" onchange="change(this)">
-                        <option>select your soul</option>
+                        <option>Are you a staff member or student?</option>
                         <option value = "0">Staff Member</option>
                         <option value = "1">Student</option>
                     </select>
                 </div><br>
                 <div id="staffID_div" style="display: none;">
-                    <input type="text" class="form-control" name="staffID" placeholder="staffID" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="staffID" placeholder="Staff ID Number" aria-describedby="basic-addon1">
                 </div><br>
                 <div id="matric_div" style="display: none;">
-                    <input type="number" class="form-control" name="matric" placeholder="matricNumber" aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" name="matric" placeholder="Matriculation Number" aria-describedby="basic-addon1">
                 </div><br>
                 <input type="submit" value="Create Account" class="btn btn-lg btn-primary">
             </form>

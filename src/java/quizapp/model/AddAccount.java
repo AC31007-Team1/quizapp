@@ -7,17 +7,20 @@ public class AddAccount {
     public AddAccount() {
     }
 
-    public boolean insertStaffAccount(String staffID, String staffN, String staffE) {
+    public boolean insertStaffAccount(String staffID, String staffFN, String staffLN, String staffE) {
         String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        
+        //hide userID & password (shippable?)
+        /*String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String dbName = "16agileteam1db";
+        String userID = "16agileteam1";
+        String password = "8320.at1.0238";*/
+        
         String localUrl = "jdbc:mysql://localhost:3306/";
         String localdb = "quizapp";
-        String dbName = "16agileteam1db";
-        //hide userID & password (shippable?)
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
         String luserID = "root";
-        String lpassword = "abc";
+        String lpassword = "root";
+        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -25,22 +28,21 @@ public class AddAccount {
         Connection connection = null;
         Statement statement = null;
         Statement statement2 = null;
+        
         String insertStaffTableSQL = "INSERT INTO quizapp.staff "
                 + "VALUES("+staffID+");";
         String insertProfileTableSQL = "INSERT INTO quizapp.profile_details(staff_id_number, first_name, last_name, email, soul) "
-                + "VALUES("+staffID+",'"+staffN+"','lollypop','"+staffE+"','staff');";
+                + "VALUES("+staffID+",'"+staffFN+"','"+staffLN+"','"+staffE+"','staff');";
+        
         try {
-            //staff id number will be made by staff Craig will fix
             connection = DriverManager.getConnection(localUrl + localdb, luserID, lpassword);
             statement = connection.createStatement();
             statement2 = connection.createStatement();
-            //statement.addBatch(insertStaffTableSQL);
-            //statement.addBatch(insertProfileTableSQL);
             statement.execute(insertStaffTableSQL);
             statement2.execute(insertProfileTableSQL);
             connection.close();
             return true;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.getMessage();
         }
         return false;

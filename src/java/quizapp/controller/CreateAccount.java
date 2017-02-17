@@ -41,7 +41,8 @@ public class CreateAccount extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String uName = request.getParameter("firstname");
+        String fName = request.getParameter("firstname");
+        String lName = request.getParameter("lastname");
         String uEmail = request.getParameter("email");
         String uSoul = request.getParameter("soulChoice");
         
@@ -53,7 +54,7 @@ public class CreateAccount extends HttpServlet {
                 //AccountCreationData acdStaff = new AccountCreationData();
                 //acdStaff.setStaffData(uName, uEmail);
                 AddAccount staffRegModel = new AddAccount();
-                if (staffRegModel.insertStaffAccount(staffID, uName, uEmail)) {
+                if (staffRegModel.insertStaffAccount(staffID, fName, lName, uEmail)) {
                     response.sendRedirect("/quizapp/CreateAccountSuccess");
                     break;
                 }
