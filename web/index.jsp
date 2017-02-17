@@ -4,11 +4,22 @@ You have been warned.
 You will probably want navbar.jsp as well.
 --%>
 <%@include file="header.jsp"%>
-<%@page import="quizapp.bean.*"%> <%--used to check if loggedin?--%>
+<%@page import="quizapp.bean.*"%> <%--used to check if loggedin--%>
 <title>INDEX TEST</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>
+    
+    <% 
+        StaffLogin staffLogin = new StaffLogin();
+        
+if(staffLogin.isLoggedIn()){
+    %>
+    YOU ARE LOGGED IN
+<%} else {%>
+YOU ARE NOT LOGGED IN
+<%  }   
+    %>
 
     <div class="panel panel-default"
         <!-- Table -->
