@@ -52,9 +52,13 @@ public class CreateAccount extends HttpServlet {
                 AccountCreationData acdStaff = new AccountCreationData();
                 acdStaff.setStaffData(uName, uEmail);
                 AddAccount staffRegModel = new AddAccount();
-                if (staffRegModel.insertStaffAccount()) {
+                if (staffRegModel.insertStaffAccount(uName, uEmail)) {
                     response.sendRedirect("/quizapp/CreateAccountSuccess");
-                }   break;
+                }
+                else{
+                    response.sendRedirect("/quizapp/CreateAccountError");
+                    break;
+                }
             //student
             case "1":
                 String sMatric = request.getParameter("matric");
