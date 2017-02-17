@@ -1,7 +1,7 @@
 package quizapp.bean;
 
 public class StaffLogin {
-    private String staffID,fName,lName,email;
+    private static String staffID,fName,lName,email;
     private static boolean loggedIn;
 
     public boolean isLoggedIn() {
