@@ -10,13 +10,11 @@
         <div class="col-12 center"><h2> Lets create your account! </h2></div>
     </div>
 
-
-
     <div class="row marketing">
         <div class="col-lg-6">
             <form action="CreateAccount" method="post">  
                 <div class="input-group">
-                    <input type="text" class="form-control" name="name" placeholder="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="firstname" placeholder="Username" aria-describedby="basic-addon1">
                 </div><br>
                 <div class="input-group">
                     <input type="email" class="form-control" name="email" placeholder="abc@email.com" aria-describedby="basic-addon1">
@@ -28,8 +26,11 @@
                         <option value = "1">Student</option>
                     </select>
                 </div><br>
+                <div id="staffID_div" style="display: none;">
+                    <input type="text" class="form-control" name="staffID" placeholder="staffID" aria-describedby="basic-addon1">
+                </div><br>
                 <div id="matric_div" style="display: none;">
-                    <input type="number" class="form-control" name="matric" placeholder="12345678" aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" name="matric" placeholder="matricNumber" aria-describedby="basic-addon1">
                 </div><br>
                 <input type="submit" value="Create Account" class="btn btn-lg btn-primary">
             </form>
@@ -40,11 +41,16 @@
             var selectBox = obj;
             var selected = selectBox.options[selectBox.selectedIndex].value;
             var div = document.getElementById("matric_div");
-
+            var div2 = document.getElementById("staffID_div");
             if (selected === '1') {
-                div.style.display = "block";
+            div.style.display = "block";
             } else {
-                div.style.display = "none";
+            div.style.display = "none";
+            }
+            if (selected === '0'){
+            div2.style.display = "block";
+            } else {
+            div2.style.display = "none";
             }
         }
     </script>
