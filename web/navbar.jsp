@@ -9,7 +9,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.jsp">CraigMC!</a>
+    <a class="navbar-brand" href="index.jsp">Quiz App</a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -23,8 +23,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login Portal</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="/quizapp/StudentLogin">Student Login</a>
                     <a class="dropdown-item" href="/quizapp/StaffLogin">Staff Login</a>
+                    <a class="dropdown-item" href="/quizapp/StudentLogin">Student Login</a>
                 </div>
             </li>
 

@@ -4,6 +4,7 @@ You have been warned.
 You will probably want navbar.jsp as well.
 --%>
 <%@include file="header.jsp"%>
+<%@page import="quizapp.bean.*"%> <%--used to check if loggedin?--%>
 <title>INDEX TEST</title>
 </head>
 <body>
