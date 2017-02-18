@@ -1,15 +1,23 @@
 package quizapp.bean;
 
 public class StaffLogin {
-    private static String staffID,fName,lName,email;
-    private static boolean loggedIn;
-
-    public boolean isLoggedIn() {
-        return loggedIn;
+    private String staffID,fName,lName,email;
+    private boolean loggedIn = false;
+    
+    public void setLoginState(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
+    public void setLoggedIn() {
+        this.loggedIn = true;
+    }
+    
+    public boolean getLoggedIn() {
+        return loggedIn;
+    }
+    
+    public void setLoggedOut() {
+        this.loggedIn = false;
     }
 
     public String getStaffID() {

@@ -7,6 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class StaffMember {
+    
+    /*
+    methods here for getting and setting staff details from database
+    */
 
     public boolean isValidStaff(String staffID) {
         

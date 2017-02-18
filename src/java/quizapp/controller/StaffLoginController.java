@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import quizapp.bean.StaffLogin;
 import quizapp.model.StaffMember;
 
@@ -29,20 +30,33 @@ public class StaffLoginController extends HttpServlet {
           
         String staffID=request.getParameter("staffID");
         
-        StaffLogin staffLogin = new StaffLogin();
         StaffMember staffMember = new StaffMember();
         
-        staffLogin.setStaffID(staffID);
-        
-        boolean isStaff = staffMember.isValidStaff(staffID);  
+        boolean isStaff = staffMember.isValidStaff(staffID);
+        HttpSession session = request.getSession();
           
         if(isStaff){
-            staffLogin.setLoggedIn(isStaff);
+            StaffLogin staffLogin = new StaffLogin();
+            
+            staffLogin.setLoggedIn();
+            staffLogin.setStaffID(staffID);
+            
+            /*
+            Action here to make calls to get user info
+            ex.
+            
+            String firstName = staffMember.setFirstName(staffID);
+            
+            
+            staffLogin.setfName(firstName);
+            */
+            
+            session.setAttribute("StaffLogin", staffLogin);
+            
             RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  
             rd.forward(request, response);  
         }  
         else{
-            staffLogin.setLoggedIn(isStaff);
             RequestDispatcher rd=request.getRequestDispatcher("login-error.jsp");  
             rd.forward(request, response);  
         }

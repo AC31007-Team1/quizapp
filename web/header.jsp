@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="quizapp.bean.*"%> <%--used to check if loggedin--%>
 <!DOCTYPE html>
 <html>
     <head>
