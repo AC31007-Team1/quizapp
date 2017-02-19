@@ -5,30 +5,43 @@
  */
 package quizapp.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import javax.servlet.ServletConfig;
 
-@WebServlet(name = "AddQuiz", urlPatterns = {"/AddQuiz", "/AddQuiz/"})
-public class AddQuiz extends HttpServlet{
-    public AddQuiz() {
-}
-    
-@Override
+/**
+ *
+ * @author craigwatt
+ */
+@WebServlet(name = "CreateAccountError", urlPatterns = {"/CreateAccountError"})
+public class CreateAccountError extends HttpServlet {
+
+    @Override
     public void init(ServletConfig config) throws ServletException {
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("AddQuiz.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("createAccount-error.jsp");
         rd.forward(request, response);
     }
 
-}
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.sendRedirect("/quizapp");
+    }
 
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+
+}
