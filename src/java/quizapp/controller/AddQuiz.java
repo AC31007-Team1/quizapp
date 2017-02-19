@@ -12,14 +12,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import javax.servlet.ServletConfig;
 
 @WebServlet(name = "AddQuiz", urlPatterns = {"/AddQuiz", "/AddQuiz/"})
 public class AddQuiz extends HttpServlet{
     public AddQuiz() {
 }
-/**
- *
- * @author iain
- */
+    
+@Override
+    public void init(ServletConfig config) throws ServletException {
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher("/AddQuiz.jsp");
+        rd.forward(request, response);
+    }
 
 }
+

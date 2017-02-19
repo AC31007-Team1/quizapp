@@ -33,6 +33,7 @@
                 
                 <input name = "quizname" type="text" class="form-control" id="inputName" placeholder="Cina Saffary" required>
             </div>
+           
             <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="dropdown">
@@ -40,9 +41,9 @@
                 
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation" onclick="dropdown(this.innerHTML);"><a role="menuitem" href="#"><p>module 1</p></a></li>
-                    <li role="presentation" onclick="dropdown(this.innerHTML);"><a role="menuitem" href="#"><p>module 2</p></a></li>
-                   <li role="presentation" onclick="dropdown(this.innerHTML);"><a role="menuitem" href="#"><p>module 3</p></a></li>
+                    <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 1</p></a></li>
+                    <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 2</p></a></li>
+                   <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 3</p></a></li>
                 </ul>
                 
             </div>
@@ -51,7 +52,7 @@
             </div>
             </div>
             <div style="text-align:center;">
-                <input type="submit" value="Submit"> 
+                <input type="submit" value="Add Quiz"> 
             </div>
             
         </form>
