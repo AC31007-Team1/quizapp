@@ -37,11 +37,11 @@
             <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Select Module
+                <button class="btn btn-default dropdown-toggle" style="background-color:white;border: 1px;"type="button" id="menu1" data-toggle="dropdown">Select Module
                 
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation" onclick="dropdown(this.innerHTML);"><button style="border:none;" name="payment" type="submit" id="payment" value="door"
+                    <li role="presentation" onclick="dropdown(this.innerHTML);"><button style="border:none;background-color:white;" name="module" type="button" id="payment" value="door"
                                                                                         class="btn btn-default"><p>Pay at the door</p></button></li>
                     <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 2</p></a></li>
                    <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 3</p></a></li>

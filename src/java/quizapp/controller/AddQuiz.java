@@ -11,8 +11,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletConfig;
+import quizapp.bean.StaffLogin;
+import quizapp.model.CreateQuiz;
+
 
 @WebServlet(name = "AddQuiz", urlPatterns = {"/AddQuiz", "/AddQuiz/"})
 public class AddQuiz extends HttpServlet{
@@ -33,13 +42,22 @@ public class AddQuiz extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String fName = request.getParameter("firstname");
-        String lName = request.getParameter("lastname");
-        String uEmail = request.getParameter("email");
-        String uSoul = request.getParameter("soulChoice");
-        
-
-        
+        String quizname = request.getParameter("quizname");
+        String module = request.getParameter("module");
+        HttpSession session = request.getSession();
+        StaffLogin lg = (StaffLogin) session.getAttribute("StaffLogin");
+        String staffID=lg.getStaffID();
+        LocalDateTime created = LocalDateTime.now();
+        int available = 0;
+        CreateQuiz initquiz = new CreateQuiz();
+        try {
+            initquiz.insertQuiz(quizname,module,staffID,created,available);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
     }
 
 }
