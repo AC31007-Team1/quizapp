@@ -83,7 +83,7 @@ public class QuizQuestions {
             connection.close();
 
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.getMessage();
         }
     }
