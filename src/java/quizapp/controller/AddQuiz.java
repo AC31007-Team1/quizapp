@@ -50,13 +50,15 @@ public class AddQuiz extends HttpServlet{
         LocalDateTime created = LocalDateTime.now();
         int available = 0;
         CreateQuiz initquiz = new CreateQuiz();
+        
         try {
-            initquiz.insertQuiz(quizname,module,staffID,created,available);
-        } catch (SQLException ex) {
+            initquiz.insertQuiz(quizname,module,staffID,created,available);        } catch (SQLException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        
  
     }
 

@@ -41,7 +41,7 @@ public class CreateQuiz {
             java.sql.Date sqlDate = new java.sql.Date( myDate.getTime() ); // Notice the ".sql." (not "util") in package name.
             pstmt.setDate( 4, sqlDate ); 
             pstmt.setInt( 5, available );
-            pstmt.executeUpdate();
+            pstmt.execute();
             
             connection.close();
             return true;

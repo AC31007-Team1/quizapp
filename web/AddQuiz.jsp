@@ -6,7 +6,7 @@
 
 
 <%@include file="header.jsp"%>
-
+<%%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,10 +41,10 @@
                 
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                   <%%>
                     <li role="presentation" onclick="dropdown(this.innerHTML);"><button style="border:none;background-color:white;" name="module" type="button" id="payment" value="door"
-                                                                                        class="btn btn-default"><p>Pay at the door</p></button></li>
-                    <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 2</p></a></li>
-                   <li role="presentation" onclick="dropdown(this.innerHTML);"><a style="color:black;text-align: center;" role="menuitem" href="#"><p>module 3</p></a></li>
+                                                                                        class="btn btn-default"><p><%%></p></button></li>
+                    
                 </ul>
                 
             </div>
