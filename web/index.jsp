@@ -9,6 +9,6 @@
         <h1>Hello World!</h1>
         <a href="/quizapp/Login">LOGIN</a>
         <a href="/quizapp/CreateAccount">ehllo</a>
-        <a href="/quizapp/QuizQuestions">thanks warren</a>
+        <a href="/quizapp/displayQuizTable">thanks warren</a>
     </body>
 </html>
