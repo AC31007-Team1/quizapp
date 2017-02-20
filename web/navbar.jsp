@@ -9,30 +9,14 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="index.jsp">CraigMC!</a>
-
+    
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
+
                 <a class="nav-link" href="/quizapp">
                     <span class="fa fa-home" aria-hidden="true"></span> Home<span class="sr-only">(current)</span></a>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/quizapp/CreateAccount">
-                    <span class="fa fa-plus" aria-hidden="true"></span> Create Account</a>
-            </li>
-            <%
-            if (studentLogin != null) 
-            {
-                if (studentLogin.getLoggedIn()) 
-                {
-            %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/quizapp/LogoutStudent">Logout</a>
-                    </li>
-            <%  }
-            }else{
-}%>
             <%
             if (staffLogin != null) 
             {
@@ -41,15 +25,21 @@
                 {
             %>
             <li class="nav-item">
-                <a class="nav-link" href="/quizapp/profile.jsp">Profile</a>
+                <a class="nav-link" href="/quizapp/profile.jsp">
+                    <span class="fa fa-user" aria-hidden="true"></span> Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/quizapp/LogoutStaff">Logout</a>
+                <a class="nav-link" href="/quizapp/LogoutStaff">
+                    <span class="fa fa-sign-out" aria-hidden="true"></span> Logout</a>
             </li>
-            <%  }
-            } else 
+            <%}
+            } 
+            else 
             {%>
-            
+            <li class="nav-item">
+                <a class="nav-link" href="/quizapp/CreateAccount">
+                    <span class="fa fa-plus" aria-hidden="true"></span> Create Account</a>
+            </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="fa fa-sign-in" aria-hidden="true"></span> Login Portal</a>
