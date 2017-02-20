@@ -16,6 +16,7 @@ You will probably want navbar.jsp as well.
         {
             if(staffLogin.getLoggedIn()) 
             {
+
     %>
                 <h1>YOU ARE LOGGED IN AS STAFF</h1> 
                 <h1>Hello, <%staffLogin.getfName();%>!</h1>

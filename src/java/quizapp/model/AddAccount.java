@@ -19,8 +19,10 @@ public class AddAccount {
         String localUrl = "jdbc:mysql://localhost:3306/";
         String localdb = "quizapp";
         String luserID = "root";
+
         String lpassword = "root";
         */
+
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
