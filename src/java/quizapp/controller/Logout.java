@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.StaffLogin;
-
+import quizapp.bean.StudentLogin;
 
 @WebServlet(name = "Logout", urlPatterns = {"/Logout"})
 public class Logout extends HttpServlet {
@@ -20,6 +20,8 @@ public class Logout extends HttpServlet {
         HttpSession session = request.getSession();
         StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
         staffLogin.setLoggedOut();
+        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+        studentLogin.setLoggedOut();
         session.invalidate();
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);

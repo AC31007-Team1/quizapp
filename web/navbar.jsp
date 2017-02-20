@@ -20,13 +20,29 @@
                 <a class="nav-link" href="/quizapp/CreateAccount">Create Account</a>
             </li>
             <%
-                if (staffLogin != null) {
-                    if (staffLogin.getLoggedIn()) {
+            if (studentLogin != null) 
+            {
+                if (studentLogin.getLoggedIn()) 
+                {
             %>
             <li class="nav-item">
-                
                 <a class="nav-link" href="/quizapp/Logout">Logout</a>
-                
+            </li>
+            <%  }
+            }else{
+            }%>
+            <%
+            if (staffLogin != null) 
+            {
+
+                if (staffLogin.getLoggedIn()) 
+                {
+            %>
+            <li class="nav-item">
+                <a class="nav-link" href="/quizapp/profile.jsp">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/quizapp/Logout">Logout</a>
             </li>
             <% }} else {%>
 
