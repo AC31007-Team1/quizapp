@@ -1,11 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<jsp:include page="header.jsp"/>
-
-<title>quizQuestions</title>
-<script src="js/quizme.js"></script>
+<%@include file="header.jsp"%>
+<title>Questions Submitted</title>
 </head>
 <body>
-<h1>works</h1>
-</body>
-</html>
+    
+    <%--HAVE THIS PAGE GO BACK TO THE QUIZ QUESTIONS PAGE--%>
+    <%@include file="navbar.jsp"%>
+    <br>
+    <br>
+    <h1>Success</h1>
+
+    
+    <%@include file="footer.jsp"%>

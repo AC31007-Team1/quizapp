@@ -2,8 +2,8 @@ package quizapp.model;
 
 import java.sql.*;
 
-public class QuizQuestions {
-    public QuizQuestions() {
+public class AddQuizQuestions {
+    public AddQuizQuestions() {
     }
 
     public void submitQuestion(String question) {
@@ -71,13 +71,12 @@ public class QuizQuestions {
             String query = "INSERT INTO quiz_answers(quiz_question_id, correct_answer, incorrect_answer_one, incorrect_answer_two, incorrect_answer_three)" + " VALUES(?, ?, ?, ?, ?);"; // my sql statement
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, "2"); // update with quizquestionid
+            preparedStatement.setString(1, "1"); // update with quizquestionid
             preparedStatement.setString(2, answerc);
 
             for(int i = 0; i < 3; i++) {
                 preparedStatement.setString(i+3, answeri[i]); //lol this logic, somebody fire me, ah doesn't work as only one incorrect_answer row
             }
-            //System.out.println(preparedStatement);
             preparedStatement.execute();
 
             connection.close();

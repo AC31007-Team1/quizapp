@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import quizapp.model.QuizQuestions;
+import quizapp.model.AddQuizQuestions;
 
 @WebServlet(name = "SubmitQuestions", urlPatterns = {"/SubmitQuestions", "/SubmitQuestions/"})
 public class SubmitQuestions extends HttpServlet{
@@ -19,7 +19,7 @@ public class SubmitQuestions extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        QuizQuestions qq = new QuizQuestions();
+        AddQuizQuestions qq = new AddQuizQuestions();
 
         String question = request.getParameter("question");
         String cAnswer = request.getParameter("answerc");
