@@ -11,16 +11,16 @@ public class AddAccount {
         String driverName = "com.mysql.jdbc.Driver";
         
         //hide userID & password (shippable?)
-        /*String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
         String dbName = "16agileteam1db";
         String userID = "16agileteam1";
-        String password = "8320.at1.0238";*/
-        
+        String password = "8320.at1.0238";
+        /*
         String localUrl = "jdbc:mysql://localhost:3306/";
         String localdb = "quizapp";
         String luserID = "root";
         String lpassword = "root";
-        
+        */
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -29,13 +29,13 @@ public class AddAccount {
         Statement statement = null;
         Statement statement2 = null;
         
-        String insertStaffTableSQL = "INSERT INTO quizapp.staff "
+        String insertStaffTableSQL = "INSERT INTO 16agileteam1db.staff "
                 + "VALUES("+staffID+");";
-        String insertProfileTableSQL = "INSERT INTO quizapp.profile_details(staff_id_number, first_name, last_name, email, soul) "
+        String insertProfileTableSQL = "INSERT INTO 16agileteam1db.profile_details(staff_id_number, first_name, last_name, email, soul) "
                 + "VALUES("+staffID+",'"+staffFN+"','"+staffLN+"','"+staffE+"','staff');";
         
         try {
-            connection = DriverManager.getConnection(localUrl + localdb, luserID, lpassword);
+            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             statement = connection.createStatement();
             statement2 = connection.createStatement();
             statement.execute(insertStaffTableSQL);
@@ -50,10 +50,10 @@ public class AddAccount {
 
     public boolean insertStudentAccount() {
         String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://localhost:3306/";
-        String dbName = "quizcraigdb";
-        String userID = "root";
-        String password = "abc";
+        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String dbName = "16agileteam1db";
+        String userID = "16agileteam1";
+        String password = "8320.at1.0238";
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
