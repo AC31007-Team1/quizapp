@@ -8,16 +8,18 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.jsp">Quiz App</a>
+    <a class="navbar-brand" href="index.jsp">CraigMC!</a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/quizapp">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/quizapp">
+                    <span class="fa fa-home" aria-hidden="true"></span> Home<span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/quizapp/CreateAccount">Create Account</a>
+                <a class="nav-link" href="/quizapp/CreateAccount">
+                    <span class="fa fa-plus" aria-hidden="true"></span> Create Account</a>
             </li>
             <%
             if (studentLogin != null) 
@@ -30,7 +32,7 @@
             </li>
             <%  }
             }else{
-            }%>
+            %>
             <%
             if (staffLogin != null) 
             {
@@ -45,12 +47,15 @@
                 <a class="nav-link" href="/quizapp/Logout">Logout</a>
             </li>
             <% }} else {%>
-
+            
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login Portal</a>
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-sign-in" aria-hidden="true"></span> Login Portal</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="/quizapp/StaffLogin">Staff Login</a>
-                    <a class="dropdown-item" href="/quizapp/StudentLogin">Student Login</a>
+                    <a class="dropdown-item" href="/quizapp/StaffLogin">
+                        <span class="fa fa-graduation-cap" aria-hidden="true"></span> Staff Login</a>
+                    <a class="dropdown-item" href="/quizapp/StudentLogin">
+                        <span class="fa fa-book" aria-hidden="true"></span> Student Login</a>
                 </div>
             </li>
             <%
