@@ -21,7 +21,8 @@ public class StaffMember {
         String localUrl = "jdbc:mysql://localhost:3306/";
         String localdb = "quizapp";
         String luserID = "root";
-        String lpassword = "root";
+        //craig's local db
+        String lpassword = "abc";
         
         try {
             Class.forName(driverName);

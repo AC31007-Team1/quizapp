@@ -10,7 +10,7 @@ You will probably want navbar.jsp as well.
     <%@include file="navbar.jsp"%>
     
     <% 
-        StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
+        //StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
         if(staffLogin != null) {
             if(staffLogin.getLoggedIn()) {
     %>
