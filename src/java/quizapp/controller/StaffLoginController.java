@@ -46,7 +46,7 @@ public class StaffLoginController extends HttpServlet {
             session.setAttribute("fName", staffLogin);
             session.setAttribute("StaffLogin", staffLogin);
             
-            RequestDispatcher rd=request.getRequestDispatcher("/LoginSuccess");  
+            RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  
             rd.forward(request, response);  
         }  
         else{

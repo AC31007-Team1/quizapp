@@ -16,13 +16,11 @@ public class StaffMember {
         
         boolean isStaff = false;
         
-        String driverName = "com.mysql.jdbc.Driver";
-        
-        String localUrl = "jdbc:mysql://localhost:3306/";
-        String localdb = "quizapp";
-        String luserID = "root";
-        //craig's local db
-        String lpassword = "abc";
+        String driverName = "com.mysql.jdbc.Driver";  
+        String localUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String localdb = "16agileteam1db";
+        String luserID = "16agileteam1";
+        String lpassword = "8320.at1.0238";
         
         try {
             Class.forName(driverName);

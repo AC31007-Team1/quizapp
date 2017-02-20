@@ -20,7 +20,6 @@
                 <a class="nav-link" href="/quizapp/CreateAccount">Create Account</a>
             </li>
             <%
-                StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
                 if (staffLogin != null) {
                     if (staffLogin.getLoggedIn()) {
             %>
