@@ -29,7 +29,7 @@ public class StaffLoginController extends HttpServlet {
             throws ServletException, IOException { 
           
         String staffID=request.getParameter("staffID");
-        
+        String fName=request.getParameter("fName");
         StaffMember staffMember = new StaffMember();
         
         boolean isStaff = staffMember.isValidStaff(staffID);
@@ -40,7 +40,7 @@ public class StaffLoginController extends HttpServlet {
             
             staffLogin.setLoggedIn();
             staffLogin.setStaffID(staffID);
-            staffLogin.setfName(staffID);
+            staffLogin.setfName(fName);
             
             
             session.setAttribute("fName", staffLogin);
