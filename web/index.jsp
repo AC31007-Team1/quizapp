@@ -11,14 +11,33 @@ You will probably want navbar.jsp as well.
     
     <% 
         StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        if(staffLogin != null) {
-            if(staffLogin.getLoggedIn()) {
+        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+        if(staffLogin != null) 
+        {
+            if(staffLogin.getLoggedIn()) 
+            {
     %>
-    <h1>YOU ARE LOGGED IN</h1>
-<% }
- } else {%>
-    <h1>YOU ARE NOT LOGGED IN</h1>
-<%   }
+                <h1>YOU ARE LOGGED IN AS STAFF</h1> 
+    <%      }
+        } 
+        else 
+        {
+    %>
+            <h1>YOU ARE NOT LOGGED IN AS STAFF</h1>
+    <%   }
+        if(studentLogin!= null)
+        {
+            if(studentLogin.getLoggedIn())
+            {
+    %>
+                <h1> YOU ARE LOGGED IN AS STUDENT </h1>
+    <%      }
+        }
+        else
+        {
+    %>
+            <h1> YOU ARE NOT LOGGED IN AS STUDENT </h1>
+    <%  }
     %>
 
     <%@include file="footer.jsp"%>
