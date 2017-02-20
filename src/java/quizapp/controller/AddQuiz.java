@@ -29,6 +29,18 @@ public class AddQuiz extends HttpServlet{
         RequestDispatcher rd = request.getRequestDispatcher("AddQuiz.jsp");
         rd.forward(request, response);
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String fName = request.getParameter("firstname");
+        String lName = request.getParameter("lastname");
+        String uEmail = request.getParameter("email");
+        String uSoul = request.getParameter("soulChoice");
+        
+
+        
+    }
 
 }
 
