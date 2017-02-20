@@ -27,12 +27,12 @@
                 if (studentLogin.getLoggedIn()) 
                 {
             %>
-            <li class="nav-item">
-                <a class="nav-link" href="/quizapp/Logout">Logout</a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quizapp/LogoutStudent">Logout</a>
+                    </li>
             <%  }
             }else{
-            %>
+}%>
             <%
             if (staffLogin != null) 
             {
@@ -44,22 +44,25 @@
                 <a class="nav-link" href="/quizapp/profile.jsp">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/quizapp/Logout">Logout</a>
+                <a class="nav-link" href="/quizapp/LogoutStaff">Logout</a>
             </li>
-            <% }} else {%>
+            <%  }
+            } else 
+            {%>
             
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="fa fa-sign-in" aria-hidden="true"></span> Login Portal</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="/quizapp/StaffLogin">
-                        <span class="fa fa-graduation-cap" aria-hidden="true"></span> Staff Login</a>
-                    <a class="dropdown-item" href="/quizapp/StudentLogin">
-                        <span class="fa fa-book" aria-hidden="true"></span> Student Login</a>
-                </div>
-            </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-sign-in" aria-hidden="true"></span> Login Portal</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/quizapp/StaffLogin">
+                            <span class="fa fa-graduation-cap" aria-hidden="true"></span> Staff Login</a>
+                        <a class="dropdown-item" href="/quizapp/StudentLogin">
+                            <span class="fa fa-book" aria-hidden="true"></span> Student Login</a>
+                    </div>
+                </li>
             <%
-                }%>
+            }
+            %>
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
