@@ -4,7 +4,6 @@
     Author     : Think
 --%>
 
-<%@page import="quizapp.bean.*"%>
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,10 +15,21 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/quizapp">Home<span class="sr-only">(current)</span></a>
             </li>
-          
+
             <li class="nav-item">
                 <a class="nav-link" href="/quizapp/CreateAccount">Create Account</a>
             </li>
+            <%
+                if (staffLogin != null) {
+                    if (staffLogin.getLoggedIn()) {
+            %>
+            <li class="nav-item">
+                
+                <a class="nav-link" href="/quizapp/Logout">Logout</a>
+                
+            </li>
+            <% }} else {%>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login Portal</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -27,6 +37,8 @@
                     <a class="dropdown-item" href="/quizapp/StudentLogin">Student Login</a>
                 </div>
             </li>
+            <%
+                }%>
 
         </ul>
         <form class="form-inline my-2 my-lg-0">

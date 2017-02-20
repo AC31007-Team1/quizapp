@@ -6,15 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class StaffMember {
+public class StudentMember {
     
     /*
-    methods here for getting and setting staff details from database
+    methods here for getting and setting student details from database
     */
 
-    public boolean isValidStaff(String staffID) {
+    public boolean isValidStudent(String studentID) {
         
-        boolean isStaff = false;
+        boolean isStudent = false;
         
         String driverName = "com.mysql.jdbc.Driver";  
         String localUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -29,20 +29,20 @@ public class StaffMember {
         
         Connection connection = null;
         
-        String getStaffID = "SELECT staff_id_number FROM staff WHERE staff_id_number=" + staffID;
+        String getStudentID = "SELECT matriculation_number FROM student WHERE matriculation_number=" + studentID;
         
         try {
             connection = DriverManager.getConnection(localUrl + localdb, luserID, lpassword);
             Statement statement = connection.createStatement();
             
-            ResultSet resultSet = statement.executeQuery(getStaffID);
+            ResultSet resultSet = statement.executeQuery(getStudentID);
             
             if(resultSet.next()) {
-                isStaff = true;
+                isStudent = true;
                 System.out.println("LoggedIn");
             } else {
                 System.out.println("Failed to login");
-                isStaff = false;
+                isStudent = false;
             }
             
             connection.close();
@@ -50,6 +50,6 @@ public class StaffMember {
             e.getMessage();
         }
         
-        return isStaff;
+        return isStudent;
     }  
 }
