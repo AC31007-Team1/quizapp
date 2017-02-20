@@ -10,18 +10,58 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.StudentLogin;
+import quizapp.model.StudentMember;
 
 @WebServlet(name = "StudentLogin", urlPatterns = {"/StudentLogin"})
 public class StudentLoginController extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {  
-    }
 
+    @Override  
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)  
+            throws ServletException, IOException {  
+                RequestDispatcher rd=request.getRequestDispatcher("studentlogin.jsp");  
+                rd.forward(request, response); 
+    }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException { 
+          
+        String studentID=request.getParameter("studentID");
+        
+        StudentMember studentMember = new StudentMember();
+        
+        boolean isStudent = studentMember.isValidStudent(studentID);
+        HttpSession session = request.getSession();
+          
+        if(isStudent){
+            StudentLogin studentLogin = new StudentLogin();
+            
+            studentLogin.setLoggedIn();
+            studentLogin.setStudentID(studentID);
+            
+            /*
+            Action here to make calls to get user info
+            ex.
+            
+            String firstName = studentMember.setFirstName(studentID);
+            
+            
+            studentLogin.setfName(firstName);
+            */
+            
+            session.setAttribute("StudentLogin", studentLogin);
+            
+            RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  
+            rd.forward(request, response);  
+        }  
+        else{
+            RequestDispatcher rd=request.getRequestDispatcher("login-error.jsp");  
+            rd.forward(request, response);  
+        }
     }
+    
+    
 
 }
+

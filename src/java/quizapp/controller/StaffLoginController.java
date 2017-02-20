@@ -40,20 +40,13 @@ public class StaffLoginController extends HttpServlet {
             
             staffLogin.setLoggedIn();
             staffLogin.setStaffID(staffID);
-            
-            /*
-            Action here to make calls to get user info
-            ex.
-            
-            String firstName = staffMember.setFirstName(staffID);
+            staffLogin.setfName(staffID);
             
             
-            staffLogin.setfName(firstName);
-            */
-            
+            session.setAttribute("fName", staffLogin);
             session.setAttribute("StaffLogin", staffLogin);
             
-            RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  
+            RequestDispatcher rd=request.getRequestDispatcher("/LoginSuccess");  
             rd.forward(request, response);  
         }  
         else{
