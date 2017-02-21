@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.StaffLogin;
+import quizapp.bean.modulecount;
+import quizapp.model.FetchModules;
 import quizapp.model.StaffMember;
 
 
@@ -29,7 +31,6 @@ public class StaffLoginController extends HttpServlet {
             throws ServletException, IOException { 
           
         String staffID=request.getParameter("staffID");
-        
         StaffMember staffMember = new StaffMember();
         
         boolean isStaff = staffMember.isValidStaff(staffID);
@@ -40,12 +41,17 @@ public class StaffLoginController extends HttpServlet {
             
             staffLogin.setLoggedIn();
             staffLogin.setStaffID(staffID);
-            staffLogin.setfName(staffID);
-            
-            
-            session.setAttribute("fName", staffLogin);
+
             session.setAttribute("StaffLogin", staffLogin);
             
+            modulecount modfinder = new modulecount();
+            FetchModules fetchmod = new FetchModules();
+            modfinder.setSize(fetchmod.returnModuleCount());
+            for (int i=0;i<modfinder.getSize();i++)
+            {
+                    modfinder.setModule(fetchmod.returnModules(i),i);
+            }
+            session.setAttribute("modulecount", modfinder);
             RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  
             rd.forward(request, response);  
         }  
