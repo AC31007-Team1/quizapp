@@ -14,6 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import quizapp.bean.StaffLogin;
+import quizapp.model.StaffMember;
 
 /**
  *
@@ -30,7 +33,25 @@ public class AccountProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("accountProfile.jsp");
+        HttpSession session = request.getSession();
+        StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
+        
+        gatherProfile(staffLogin.getStaffID(),request,response);
+    }
+
+    private void gatherProfile(int staffID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        StaffMember sm = new StaffMember();
+        StaffLogin slbean;
+        slbean = sm.getProfile(staffID);
+        request.setAttribute("profile",slbean);
+        RequestDispatcher rd = request.getRequestDispatcher("/accountProfile.jsp");
+        //request.setAttribute("sid", slbean.getStaffID());
+        //request.setAttribute("pid", slbean.getProfileID());
+        //request.setAttribute("fn", slbean.getfName());
+        //request.setAttribute("ln", slbean.getlName());
+        //request.setAttribute("em", slbean.getEmail());
+        //request.setAttribute("soul", slbean.getSoul());
+        
         rd.forward(request, response);
     }
 

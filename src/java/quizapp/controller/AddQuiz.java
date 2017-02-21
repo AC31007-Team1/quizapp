@@ -46,11 +46,12 @@ public class AddQuiz extends HttpServlet{
         int module = Integer.parseInt(request.getParameter("module"));
         HttpSession session = request.getSession();
         StaffLogin lg = (StaffLogin) session.getAttribute("StaffLogin");
-        String staffID=lg.getStaffID();
+        //use int here please - craig
+        //String staffID=lg.getStaffID();
         LocalDateTime created = LocalDateTime.now();
         int available = 0;
         CreateQuiz initquiz = new CreateQuiz();
-        
+        /**
         try {
             initquiz.insertQuiz(quizname,module,staffID,created,available); 
             response.sendRedirect("/quizapp");
@@ -59,7 +60,7 @@ public class AddQuiz extends HttpServlet{
         } catch (ParseException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        ***/
         
  
     }
