@@ -74,7 +74,10 @@ final public class FetchModules {
             Statement statement = connection.createStatement();
             
             ResultSet resultSet = statement.executeQuery(getCount);
-            moduleCount = resultSet.getInt("COUNT(*)");
+            while(resultSet.next())
+            {
+                moduleCount = resultSet.getInt("COUNT(*)");
+            }
             
             
             connection.close();

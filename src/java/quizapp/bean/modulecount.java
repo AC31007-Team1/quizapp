@@ -13,11 +13,11 @@ import java.util.Vector;
  */
 public class modulecount {
    private int size;
-   private Vector module;
+   private Vector module = new Vector();
    
    public modulecount()
    {
-       module = new Vector();
+       
    }
     public String getModule(int id)
     {
@@ -34,9 +34,9 @@ public class modulecount {
         return size;
     }
     
-    public void setSize(int size)
+    public void setSize(int a)
     {
-        this.size=size;
+        size=a;
     }
     
     
