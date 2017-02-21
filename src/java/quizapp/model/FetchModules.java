@@ -17,7 +17,7 @@ import java.sql.Statement;
  */
 final public class FetchModules {
     
-    public String returnModules(String module_id) {
+    public String returnModules(int module_id) {
         
         String foundName="";
         

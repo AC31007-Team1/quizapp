@@ -41,7 +41,7 @@
                 
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                   <%for (int i=1;i<=modfinder.getSize();i++)
+                   <%for (int i=1; i<=modfinder.getSize(); i++)
                    {%>
                     <li role="presentation" onclick="dropdown(this.innerHTML);"><button style="border:none;background-color:white;" name="module" type="button" id="mod" value="module"
                                                                                        class="btn btn-default"><p><%modfinder.getModule(i);%></p></button></li>

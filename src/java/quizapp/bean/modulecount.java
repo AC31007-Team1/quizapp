@@ -12,10 +12,10 @@ import java.util.Vector;
  * @author Iain
  */
 public class modulecount {
-   int size;
-   Vector module;
+   private int size;
+   private Vector module;
    
-   modulecount()
+   public modulecount()
    {
        module = new Vector();
    }
