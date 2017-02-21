@@ -1,15 +1,9 @@
-<%-- 
-    Document   : navbar
-    Created on : 15-Feb-2017, 12:50:54
-    Author     : Think
---%>
-
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.jsp">CraigMC!</a>
-    
+
+    <a class="navbar-brand" href="/quizapp">Quiz App</a>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">

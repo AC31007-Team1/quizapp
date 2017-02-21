@@ -4,10 +4,13 @@
 
 // might have to change so form increments an id when storing in database
 
+var counter = 0;
+
 function createQuestionForm() {
     // creates a form
     var form = document.createElement("form");
     form.setAttribute('method', 'post');
+    form.setAttribute('name', 'question'+counter)
     form.setAttribute('action', 'SubmitQuestions'); // empty action until submit with jsp
 
     // creates an input for the user
@@ -51,4 +54,6 @@ function createQuestionForm() {
 
     // add to body tag in html
     $("body").append(form);
+    
+    counter++;
 }
