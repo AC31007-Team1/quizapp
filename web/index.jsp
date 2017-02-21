@@ -7,7 +7,7 @@ You will probably want navbar.jsp as well.
 <title>INDEX TEST</title>
 </head>
 <body>
-    <%@include file="navbar.jsp"%>
+   <%@include file="navbar.jsp"%>
 
     <%
         if (staffLogin != null) {
@@ -15,7 +15,7 @@ You will probably want navbar.jsp as well.
 
     %>
     <h1>YOU ARE LOGGED IN AS STAFF</h1> 
-    <h1>Hello, <%staffLogin.getfName();%>!</h1>
+    <h1>Hello, <%=staffLogin.getfName()%>!</h1>
     <%      }
     } else {
     %>
