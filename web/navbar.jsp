@@ -25,7 +25,7 @@
                 {
             %>
             <li class="nav-item">
-                <a class="nav-link" href="/quizapp/profile.jsp">
+                <a class="nav-link" href="/quizapp/AccountProfile">
                     <span class="fa fa-user" aria-hidden="true"></span> Profile</a>
             </li>
             <li class="nav-item">

@@ -28,7 +28,8 @@ public class StaffLoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException { 
           
-        String staffID=request.getParameter("staffID");
+        String sss=request.getParameter("staffID");
+        int staffID = Integer.parseInt(sss);
         StaffMember staffMember = new StaffMember();
         
         boolean isStaff = staffMember.isValidStaff(staffID);
