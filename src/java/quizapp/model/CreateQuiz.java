@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class CreateQuiz {
     
     public boolean insertQuiz(String quizname, String module, String staffID, LocalDateTime created, int available) throws SQLException, ParseException {
-        String driverName = "com.mysql.jdbc.Driver";
         SimpleDateFormat format = new SimpleDateFormat( "MM/dd/yyyy" );  // United States style of format.
         java.util.Date myDate = format.parse( "10/10/2009" );
         //hide userID & password (shippable?)
@@ -19,10 +18,11 @@ public class CreateQuiz {
         String userID = "16agileteam1";
         String password = "8320.at1.0238";*/
         
-        String localUrl = "jdbc:mysql://localhost:3306/";
-        String localdb = "quizapp";
-        String luserID = "root";
-        String lpassword = "root";
+        String driverName = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String dbName = "16agileteam1db";
+        String userID = "16agileteam1";
+        String password = "8320.at1.0238";
         
         try {
             Class.forName(driverName);
@@ -30,10 +30,10 @@ public class CreateQuiz {
         }
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection(localUrl + localdb, luserID, lpassword);
+            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             
             PreparedStatement pstmt = connection.prepareStatement(
-            "INSERT INTO quizapp.quiz ( staff_id_number, module_id, quiz_name, quiz_available, quiz_added ) " +
+            "INSERT INTO quiz ( staff_id_number, module_id, quiz_name, quiz_available, quiz_added ) " +
             " values (?, ?, ?, ?, ? )");
             pstmt.setString( 1, staffID );
             pstmt.setString( 3, module ); 

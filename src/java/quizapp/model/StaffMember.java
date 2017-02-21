@@ -13,7 +13,6 @@ public class StaffMember {
     */
 
     public boolean isValidStaff(String staffID) {
-        
         boolean isStaff = false;
         
         String driverName = "com.mysql.jdbc.Driver";  
