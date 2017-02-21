@@ -20,7 +20,7 @@
             <%=staffLogin.getStaffID()%>
         </h3>
         <h3 class="display-4"><u>Name</u>:
-            <%=staffLogin.getfName()%> 
+            <%=staffLogin.getfName()%>
             <%=staffLogin.getlName()%>
             <%
                 //staffLogin.setfName();

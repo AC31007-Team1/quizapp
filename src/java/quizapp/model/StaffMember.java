@@ -29,12 +29,15 @@ public class StaffMember {
         
         Connection connection = null;
         
-        String getStaffID = "SELECT staff_id_number FROM staff WHERE staff_id_number=" + staffID;
+        String getStaffID = "SELECT staff_id_number FROM 16agileteam1db.profile_details WHERE staff_id_number=" + staffID;
+       
         try {
             connection = DriverManager.getConnection(localUrl + localdb, luserID, lpassword);
             Statement statement = connection.createStatement();
             
+
             ResultSet resultSet = statement.executeQuery(getStaffID);
+
             if(resultSet.next()) {
                 isStaff = true;
                 System.out.println("LoggedIn");
@@ -42,6 +45,7 @@ public class StaffMember {
                 System.out.println("Failed to login");
                 isStaff = false;
             }
+          
             
             connection.close();
         } catch (SQLException e) {
@@ -50,15 +54,14 @@ public class StaffMember {
         
         return isStaff;
     }  
-    /*public boolean setfName(String staffID){
-        boolean setfName = false;
+    public String getfName(String staffID, String fName){
         
         String driverName = "com.mysql.jdbc.Driver";  
         String localUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
         String localdb = "16agileteam1db";
         String luserID = "16agileteam1";
         String lpassword = "8320.at1.0238";
-        
+
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -66,18 +69,22 @@ public class StaffMember {
         
         Connection connection = null;
         
-        String getfName = "SELECT first_name FROM profile_details WHERE staff_id_number=" + staffID;
-        try {
+        String queryfName = "SELECT first_name FROM 16agileteam1db.profile_details WHERE staff_id_number="+staffID;
+        try 
+        {
             connection = DriverManager.getConnection(localUrl + localdb, luserID, lpassword);
             Statement statement = connection.createStatement();
-            
-            statement.executeQuery(getfName);
-            
+            ResultSet resultSet = statement.executeQuery(queryfName);
+            if(resultSet.next())
+            {
+                String fName = resultSet.getString("first_name");
+            }
             connection.close();
         } catch (SQLException e) {
             e.getMessage();
         }
-        
-    }*/
+      
+        return fName;
+    }
 }
 
