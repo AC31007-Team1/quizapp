@@ -29,7 +29,6 @@ public class StaffLoginController extends HttpServlet {
             throws ServletException, IOException { 
           
         String staffID=request.getParameter("staffID");
-        
         StaffMember staffMember = new StaffMember();
         
         boolean isStaff = staffMember.isValidStaff(staffID);
@@ -40,10 +39,7 @@ public class StaffLoginController extends HttpServlet {
             
             staffLogin.setLoggedIn();
             staffLogin.setStaffID(staffID);
-            staffLogin.setfName(staffID);
-            
-            
-            session.setAttribute("fName", staffLogin);
+
             session.setAttribute("StaffLogin", staffLogin);
             
             RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  

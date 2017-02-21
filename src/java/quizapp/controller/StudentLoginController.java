@@ -28,7 +28,7 @@ public class StudentLoginController extends HttpServlet {
             throws ServletException, IOException { 
           
         String studentID=request.getParameter("studentID");
-        
+        String fName=request.getParameter("fName");
         StudentMember studentMember = new StudentMember();
         
         boolean isStudent = studentMember.isValidStudent(studentID);
@@ -36,19 +36,9 @@ public class StudentLoginController extends HttpServlet {
           
         if(isStudent){
             StudentLogin studentLogin = new StudentLogin();
-            
             studentLogin.setLoggedIn();
             studentLogin.setStudentID(studentID);
-            
-            /*
-            Action here to make calls to get user info
-            ex.
-            
-            String firstName = studentMember.setFirstName(studentID);
-            
-            
-            studentLogin.setfName(firstName);
-            */
+            studentLogin.getfName();
             
             session.setAttribute("StudentLogin", studentLogin);
             
