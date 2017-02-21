@@ -35,6 +35,6 @@ public class SubmitQuestions extends HttpServlet{
         qq.submitAnswers(cAnswer, iAnswer);
 
 
-        response.sendRedirect("submitquestions.jsp"); // will need to replace and find way of only submitting one question at a time??
+        response.sendRedirect("/quizapp/AddQuizQuestions"); // will need to replace and find way of only submitting one question at a time??
     }
 }

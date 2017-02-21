@@ -10,6 +10,9 @@
 
     <%-- will also need to find a way to get the quiz ID when navigating to this page, perhaps set from the quiz.jsp page controller/model--%>
 
+    <h4>You may add new questions or click home to complete finalise additions!</h4>
+    <br><br>
+    
     <div class="row marketing">
         <div class="col-lg-6">
             <form action="SubmitQuestions" method="post">  
