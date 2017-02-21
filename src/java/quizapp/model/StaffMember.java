@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class StaffMember {
     
-    /*
+    /*duwiaudw
     methods here for getting and setting staff details from database
     */
 
@@ -77,7 +77,7 @@ public class StaffMember {
             ResultSet resultSet = statement.executeQuery(queryfName);
             if(resultSet.next())
             {
-                String fName = resultSet.getString("first_name");
+               // String fName = resultSet.getString("first_name");
             }
             connection.close();
         } catch (SQLException e) {

@@ -6,7 +6,7 @@
 <%@include file="header.jsp"%>
 <title>My Profile</title>
 </head>
-<body>
+<body><!--foo-->
     <%@include file="navbar.jsp"%>  <div class="jumbotron ">
 
         <h1 class="display-1">My Profile</h1>

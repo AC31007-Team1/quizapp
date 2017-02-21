@@ -7,7 +7,7 @@ public class Profile {
     public void setLoginState(boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
-
+//dwwi
     public void setLoggedIn() {
         this.loggedIn = true;
     }
