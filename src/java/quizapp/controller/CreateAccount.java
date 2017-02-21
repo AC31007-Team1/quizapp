@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.model.AddAccount;
+import quizapp.model.User;
+import quizapp.bean.AccountCreationData;
 
 /**
  *
@@ -29,6 +30,8 @@ public class CreateAccount extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+        // TODO Auto-generated method stub
+        //connect to database??
     }
 
     @Override
@@ -37,48 +40,54 @@ public class CreateAccount extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("createAccount.jsp");
         rd.forward(request, response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String fName = request.getParameter("firstname");
-        String lName = request.getParameter("lastname");
-        String uEmail = request.getParameter("email");
-        String uSoul = request.getParameter("soulChoice");
-        
+            String uName = request.getParameter("username");
+            String uEmail = request.getParameter("email");
+            String uSoul = request.getParameter("soulChoice");
+            //int sMatric = 0;
+            if(!uSoul.equals("Student")){
+                AccountCreationData acdStaff = new AccountCreationData();
+                acdStaff.setStaffData(uName, uEmail);
+                
+                User staffRegModel = new User();
+                staffRegModel.insertStaffAccount();
+            }
+            else{
+                String sMatric = request.getParameter("matric");
+                
+                AccountCreationData acdStudent = new AccountCreationData();
+                acdStudent.setStudentData(uName, uEmail, sMatric);
+                
+                User studentRegModel = new User();
+                studentRegModel.insertStudentAccount();
+            }
+            /**
+            if(fname.equals(null) || sname.equals(null)){
+                response.sendRedirect("/Instagrim");
+            }
 
-        switch (uSoul) {
-            //staff
-            case "0":
-                String staffID = request.getParameter("staffID");
-                //AccountCreationData acdStaff = new AccountCreationData();
-                //acdStaff.setStaffData(uName, uEmail);
-                AddAccount staffRegModel = new AddAccount();
-                if (staffRegModel.insertStaffAccount(staffID, fName, lName, uEmail)) {
-                    response.sendRedirect("/quizapp/CreateAccountSuccess");
-                    break;
+            if(!fname.equals("") && !sname.equals("")){
+                HttpSession session=request.getSession();
+                LoggedIn lg= (LoggedIn)session.getAttribute("LoggedIn");
+                String username="majed";
+                if (lg.getlogedin()){
+                    username=lg.getUsername();
                 }
-                else{
-                    response.sendRedirect("/quizapp/CreateAccountError");
-                    break;
+                else{response.sendRedirect("/Instagrim");}
+                PicModel tm = new PicModel();
+                tm.setCluster(cluster);
+                tm.setflname(fname, sname, username);
+                response.sendRedirect("/Instagrim/Profile/"+username);
                 }
-            //student
-            case "1":
-                int sMatric = Integer.parseInt(request.getParameter("matric"));
-                //AccountCreationData acdStudent = new AccountCreationData();
-                //acdStudent.setStudentData(uName, uEmail, sMatric);
-                AddAccount studentRegModel = new AddAccount();
-                if (studentRegModel.insertStudentAccount()) {
-                    response.sendRedirect("/quizapp/CreateAccountSuccess");
-                }   break;
-            default:
-                response.sendRedirect("/quizapp/CreateAccountError");
-                break;
-        }
+            else{response.sendRedirect("/Instagrim");} 
+            */
     }
 
     @Override
     public String getServletInfo() {
         return "doGet (request forward to create Account JSP page.  doPost ()";
     }// </editor-fold>
+
 }

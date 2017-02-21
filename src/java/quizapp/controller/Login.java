@@ -8,44 +8,42 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
-import quizapp.model.StaffMember;
 
+import quizapp.bean.UserLogin;
 
-@WebServlet(name = "StaffLogin", urlPatterns = {"/StaffLogin"})
-public class StaffLoginController extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
+public class Login extends HttpServlet {
 
     
     @Override  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
-                RequestDispatcher rd=request.getRequestDispatcher("stafflogin.jsp");  
-                rd.forward(request, response); 
+                RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
+                rd.forward(request, response);  
+    //doPost(req, resp);  
     }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException { 
+            throws ServletException, IOException {
+        response.setContentType("text/html");  
+        PrintWriter out=response.getWriter();  
           
-        String staffID=request.getParameter("staffID");
-        StaffMember staffMember = new StaffMember();
-        
-        boolean isStaff = staffMember.isValidStaff(staffID);
-        HttpSession session = request.getSession();
+        String name=request.getParameter("name");  
+        String password=request.getParameter("password");  
           
-        if(isStaff){
-            StaffLogin staffLogin = new StaffLogin();
-            
-            staffLogin.setLoggedIn();
-            staffLogin.setStaffID(staffID);
-
-            session.setAttribute("StaffLogin", staffLogin);
-            
+        UserLogin bean=new UserLogin(); //change here 
+        bean.setName(name);  
+        bean.setPassword(password);  
+        request.setAttribute("bean",bean);  
+          
+        boolean status=bean.validate();  
+          
+        if(status){  
             RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");  
             rd.forward(request, response);  
         }  
-        else{
+        else{  
             RequestDispatcher rd=request.getRequestDispatcher("login-error.jsp");  
             rd.forward(request, response);  
         }
