@@ -9,4 +9,5 @@
         <% 
         StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
         StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+        modulecount modfinder = (modulecount) session.getAttribute("modulecount");
         %>
