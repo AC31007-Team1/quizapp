@@ -20,7 +20,6 @@
         <%@include file="navbar.jsp"%>
         <div style="margin: 10% 10% 10% 10%">
         
-        
         <h1>Add Quiz</h1>
         <br>
         <div class ="row">
@@ -31,9 +30,9 @@
             <div class="form-group">
                 <label for="inputName" class="control-label">Quiz Name</label>
                 
-                <input name = "quizname" type="text" class="form-control" id="inputName" placeholder="Cina Saffary" required>
+                <input name = "quizname" type="text" class="form-control" id="inputName" placeholder="" onkeyup="myFunction()" required>
             </div>
-           
+            <div id="whentext" style="display:none">
             <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="dropdown">
@@ -41,10 +40,10 @@
                 
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                   <%for (int i=1; i<=modfinder.getSize(); i++)
-                   {%>
-                    <li role="presentation" onclick="dropdown(this.innerHTML);"><button style="border:none;background-color:white;" name="module" type="button" id="mod" value="module"
-                                                                                       class="btn btn-default"><p><%modfinder.getModule(i);%></p></button></li>
+                   <%for (int i=0; i<modfinder.getSize(); i++)
+                   {String a=modfinder.getModule(i);int b=i;b++;String c=Integer.toString(b);%>
+                    <li role="presentation" onclick="dropdown(this.innerHTML);"><button type="submit" style="border:none;background-color:white;" name="module"  value="<%=c%>"
+                                                                                        class="btn btn-default"><p></p><%=a%></button></li>
                     <%}%> 
                 </ul>
                 
@@ -53,17 +52,28 @@
             <br>
             </div>
             </div>
-            <div style="text-align:center;">
-                <input type="submit" value="Add Quiz"> 
             </div>
             
         </form>
         </div>
+        
         <script>
-        function dropdown(val) {
-            var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
-            var aNode = y[0].innerHTML = val + ' <span class="caret"></span>';
-        }
+            function dropdown(val) {
+                var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
+                var aNode = y[0].innerHTML = val + ' <span class="caret"></span>';
+            }
+        </script>
+        <script>
+            //if input has some value will show the button
+              window.myFunction = function() {
+              //alert('it ran!');
+              var hasValue = document.getElementById('inputName').value;
+              if (!!hasValue) {
+                document.getElementById('whentext').style.display = 'inline';
+              } else {
+                document.getElementById('whentext').style.display = 'none';
+              };
+             };
         </script>
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

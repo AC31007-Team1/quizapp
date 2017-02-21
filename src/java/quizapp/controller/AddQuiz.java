@@ -43,7 +43,7 @@ public class AddQuiz extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String quizname = request.getParameter("quizname");
-        String module = request.getParameter("module");
+        int module = Integer.parseInt(request.getParameter("module"));
         HttpSession session = request.getSession();
         StaffLogin lg = (StaffLogin) session.getAttribute("StaffLogin");
         String staffID=lg.getStaffID();
@@ -52,7 +52,9 @@ public class AddQuiz extends HttpServlet{
         CreateQuiz initquiz = new CreateQuiz();
         
         try {
-            initquiz.insertQuiz(quizname,module,staffID,created,available);        } catch (SQLException ex) {
+            initquiz.insertQuiz(quizname,module,staffID,created,available); 
+            response.sendRedirect("/quizapp");
+        } catch (SQLException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);

@@ -47,7 +47,7 @@ public class StaffLoginController extends HttpServlet {
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());
-            for (int i=1;i<=modfinder.getSize();i++)
+            for (int i=0;i<modfinder.getSize();i++)
             {
                     modfinder.setModule(fetchmod.returnModules(i),i);
             }

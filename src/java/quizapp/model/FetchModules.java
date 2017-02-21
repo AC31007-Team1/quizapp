@@ -20,7 +20,7 @@ final public class FetchModules {
     public String returnModules(int module_id) {
         
         String foundName="";
-        
+        module_id++;
         String driverName = "com.mysql.jdbc.Driver";  
         String localUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
         String localdb = "16agileteam1db";
@@ -41,7 +41,10 @@ final public class FetchModules {
             Statement statement = connection.createStatement();
             
             ResultSet resultSet = statement.executeQuery(getModuleID);
-            foundName = resultSet.getString("module_name");
+            while(resultSet.next())
+            {
+                foundName = resultSet.getString("module_name");
+            }
             
             
             connection.close();
