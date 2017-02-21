@@ -16,15 +16,23 @@
             <footer class="blockquote-footer">Alucard</footer>
         </blockquote>
         
-        <h3 class="display-4"><u>ID Number</u>:</h3>
+        <h3 class="display-4"><u>ID Number</u>:
+            <%=staffLogin.getStaffID()%>
+        </h3>
         <h3 class="display-4"><u>Name</u>:
+            <%=staffLogin.getfName()%> 
+            <%=staffLogin.getlName()%>
             <%
                 //staffLogin.setfName();
                 //studentLogin.getfName();
             %>
         </h3>
-        <h3 class="display-4"><u>Email</u>: </h3>
-        <h3 class="display-4"><u>Foo</u>: </h3>
+        <h3 class="display-4"><u>Email</u>:
+            <%=staffLogin.getEmail()%> 
+        </h3>
+        <h3 class="display-4"><u>Soul</u>:
+            <%//=staffLogin.getSoul()%>
+        </h3>
         
 
 
