@@ -5,17 +5,39 @@
  */
 package quizapp.bean;
 
+import java.util.Vector;
+
 /**
  *
  * @author Iain
  */
 public class modulecount {
-    int moduleamount;
-    public void setModuleAmount(int moduleamount) {
-        this.moduleamount=moduleamount;
+   int size;
+   Vector module;
+   
+   modulecount()
+   {
+       module = new Vector();
+   }
+    public String getModule(int id)
+    {
+        return module.get(id).toString();
     }
     
-    public int getModuleID() {
-        return moduleamount;
+    public void setModule(String indvmodule, int id)
+    {
+        module.add(id,indvmodule);
     }
+    
+    public int getSize()
+    {
+        return size;
+    }
+    
+    public void setSize(int size)
+    {
+        this.size=size;
+    }
+    
+    
 }
