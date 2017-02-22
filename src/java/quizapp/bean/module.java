@@ -15,10 +15,8 @@ import java.util.List;
 public class module {
     int moduleid,modulecount;
     String modulename;
-    module()
+    public module()
     {
-        moduleid=this.moduleid;
-        modulename=this.modulename;
     }
     public void setModuleID(int moduleid) {
         this.moduleid=moduleid;
