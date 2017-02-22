@@ -12,7 +12,7 @@ package quizapp.bean;
 public class module {
     int moduleid,modulecount;
     String modulename;
-    module()
+    public module()
     {
         moduleid=this.moduleid;
         modulename=this.modulename;
