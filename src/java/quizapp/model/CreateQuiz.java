@@ -10,7 +10,7 @@ import java.util.Calendar;
  */
 public class CreateQuiz {
     
-    public boolean insertQuiz(String quizname, int module, String staffID, LocalDateTime created, int available) throws SQLException, ParseException {
+    public boolean insertQuiz(String quizname, int module, int staffID, LocalDateTime created, int available) throws SQLException, ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  // United States style of format.
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         sdf.format(timestamp);
@@ -37,7 +37,7 @@ public class CreateQuiz {
             PreparedStatement pstmt = connection.prepareStatement(
             "INSERT INTO quiz ( staff_id_number, module_id, quiz_name, quiz_available, quiz_added ) " +
             " values (?, ?, ?, ?, ? )");
-            pstmt.setString( 1, staffID );
+            pstmt.setInt( 1, staffID );
             pstmt.setInt( 2, module ); 
             pstmt.setString( 3, quizname );
             pstmt.setInt( 4, available );
