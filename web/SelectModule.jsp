@@ -24,6 +24,7 @@
         <br>
         
             <div class="col-12 center"><h2></h2></div>
+            <form role="form" action="SelectModule" method="post">
             <div class="list-group">
             <%for (int i=0; i<modfinder.getSize(); i++)
                    {String a=modfinder.getModule(i);int b=i;b++;String c=Integer.toString(b);%>
@@ -33,6 +34,7 @@
             
          <%}%> 
             </div>
+            </form>
         </div>
         </div>
         

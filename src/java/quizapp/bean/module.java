@@ -14,8 +14,6 @@ public class module {
     String modulename;
     public module()
     {
-        moduleid=this.moduleid;
-        modulename=this.modulename;
     }
     public void setModuleID(int moduleid) {
         this.moduleid=moduleid;

@@ -26,14 +26,14 @@ import quizapp.model.CreateQuiz;
  *
  * @author iain
  */
-@WebServlet(name = "modules", urlPatterns = {"/modules", "/modules/"})
+@WebServlet(name = "modules", urlPatterns = {"/SelectModule", "/SelectModule/"})
 public class SelectModule extends HttpServlet
 {
     
         @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("modules.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("SelectModule.jsp");
         rd.forward(request, response);
     }
     @Override
@@ -47,7 +47,7 @@ public class SelectModule extends HttpServlet
 
             session.setAttribute("module", specificModule);
         
-        response.sendRedirect("/ViewQuizzes");
+        response.sendRedirect("/quizapp");
  
     }
     
