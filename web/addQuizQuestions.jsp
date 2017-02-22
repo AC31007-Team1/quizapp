@@ -6,7 +6,7 @@
     <br>
     <br>
     <%-- motherfucking comments in this bitch, will be replacing this mofo "QUIZ ONE" with a linking variable later--%>
-    <h1>Add question to Quiz ID</h1>
+    <h1>Add question to Quiz ID: <%=quiz.getQuizID()%></h1>
 
     <%-- will also need to find a way to get the quiz ID when navigating to this page, perhaps set from the quiz.jsp page controller/model--%>
 

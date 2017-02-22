@@ -19,7 +19,6 @@ public class ViewQuizzesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         ViewQuizzes viewQuizzes = new ViewQuizzes();
         
         HttpSession session = request.getSession();
