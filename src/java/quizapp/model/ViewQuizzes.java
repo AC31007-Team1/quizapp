@@ -51,5 +51,42 @@ public class ViewQuizzes {
         return quizList;
     }
     
+    public List getQuizzesID() {
+        
+        String driverName = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String dbName = "16agileteam1db";
+        String userID = "16agileteam1";
+        String password = "8320.at1.0238";
+        
+        try {
+            Class.forName(driverName);
+        } catch (ClassNotFoundException e) {
+        }
+
+        Connection connection = null;
+
+        // module id from iain
+        String query = "SELECT * FROM Quiz WHERE module_id = 1" ;
+
+        try {
+            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            while (resultSet.next()) {
+                quizIDList.add(resultSet.getInt("quiz_id"));
+            }
+
+            connection.close();
+            
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        
+        return quizIDList;
+    }
+    
     
 }

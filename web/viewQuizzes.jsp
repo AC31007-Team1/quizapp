@@ -18,7 +18,7 @@
             quizIDList = quiz.getQuizIDList();
         for(int i = 0; i <quizList.size(); i++){
         %>
-        <a href="/quizapp/AddQuizQuestions/" + quizid[i]><%=quizList.get(i)%></a>
+        <a href="/quizapp/AddQuizQuestions/<%=quizIDList.get(i)%>"> <%=quizList.get(i)%></a>
         <%}
     %>
         

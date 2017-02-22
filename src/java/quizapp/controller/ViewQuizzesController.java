@@ -22,13 +22,15 @@ public class ViewQuizzesController extends HttpServlet {
         
         ViewQuizzes viewQuizzes = new ViewQuizzes();
         List quizzes = viewQuizzes.getQuizzes();
+        List quizzesID = viewQuizzes.getQuizzesID();
         
         HttpSession session = request.getSession();
         
         if(!quizzes.isEmpty()) {
             Quiz quiz = new Quiz();
             
-            quiz.setQuizList(quizzes);  
+            quiz.setQuizList(quizzes);
+            quiz.setQuizIDList(quizzesID);
             
             session.setAttribute("Quiz", quiz);
         }
