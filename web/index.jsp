@@ -8,6 +8,8 @@ You will probably want navbar.jsp as well.
 </head>
 <body>
    <%@include file="navbar.jsp"%>
+   
+   <a href="/quizapp/ViewQuizzes"></a>
 
     <%
         if (staffLogin != null) {

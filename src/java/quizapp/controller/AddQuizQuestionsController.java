@@ -15,6 +15,9 @@ public class AddQuizQuestionsController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        // add thing for get here please
+        
         RequestDispatcher rd = request.getRequestDispatcher("addQuizQuestions.jsp");
             rd.forward(request,response);
     }
