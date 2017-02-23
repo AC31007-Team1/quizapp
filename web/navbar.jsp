@@ -4,7 +4,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/quizapp"><img src="University_of_Dundee_logo.svg.png"height="25px"width="20px" style="position:relative;bottom:5px;"> Craig MC</a>
+    <a class="navbar-brand" href="/quizapp"><img src="src/University_of_Dundee_logo.svg.png"height="25px"width="20px" style="position:relative;bottom:5px;"> Craig MC</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <%
@@ -26,7 +26,7 @@
             </li>  
             <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/AddQuizQuestions">
-                    <span class="ion-help" aria-hidden="true"></span> Add Quiz Questions</a>
+                    <span class="ion-help-circled" aria-hidden="true"></span> Add Quiz Questions</a>
             </li>  
             <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/ViewQuizzes">

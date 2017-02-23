@@ -2,7 +2,8 @@
 <title>My Profile</title>
 </head>
 <body><!--foo-->
-    <%@include file="navbar.jsp"%>     <div style="margin: 1% 10% 10% 10%">
+    <%@include file="navbar.jsp"%>     
+    <div style="margin: 1% 10% 10% 10%">
     <div class="jumbotron ">
 
         <h1 class="display-1">My Profile</h1>

@@ -1,9 +1,8 @@
-<%@include file="header.jsp"%>
-</head>
-<body>
-    <div class="alert alert-danger" role="alert">
-        <strong>Warning!</strong> Looks like you didn't enter your password correctly. Please try again.
-    </div><br> 
-    <a href ="/quizapp"><button type="button"  class="btn btn-danger">Return to Home Page</button></a>
-</body>
-</html>
+<%@include file="index.jsp"%>
+<br>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="ion-close" aria-hidden="true"></span></button>
+              <strong>Oh No!</strong> Something went wrong logging in. Are you sure your details are correct?
+            </div>
+        </div>
