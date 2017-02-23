@@ -1,7 +1,8 @@
 package quizapp.bean;
 
 public class StudentLogin {
-    private String studentID,fName,lName,email;
+    private String fName,lName,email;
+    private int studentID;
     private boolean loggedIn = false;
     
     public void setLoginState(boolean loggedIn) {
@@ -20,11 +21,11 @@ public class StudentLogin {
         this.loggedIn = false;
     }
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
