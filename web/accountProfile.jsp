@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>
 <title>My Profile</title>
 </head>
-<body><!--foo-->
+<body>
     <%@include file="navbar.jsp"%>     
     <div style="margin: 1% 10% 10% 10%">
     <div class="jumbotron ">
