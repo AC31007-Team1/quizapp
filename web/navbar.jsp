@@ -12,23 +12,23 @@
 
             <%    if (staffLogin.getLoggedIn()) {
             %>
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/AccountProfile">
                     <span class="ion-person" aria-hidden="true"></span> My Profile</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/LogoutStaff">
                     <span class="ion-log-out" aria-hidden="true"></span> Logout</a>
             </li>  
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/AddQuiz">
                     <span class="ion-plus-round" aria-hidden="true"></span> Add Quiz</a>
             </li>  
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/AddQuizQuestions">
                     <span class="ion-help" aria-hidden="true"></span> Add Quiz Questions</a>
             </li>  
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/ViewQuizzes">
                     <span class="ion-search" aria-hidden="true"></span> View Quizzes</a>
             </li>
@@ -36,22 +36,22 @@
             } else {
                 if (studentLogin != null) {
                     if (studentLogin.getLoggedIn()) { %>  
-            <li class="nav-item" >
+            <li class="nav-item display-5" >
                 <a class="nav-link" href="/quizapp/LogoutStudent">
                     <span class="ion-log-out" aria-hidden="true"></span> Logout</a>
             </li>
             <%}
             } else {%>
 
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link " href="/quizapp/CreateAccount">
                     <span class="ion-person-add" aria-hidden="true"></span> Create Account</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/StudentLogin">
                     <span class="ion-ios-glasses-outline" aria-hidden="true"></span> Login As Student</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/StaffLogin">
                     <span class="ion-ios-book-outline" aria-hidden="true"></span> Login As Staff</a>
 

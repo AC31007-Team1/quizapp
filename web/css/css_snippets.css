@@ -20,5 +20,9 @@ and open the template in the editor.
 
 .display-4{
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
+}
+.display-5{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }

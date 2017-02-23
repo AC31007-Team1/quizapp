@@ -19,8 +19,8 @@
     <body>
         <%@include file="navbar.jsp"%>
         <div style="margin: 10% 10% 10% 10%">
-        
-        <h1>Add Quiz</h1>
+        <div class="jumbotron">
+        <h1 class="display-1">Add Quiz</h1>
         <br>
         <div class ="row">
             <div class="col-12 center"><h2></h2></div>
@@ -28,7 +28,7 @@
         
         <form data-toggle="validator" role="form" action="AddQuiz" method="post">
             <div class="form-group">
-                <label for="inputName" class="control-label">Quiz Name</label>
+                <label for="inputName" class="control-label display-4">Quiz Name</label>
                 
                 <input name = "quizname" type="text" class="form-control" id="inputName" placeholder="" onkeyup="myFunction()" required>
             </div>
@@ -36,7 +36,7 @@
             <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" style="background-color:white;border: 1px;"type="button" id="menu1" data-toggle="dropdown">Select Module
+                <button class="btn btn-default dropdown-toggle display-4" style="background-color:white;border: 1px;"type="button" id="menu1" data-toggle="dropdown"><strong>Select Module</strong>
                 
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -56,7 +56,7 @@
             
         </form>
         </div>
-        
+        </div>
         <script>
             function dropdown(val) {
                 var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
