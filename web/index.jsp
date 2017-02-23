@@ -4,13 +4,13 @@ You have been warned.
 You will probably want navbar.jsp as well.
 --%>
 <%@include file="header.jsp"%>
-<title>INDEX TEST</title>
+<title>CraigMC</title>
 </head>
 
 <body>
    <%@include file="navbar.jsp"%>
    
-   <a href="/quizapp/ViewQuizzes"></a>
+   <a href="/quizapp/ViewQuizzes">View Quizzes</a>
 
   
   

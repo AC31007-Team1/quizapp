@@ -2,25 +2,21 @@
 <title>My Profile</title>
 </head>
 <body><!--foo-->
-    <%@include file="navbar.jsp"%>  <div class="jumbotron ">
+    <%@include file="navbar.jsp"%>     <div style="margin: 1% 10% 10% 10%">
+    <div class="jumbotron ">
 
         <h1 class="display-1">My Profile</h1>
-        <img src="http://placehold.it/200x200" class="rounded float-right" alt="...">
-        <blockquote class="blockquote">
-            <p class="mb-0">Account Profile</p>
-            <footer class="blockquote-footer">Alucard</footer>
-        </blockquote>
         
-        <h3 class="display-4"><u>ID Number</u>:
+        <h3 class="display-4">ID Number:
             ${profile.getStaffID()}
         </h3>
-        <h3 class="display-4"><u>Name</u>:
+        <h3 class="display-4">Name:
             ${profile.getfName()}
         </h3>
-        <h3 class="display-4"><u>Email</u>:
+        <h3 class="display-4">Email:
             ${profile.getEmail()} 
         </h3>
-        <h3 class="display-4"><u>Soul</u>:
+        <h3 class="display-4 text-capitalize">User Type:
             ${profile.getSoul()}
         </h3>
         
@@ -31,4 +27,6 @@
        
             </div>
         </div>
+    </div>
+            </div>
 <%@include file="footer.jsp"%>
