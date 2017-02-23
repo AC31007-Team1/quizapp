@@ -6,6 +6,7 @@ You will probably want navbar.jsp as well.
 <%@include file="header.jsp"%>
 <title>INDEX TEST</title>
 </head>
+
 <body>
    <%@include file="navbar.jsp"%>
    
