@@ -7,7 +7,7 @@
 <div style="margin: 1% 10% 10% 10%">
 <%ChosenQuizStatistics chosenQuiz = (ChosenQuizStatistics) session.getAttribute("ChosenQuizStatistics");%>
         <div class="jumbotron">
-            <h1 class="display-1">You have selected Quiz with ID: </h1>
+            <h1 class="display-1">Statistics for the chosen quiz</h1>
 
 
             <div class="row marketing">
