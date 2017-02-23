@@ -4,7 +4,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/quizapp"><img src="src/University_of_Dundee_logo.svg.png"height="25px"width="20px" style="position:relative;bottom:5px;"> Craig MC</a>
+    <a class="navbar-brand" href="/quizapp"><img src="src/University_of_Dundee_logo.svg.png"height="25px"width="20px" style="position:relative;bottom:5px;"> CraigMC</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <%
@@ -36,6 +36,10 @@
             } else {
                 if (studentLogin != null) {
                     if (studentLogin.getLoggedIn()) { %>  
+            <li class="nav-item display-5">
+                <a class="nav-link" href="/quizapp/AccountProfile">
+                    <span class="ion-person" aria-hidden="true"></span> My Profile</a>
+            </li>
             <li class="nav-item display-5" >
                 <a class="nav-link" href="/quizapp/LogoutStudent">
                     <span class="ion-log-out" aria-hidden="true"></span> Logout</a>
