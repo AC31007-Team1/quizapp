@@ -1,14 +1,17 @@
 <%@include file="header.jsp"%>
-<title>Student Login</title>
+<title>Create Account</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>
-    <br>
-    <br>
-    <h1>Create Account Page</h1>
+     <div style="margin: 1% 10% 10% 10%">
+    <div class="jumbotron ">
+
+    
+    <h1 class="display-1">Create Account Page</h1>
     <div class ="row">
-        <div class="col-12 center"><h2> Lets create your account! </h2></div>
+        <div class="col-12 display-4"><h2> Lets create your account! </h2></div>
     </div>
+    <br>
 
     <div class="row marketing">
         <div class="col-lg-6">
@@ -25,17 +28,19 @@
                 <div class ="input-group">
                     <select name ="soulChoice" class="form-control" id="selS" onchange="change(this)">
                         <option>Are you a staff member or student?</option>
+                        <br/><br/>
                         <option value = "0">Staff Member</option>
+                        <br/>
                         <option value = "1">Student</option>
                     </select>
-                </div><br>
+                </div>
                 <div id="staffID_div" style="display: none;">
                     <input type="text" class="form-control" name="staffID" placeholder="Staff ID Number" aria-describedby="basic-addon1">
                 </div><br>
                 <div id="matric_div" style="display: none;">
                     <input type="number" class="form-control" name="matric" placeholder="Matriculation Number" aria-describedby="basic-addon1">
                 </div><br>
-                <input type="submit" value="Create Account" class="btn btn-lg btn-primary">
+                <input type="submit" value="Create Account" class="display-4 btn btn btn-primary">
             </form>
         </div>
     </div>
@@ -57,13 +62,9 @@
             }
         }
     </script>
+    </div>
+     </div>
 
 
 
-
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</script>
-</body>
-</html>
+    

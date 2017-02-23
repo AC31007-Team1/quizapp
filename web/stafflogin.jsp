@@ -1,5 +1,5 @@
 <%@include file="header.jsp"%>
-<title>Student Login</title>
+<title>Staff Login</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>
