@@ -44,13 +44,14 @@ public class ViewQuizStatistic {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery(query);
-            
+            statQueue.add(quizID);
             while (resultSet.next()) {
                 statQueue.add(resultSet.getInt("avg_quiz_score"));
                 statQueue.add(resultSet.getInt("cumulative_quiz_attempts"));
                 statQueue.add(resultSet.getInt("cumulative_quiz_total"));
                 
             }
+            
 
             connection.close();
             

@@ -36,10 +36,10 @@
             </div>
         </form>
 
-        <form role="form" action="AddQuizQuestions" method="post">
+        <form role="form" action="QuizStatistics" method="post">
             <div class="list-group">
                 <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                        class="list-group-item list-group-item-action"><p style="text-align: center;">Add Quiz Questions</p></button>
+                        class="list-group-item list-group-item-action"><p style="text-align: center;">View Quiz Statistics</p></button>
             </div>
         </form>
                         
