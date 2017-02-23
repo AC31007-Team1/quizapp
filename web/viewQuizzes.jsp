@@ -10,25 +10,39 @@
     <%@include file="navbar.jsp"%>
     
     <div class="jumbotron">
-        <div style="margin: 10% 10% 10% 10%">
+        
         
         <h1>Select a quiz</h1>
         <br>
-        
-            <div class="col-12 center"><h2></h2></div>
-            <form role="form" action="AddQuizQuestions" method="post">
-                <div class="list-group">
-                    <% 
+        <div class="col-12 center"><h2></h2></div>
+        <% 
                         for(int i = 0; i < quiz.getQuizIDList().size(); i++) {
                             List quizList = quiz.getQuizList();
                             List quizIdList = quiz.getQuizIDList();
                         %>
+            <form role="form" action="AddQuizQuestions" method="post">
+                <div class="list-group">
+                    
                         
+                        <h3><%=quizList.get(i)%></h3>
                         <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                                class="list-group-item list-group-item-action"><p style="text-align: center;"><%=quizList.get(i)%></p></button>
+                                class="list-group-item list-group-item-action"><p style="text-align: center;">Add Quiz Questions</p></button>
+                                <br>
                                 <%}%>
                 </div>
             </form>
+        
+            <form role="form" action="AddQuizQuestions" method="post">
+                    <div class="list-group">
+
+
+                            <h3><%=quizList.get(i)%></h3>
+                            <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
+                                    class="list-group-item list-group-item-action"><p style="text-align: center;">Add Quiz Questions</p></button>
+                                    <br>
+                                    <%}%>
+                    </div>
+                </form>
         
         
 <%@include file="footer.jsp"%>
