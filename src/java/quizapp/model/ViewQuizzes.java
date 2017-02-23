@@ -14,7 +14,7 @@ public class ViewQuizzes {
     private List quizIDList = new ArrayList();
     
     
-    public List getQuizzes() {
+    public List getQuizzes(int moduleID) {
         
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -30,7 +30,7 @@ public class ViewQuizzes {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM Quiz WHERE module_id = 1" ;
+        String query = "SELECT * FROM Quiz WHERE module_id =" + moduleID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -51,7 +51,7 @@ public class ViewQuizzes {
         return quizList;
     }
     
-    public List getQuizzesID() {
+    public List getQuizzesID(int moduleID) {
         
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -67,7 +67,7 @@ public class ViewQuizzes {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM Quiz WHERE module_id = 1" ;
+        String query = "SELECT * FROM Quiz WHERE module_id =" + moduleID ;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);

@@ -9,18 +9,26 @@
 <body>
     <%@include file="navbar.jsp"%>
     
-    <h1>Please select a quiz!</h1>
-    
-    <%
-        List quizList = new ArrayList();
-        List quizIDList = new ArrayList();
-            quizList = quiz.getQuizList();
-            quizIDList = quiz.getQuizIDList();
-        for(int i = 0; i <quizList.size(); i++){
-        %>
-        <a href="/quizapp/AddQuizQuestions/<%=quizIDList.get(i)%>"> <%=quizList.get(i)%></a>
-        <%}
-    %>
+    <div class="jumbotron">
+        <div style="margin: 10% 10% 10% 10%">
+        
+        <h1>Select a quiz</h1>
+        <br>
+        
+            <div class="col-12 center"><h2></h2></div>
+            <form role="form" action="AddQuizQuestions" method="post">
+                <div class="list-group">
+                    <% 
+                        for(int i = 0; i < quiz.getQuizIDList().size(); i++) {
+                            List quizList = quiz.getQuizList();
+                            List quizIdList = quiz.getQuizIDList();
+                        %>
+                        
+                        <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
+                                class="list-group-item list-group-item-action"><p style="text-align: center;"><%=quizList.get(i)%></p></button>
+                                <%}%>
+                </div>
+            </form>
         
         
 <%@include file="footer.jsp"%>

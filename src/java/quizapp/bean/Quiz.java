@@ -7,6 +7,15 @@ public class Quiz {
     
     private List quizList = new ArrayList();
     private List quizIDList = new ArrayList();
+    private String quizID;
+
+    public String getQuizID() {
+        return quizID;
+    }
+
+    public void setQuizID(String quizID) {
+        this.quizID = quizID;
+    }
 
     public List getQuizList() {
         return quizList;

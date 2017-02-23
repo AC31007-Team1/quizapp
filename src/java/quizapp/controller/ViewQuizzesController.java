@@ -19,12 +19,13 @@ public class ViewQuizzesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         ViewQuizzes viewQuizzes = new ViewQuizzes();
-        List quizzes = viewQuizzes.getQuizzes();
-        List quizzesID = viewQuizzes.getQuizzesID();
         
         HttpSession session = request.getSession();
+        
+        module specificModule = (module) session.getAttribute("module");
+        List quizzes = viewQuizzes.getQuizzes(specificModule.getModuleID());
+        List quizzesID = viewQuizzes.getQuizzesID(specificModule.getModuleID());
         
         if(!quizzes.isEmpty()) {
             Quiz quiz = new Quiz();
