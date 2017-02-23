@@ -11,7 +11,7 @@ public class StudentMember {
     /*
     methods here for getting and setting student details from database
      */
-    public boolean isValidStudent(String studentID) {
+    public boolean isValidStudent(int studentID) {
 
         boolean isStudent = false;
         String driverName = "com.mysql.jdbc.Driver";

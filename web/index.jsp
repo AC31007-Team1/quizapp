@@ -11,28 +11,7 @@ You will probably want navbar.jsp as well.
    
    <a href="/quizapp/ViewQuizzes"></a>
 
-    <%
-        if (staffLogin != null) {
-            if (staffLogin.getLoggedIn()) {
-
-    %>
-    <h1>YOU ARE LOGGED IN AS STAFF</h1> 
-    <h1>Hello, <%=staffLogin.getfName()%>!</h1>
-    <%      }
-    } else {
-    %>
-    <h1>YOU ARE NOT LOGGED IN AS STAFF</h1>
-    <%   }
-        if (studentLogin != null) {
-            if (studentLogin.getLoggedIn()) {
-    %>
-    <h1> YOU ARE LOGGED IN AS STUDENT </h1>
-    <%      }
-    } else {
-    %>
-    <h1> YOU ARE NOT LOGGED IN AS STUDENT </h1>
-    <%  }
-    %>
-
-    <%@include file="footer.jsp"%>
+  
+  
+   <%@include file="footer.jsp"%>
 

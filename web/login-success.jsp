@@ -1,9 +1,13 @@
 <%@include file="header.jsp"%>
 </head>
 <body>
-    <div class="alert alert-success" role="alert">
-        <strong>Shablamzo!</strong> You logged in successfully. 
-    </div><br> 
-    <a href ="/quizapp"><button type="button"  class="btn btn-success"><strong>Return to Home Page</strong></button></a>
-</body>
-</html>
+    <%@include file="navbar.jsp"%>
+    
+        <div class="d-flex flex-row justify-content-center">
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Shablamzo!</strong> You have successfully logged in.
+            </div>
+        </div>
+    
+    <%@include file="footer.jsp"%>

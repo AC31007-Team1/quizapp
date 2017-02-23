@@ -14,6 +14,7 @@ import quizapp.bean.modulecount;
 import quizapp.model.FetchModules;
 import quizapp.model.StudentMember;
 
+
 @WebServlet(name = "StudentLogin", urlPatterns = {"/StudentLogin"})
 public class StudentLoginController extends HttpServlet {
 
@@ -29,8 +30,8 @@ public class StudentLoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException { 
           
-        String studentID=request.getParameter("studentID");
-        String fName=request.getParameter("fName");
+        String sss=request.getParameter("studentID");
+        int studentID = Integer.parseInt(sss);
         StudentMember studentMember = new StudentMember();
         
         boolean isStudent = studentMember.isValidStudent(studentID);
@@ -38,15 +39,16 @@ public class StudentLoginController extends HttpServlet {
           
         if(isStudent){
             StudentLogin studentLogin = new StudentLogin();
+            
             studentLogin.setLoggedIn();
             studentLogin.setStudentID(studentID);
-            studentLogin.getfName();
             
             session.setAttribute("StudentLogin", studentLogin);
+
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());
-            for (int i=1;i<=modfinder.getSize();i++)
+            for (int i=0;i<=modfinder.getSize();i++)
             {
                     modfinder.setModule(fetchmod.returnModules(i),i);
             }
