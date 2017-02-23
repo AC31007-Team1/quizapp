@@ -29,14 +29,14 @@ public class SubmitQuestions extends HttpServlet{
         String[] iAnswer = new String[3];
 
         // is it possible to have array here? or have '3' change to question amount
-        for(int i = 0; i < 3; i++) {
-            iAnswer[i] = request.getParameter("answeri" + 1);
+        for(int i = 1; i < 4; i++) {
+            iAnswer[i-1] = request.getParameter("answeri" + i);
         }
 
         String quizid = (String)session.getAttribute("QuizID");
 
         qq.submitQuestion(question, quizid);
-        qq.submitAnswers(cAnswer, iAnswer);
+        qq.submitAnswers(cAnswer, iAnswer, quizid);
 
 
         response.sendRedirect("addQuizQuestions.jsp");
