@@ -9,6 +9,11 @@ and open the template in the editor.
 */
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:100|Scope+One');
 
+body{
+    background: url('../src/background.png')no-repeat center center fixed;
+    background-size: cover;
+}
+
 .navbar-brand{
     font-family: 'Pacifico', cursive;
 }

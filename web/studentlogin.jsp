@@ -13,7 +13,7 @@
                 <div class="col-lg-6">
                     <form action="StudentLogin" method="post">  
                         <div class="input-group">
-                            <input type="text" class="form-control display-4" name="studentID" placeholder="Matriculation Number" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="studentID" placeholder="Matriculation Number" aria-describedby="basic-addon1">
                         </div><br>
                         <input type="submit" value="Log In" class="btn btn-primary display-4">
                     </form>

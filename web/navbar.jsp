@@ -40,6 +40,10 @@
                 <a class="nav-link" href="/quizapp/LogoutStudent">
                     <span class="ion-log-out" aria-hidden="true"></span> Logout</a>
             </li>
+            <li class="nav-item display-5">
+                <a class="nav-link" href="/quizapp/ViewQuizzes">
+                    <span class="ion-search" aria-hidden="true"></span> View Quizzes</a>
+            </li>
             <%}
             } else {%>
 

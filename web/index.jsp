@@ -9,8 +9,7 @@ You will probably want navbar.jsp as well.
 
 <body>
    <%@include file="navbar.jsp"%>
-   
-   <a href="/quizapp/ViewQuizzes">View Quizzes</a>
+
 
   
   

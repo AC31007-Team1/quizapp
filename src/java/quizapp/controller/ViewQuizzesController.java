@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import quizapp.model.*;
 import quizapp.bean.*;
 
-@WebServlet(name = "ViewQuizzesController", urlPatterns = {"/ViewQuizzes"})
+@WebServlet(name = "ViewQuizzes", urlPatterns = {"/ViewQuizzes"})
 public class ViewQuizzesController extends HttpServlet {
 
     @Override
