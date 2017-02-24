@@ -88,12 +88,12 @@ public class EditQuizQuestion {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             
             PreparedStatement pstmt = connection.prepareStatement(
-            "UPDATE quiz_answers SET correct_answer=?, incorrect_answer_one=?, incorrect_answer_two=?, incorrect_answer_three=?"+ "WHERE quiz_question_id=?;");
+            "UPDATE quiz_answers SET correct_answer=?, incorrect_answer_one=?, incorrect_answer_two=?, incorrect_answer_three=?"+ "WHERE quiz_question_id = ?");
             pstmt.setString( 1, correctAnswer );
             pstmt.setString( 2, incorrectAnswer1 );
             pstmt.setString( 3, incorrectAnswer2 );
             pstmt.setString( 4, incorrectAnswer3 );
-            pstmt.setInt( 2, questionID );
+            pstmt.setInt( 5, questionID );
             
             
             pstmt.executeUpdate();

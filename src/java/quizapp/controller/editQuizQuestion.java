@@ -28,19 +28,20 @@ import quizapp.model.EditQuizQuestion;
  * @author Iain
  */
 @WebServlet(name = "editQuizQuestion", urlPatterns = {"/editQuizQuestion", "/editQuizQuestion/"})
-public class EditQuestion extends HttpServlet {
+public class editQuizQuestion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("editQuizQuestions.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("editQuizQuestion.jsp");
         rd.forward(request, response);
     }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String[] incorrectAnswers = new String[4];
+        String[] incorrectAnswers = new String[3];
         String correctAnswer = request.getParameter("cAnswer");
+        String question = request.getParameter("question");
         for (int i=0;i<3;i++)
         {
             int a=i+1;
@@ -50,18 +51,19 @@ public class EditQuestion extends HttpServlet {
         QuestionContainer questionContainer = (QuestionContainer) session.getAttribute("QuestionContainer");
         EditQuizQuestion editQuizQuestion = new EditQuizQuestion();
         try {
-            editQuizQuestion.updateQuizQuestions(correctAnswer,questionContainer.getQuestionID());
+            editQuizQuestion.updateQuizQuestions(question,questionContainer.getQuestionID());
         } catch (SQLException ex) {
-            Logger.getLogger(EditQuestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(EditQuestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             editQuizQuestion.updateQuizAnswers(correctAnswer, incorrectAnswers[0], incorrectAnswers[1], incorrectAnswers[2], questionContainer.getQuestionID());
         } catch (SQLException ex) {
-            Logger.getLogger(EditQuestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(EditQuestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        response.sendRedirect("/quizapp/SelectModule");
     } 
 }

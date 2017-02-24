@@ -48,6 +48,7 @@ public class previewQuiz extends HttpServlet{
         QuestionContainer questionContainer = new QuestionContainer();
         questionContainer.setQuestionID(quizQuestionID);
         questionContainer.setQuestion(quizQuestion);
+        questionContainer.setCorrect(quizQuestionAnswer);
         questionContainer.setIncorrect(quizQuestionIncorrect);
         session.setAttribute("QuestionContainer", questionContainer);
         response.sendRedirect("/quizapp/editQuizQuestion");

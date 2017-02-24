@@ -7,20 +7,20 @@
 <%QuestionContainer questionContainer = (QuestionContainer) session.getAttribute("QuestionContainer");%>
     <div style="margin: 1% 10% 10% 10%">
         <div class="jumbotron">
-            <h1 class="display-1">You are editing the following question:<%=questionContainer.getQuestion()%></h1>
+            <h1 class="display-3">You are editing the following question:</h1>
 
             <%-- will also need to find a way to get the quiz ID when navigating to this page, perhaps set from the quiz.jsp page controller/model--%>
 
-            <h4 class="display-4">Choose your question's name, the correct and incorrect answer, and click "Add Question". <br>It's that easy!</h4>
+            <h4 class="display-4"><%=questionContainer.getQuestion()%>. Choose your question's name, the correct and incorrect answer, and click "Add Question". <br>It's that easy!</h4>
             <br>
             
 
             <div class="row marketing">
                 <div class="col-lg-6">
                     
-                    <form action="EditQuestion" method="post">  
+                    <form action="editQuizQuestion" method="post">  
                     <div class="input-group">
-                            <input type="text" class="form-control" name="question" value="<%=questionContainer.getQuestion()%>"  aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="question" value="<%=questionContainer.getQuestion()%>"  placeholder="Enter your question" aria-describedby="basic-addon1">
                         </div><br>
                      
                         <div class="input-group">

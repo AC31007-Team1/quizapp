@@ -28,7 +28,7 @@
             <p>Incorrect Answer: <%=quizQuestionInc1Answers.get(i)%></p>
             <p>Incorrect Answer: <%=quizQuestionInc2Answers.get(i)%></p>
             <p>Incorrect Answer: <%=quizQuestionInc3Answers.get(i)%></p>
-            <form action="previewQuiz" method="post"><button type="submit" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>
+            <form action="previewQuiz" method="post"><button type="submit" style="cursor:pointer;" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>
                 <input type="hidden" name="quizquestion" value="<%=quizQuestionList.get(i)%>">
                 <input type="hidden" name="quizquestionanswer" value="<%=quizQuestionAnswers.get(i)%>">
                 <input type="hidden" name="quizquestionincorrect1" value="<%=quizQuestionInc1Answers.get(i)%>">
