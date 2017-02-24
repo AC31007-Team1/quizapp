@@ -16,9 +16,12 @@ and open the template in the editor.
 }
 .hero
 {
-    margin: auto;
+    position: fixed;
     width:100%;
-    height:100%;
+    height600px;
+
+}
+.hero-text{
     color:white;
     font-family: 'Pacifico', cursive;
     font-size: 128pt;
