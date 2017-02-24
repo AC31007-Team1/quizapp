@@ -14,49 +14,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.Quiz;
-import quizapp.bean.StaffLogin;
 import quizapp.model.DeleteStaffQuiz;
-import quizapp.model.FetchStaffQuizzes;
-import quizapp.model.StaffMember;
 
 /**
  *
  * @author craigwatt
  */
-@WebServlet(name = "ViewStaffQuizzes", urlPatterns = {"/ViewStaffQuizzes"})
-public class ViewStaffQuizzes extends HttpServlet {
+@WebServlet(name = "ChangeAvailability", urlPatterns = {"/ChangeAvailability"})
+public class ChangeAvailability extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        gatherStaffQuizzes(staffLogin.getStaffID(), request, response);
-    }
-
-    private void gatherStaffQuizzes(int sID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        FetchStaffQuizzes sO = new FetchStaffQuizzes();
-        request.setAttribute("quizList", sO.getQuizzes(sID));
-        RequestDispatcher rd = request.getRequestDispatcher("/viewStaffQuizzes.jsp");
-        rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String sss = "";
-        //String aaa = "";
-        //request.getAttribute(aaa)
-        sss = request.getParameter("Delete");
-        //aaa = request.getParameter("Availabilty");
-        int quizID = Integer.parseInt(sss);
+        String aaa = "";
+        aaa = request.getParameter("Availability");
+        int quizID = Integer.parseInt(aaa);
         DeleteStaffQuiz deleteStaffQuiz = new DeleteStaffQuiz();
-        boolean didItDelete;
-        didItDelete = deleteStaffQuiz.delete(quizID);
+        boolean didItChange;
+        didItChange = deleteStaffQuiz.changeAvailability(quizID);
         HttpSession session = request.getSession();
-        if (didItDelete) {
-            session.setAttribute("deleteQuizAttempt", quizID);
+        if (didItChange) {
+            session.setAttribute("changeAttempt", quizID);
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
