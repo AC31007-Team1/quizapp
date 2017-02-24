@@ -1,6 +1,7 @@
 <%@include file="header.jsp"%>
 <title>Staff Login</title>
 </head>
+  <!--refactored to increase usability and normalize design-->
 <body>
     <%@include file="navbar.jsp"%>
     <br>

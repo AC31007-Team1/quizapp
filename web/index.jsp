@@ -9,6 +9,7 @@ You will probably want navbar.jsp as well.
 
 <body>
    <%@include file="navbar.jsp"%>
-
+   <div class="hero">
+       <div class="animated fadeInUp hero-text">CraigMC</div></div>
    <%@include file="footer.jsp"%>
 

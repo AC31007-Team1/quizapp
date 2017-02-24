@@ -1,4 +1,4 @@
-
+  <!--refactored to prevent changing multiple files-->
 
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,11 @@
             <li class="nav-item display-5">
                 <a class="nav-link" href="/quizapp/SelectModule">
                     <span class="ion-search" aria-hidden="true"></span> View Modules/Quizzes</a>
+            </li>
+            
+            <li class="nav-item display-5">
+                <a class="nav-link" href="/quizapp/ViewStaffQuizzes">
+                    <span class="ion-heart" aria-hidden="true"></span> View My Quizzes</a>
             </li>
             <%  }
             } else {
@@ -70,3 +75,7 @@
         </ul>
     </div>
 </nav>
+            
+            <br>
+            <br>
+            <br>

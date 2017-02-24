@@ -1,5 +1,6 @@
 <%@include file="header.jsp"%>
 <title>Create Account</title>
+  <!--refactored to increase usability and normalize design-->
 </head>
 <body>
     <%@include file="navbar.jsp"%>

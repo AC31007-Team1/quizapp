@@ -1,3 +1,4 @@
+  <!--refactored to increase usability and normalize design-->
 <%@include file="header.jsp"%>
 <title>Add a Quiz Question</title>
 </head>

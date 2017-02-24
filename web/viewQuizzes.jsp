@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@include file="header.jsp"%>
+  <!--refactored to increase usability and normalize design-->
 <title>Quizzes</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
                         List quizList = quiz.getQuizList();
                         List quizIdList = quiz.getQuizIDList();
                 %>
-            <form role="form"class='fix ' method="post">
+            <form role="form" class="fix"  action="PreviewQuiz" method="post">
                     <h3 class='display-4'><%=quizList.get(i)%></h3>
                     <button type="submit"  action="PreviewQuiz" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
                             class="btn btn-primary display-4 col-md-3">Preview Quiz</button>            

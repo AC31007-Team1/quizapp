@@ -4,7 +4,7 @@
     Author     : iain
 --%>
 
-
+  <!--refactored to increase usability and normalize design-->
 <%@include file="header.jsp"%>
 <%%>
 <!DOCTYPE html>

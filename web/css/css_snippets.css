@@ -14,12 +14,34 @@ and open the template in the editor.
         
     }
 }
-form.fix{
+.hero
+{
+    position: fixed;
+    width:100%;
+    height600px;
+
+}
+.hero-text{
+    color:white;
+    font-family: 'Pacifico', cursive;
+    font-size: 128pt;
+    text-shadow: 5px 3px 0px rgba(150, 150, 150, 1);
+    text-align: center;
+}
+.fix{
     display:inline;
 }
+
 body{
-    background: url('../src/background.png')no-repeat center center fixed;
-    background-size: cover;
+      background: url('../src/background.png')no-repeat center center fixed;
+      background-size: cover;
+}
+body.day{
+    background-color: skyblue;
+}
+body.night{
+    background-color: darkslateblue;
+
 }
 
 .navbar-brand{
