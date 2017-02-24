@@ -8,11 +8,13 @@ public class Quiz {
     private List quizList = new ArrayList();
     private List quizIDList = new ArrayList();
     private String quizID;
+    private List quizQuestionID = new ArrayList();
     private List quizQuestions = new ArrayList();
     private List quizCAnswers = new ArrayList();
     private List quizI1Answers = new ArrayList();
     private List quizI2Answers = new ArrayList();
     private List quizI3Answers = new ArrayList();
+    private boolean edited;
 
     public List getQuizCAnswers() {
         return quizCAnswers;
@@ -77,6 +79,24 @@ public class Quiz {
     public void setQuizIDList(List quizIDList) {
         this.quizIDList = quizIDList;
     }
+
+    public List getQuizQuestionID() {
+        return quizQuestionID;
+    }
+
+    public void setQuizQuestionID(List quizQuestionID) {
+        this.quizQuestionID = quizQuestionID;
+    }
+
+    public boolean isEdited() {
+        return edited;
+    }
+
+    public void setEdited(boolean edited) {
+        this.edited = edited;
+    }
+
+    
     
     
 }
