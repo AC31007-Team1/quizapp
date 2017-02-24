@@ -3,6 +3,7 @@
     Created on : 22-Feb-2017, 12:01:18
     Author     : iain
 --%>
+  <!--refactored to increase usability and normalize design-->
 
 <%@include file="header.jsp"%>
 <%%>

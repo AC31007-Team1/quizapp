@@ -1,4 +1,5 @@
 <%@include file="index.jsp"%>
+  <!--refactored to increase usability and normalize design-->
 <br>
         <div class="d-flex flex-row justify-content-center">
             <div class="alert alert-danger alert-dismissible" role="alert">

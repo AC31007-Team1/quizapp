@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@include file="header.jsp"%>
+  <!--refactored to increase usability and normalize design-->
 <title>Quizzes</title>
 </head>
 <body>

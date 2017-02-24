@@ -1,4 +1,5 @@
 <%@include file="header.jsp"%>
+  <!--refactored to increase usability and normalize design-->
 <title>My Profile</title>
 </head>
 <body>

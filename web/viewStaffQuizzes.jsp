@@ -1,7 +1,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+  <!--refactored to increase usability and normalize design-->
 <title>Quizzes</title>
 </head>
 
