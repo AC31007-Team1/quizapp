@@ -12,14 +12,17 @@
             <%-- will also need to find a way to get the quiz ID when navigating to this page, perhaps set from the quiz.jsp page controller/model--%>
 
             <h4 class="display-4">Choose your question's name, the correct and incorrect answer, and click "Add Question". <br>It's that easy!</h4>
-            <br
+            <br>
+            
 
             <div class="row marketing">
                 <div class="col-lg-6">
+                    
                     <form action="SubmitQuestions" method="post">  
                         <div class="input-group">
                             <input type="text" class="form-control" name="question" placeholder="Enter your question's name." aria-describedby="basic-addon1">
                         </div><br>
+                     
                         <div class="input-group">
                             <input type="text" class="form-control" name="cAnswer" placeholder="Enter your question's correct answer." aria-describedby="basic-addon1">
                         </div><br>

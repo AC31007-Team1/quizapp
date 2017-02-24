@@ -38,6 +38,7 @@ public class PreviewQuizController extends HttpServlet {
         quiz.setQuizI1Answers(previewQuiz.getQuizIncOne(quizID));
         quiz.setQuizI2Answers(previewQuiz.getQuizIncTwo(quizID));
         quiz.setQuizI3Answers(previewQuiz.getQuizIncThree(quizID));
+        quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
         
         session.setAttribute("Quiz", quiz);
         
