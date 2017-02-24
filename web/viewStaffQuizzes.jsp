@@ -16,15 +16,17 @@
             <br>
 
             <%               // for (int i = 0; i <= 14; i++) { %>
+
             <div class="col-12 center "><h2></h2></div>
             <form role="form" action="ViewStaffQuizzes" method="post">
                 <div class="container">
                     <div class="row justify-content-start table table-striped">
                         <c:forEach items="${quizList}" var="listItem">
                             <div class="col-8">Quiz Name: ${listItem.qn} Quiz ID: ${listItem.qid}</div>
-                           <div class="col-2">
-                           <input checked data-toggle="toggle" type="checkbox">
-                           </div>
+                           <form role="form" action="ChangeAvailability" method="post">
+                              <button type="submit" style="cursor: pointer;" name="Availability" value="${listItem.qid}"
+                            class="list-group-item list-group-item-action">Quiz Name:${listItem.qn} Quiz Availability: ${listItem.qa}</button>
+                            </form>
                             <div class="col-2 justify-content-end">
                                 <button type="submit" style="cursor: pointer;" name="Delete" value="${listItem.qid}"
                                         class="btn-danger display-4 btn justify-content-end" style="transform:translate(-100%,50%);">

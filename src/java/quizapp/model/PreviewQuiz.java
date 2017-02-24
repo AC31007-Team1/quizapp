@@ -14,6 +14,7 @@ public class PreviewQuiz {
     private final List incorrectQuizAnswer1 = new ArrayList();
     private final List incorrectQuizAnswer2 = new ArrayList();
     private final List incorrectQuizAnswer3 = new ArrayList();
+    private final List quizIDList = new ArrayList();
     
     public List getQuizQuestions(String quizID) {
         
@@ -198,5 +199,42 @@ public class PreviewQuiz {
         }
         
         return incorrectQuizAnswer3;
+    }
+    
+    public List getQuestionID(String quizID) {
+        
+        String driverName = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+        String dbName = "16agileteam1db";
+        String userID = "16agileteam1";
+        String password = "8320.at1.0238";
+        
+        try {
+            Class.forName(driverName);
+        } catch (ClassNotFoundException e) {
+        }
+
+        Connection connection = null;
+
+        // module id from iain
+        String query = "SELECT * FROM quiz_questions WHERE quiz_id =" + quizID;
+
+        try {
+            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            while (resultSet.next()) {
+                quizIDList.add(resultSet.getInt("quiz_question_id"));
+            }
+
+            connection.close();
+            
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        
+        return quizIDList;
     }
 }
