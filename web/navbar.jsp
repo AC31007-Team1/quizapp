@@ -24,13 +24,10 @@
                 <a class="nav-link" href="/quizapp/AddQuiz">
                     <span class="ion-plus-round" aria-hidden="true"></span> Add Quiz</a>
             </li>  
+
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/AddQuizQuestions">
-                    <span class="ion-help-circled" aria-hidden="true"></span> Add Quiz Questions</a>
-            </li>  
-            <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/ViewQuizzes">
-                    <span class="ion-search" aria-hidden="true"></span> View Quizzes</a>
+                <a class="nav-link" href="/quizapp/SelectModule">
+                    <span class="ion-search" aria-hidden="true"></span> View Modules/Quizzes</a>
             </li>
             <%  }
             } else {
