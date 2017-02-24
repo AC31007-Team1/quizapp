@@ -6,7 +6,7 @@
 
 function deleteQuiz(id)
 {
-    window.location.href = "http://localhost:8084/quizapp/DeleteQuiz?id="+id;
+    window.location.href = "http://localhost:8084/16agileteam1DeleteQuiz?id="+id;
 }
 
 

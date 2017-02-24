@@ -47,7 +47,7 @@ public class SelectModule extends HttpServlet
 
             session.setAttribute("module", specificModule);
         
-        response.sendRedirect("/quizapp/ViewQuizzes");
+        response.sendRedirect("/2016-agileteam1/ViewQuizzes");
  
     }
     

@@ -18,24 +18,26 @@
             <%               // for (int i = 0; i <= 14; i++) { %>
 
             <div class="col-12 center "><h2></h2></div>
-            <form role="form" action="ViewStaffQuizzes" method="post">
+            
                 <div class="container">
-                    <div class="row justify-content-start table table-striped">
+                    <div class="row table">
                         <c:forEach items="${quizList}" var="listItem">
-                            <div class="col-8">Quiz Name: ${listItem.qn} Quiz ID: ${listItem.qid}</div>
-                           <form role="form" action="ChangeAvailability" method="post">
-                              <button type="submit" style="cursor: pointer;" name="Availability" value="${listItem.qid}"
-                            class="list-group-item list-group-item-action">Quiz Name:${listItem.qn} Quiz Availability: ${listItem.qa}</button>
+                            <div class="col-6">Quiz Name: ${listItem.qn} Quiz ID: ${listItem.qid} Availability: ${listItem.qa}</div>
+                            <div class="col-1">
+                            <form role="form" action="ChangeAvailability" method="post">
+                              <button type="submit" name="Availability" value="${listItem.qid}"class="btn display-4 btn-md btn-success">Availability?</button>
                             </form>
-                            <div class="col-2 justify-content-end">
+                            </div>
+                            <div class="col-2 offset-md-1">
+                                <form role="form" action="ViewStaffQuizzes" method="post">
                                 <button type="submit" style="cursor: pointer;" name="Delete" value="${listItem.qid}"
                                         class="btn-danger display-4 btn justify-content-end" style="transform:translate(-100%,50%);">
-                                    <span class="ion-trash-b"></span></button><br><br>
+                                    <span class="ion-trash-b"></span></button><br><br></form>
                             </div>
                         </c:forEach>
                     </div>
                 </div>     
-            </form>
+            
         </div>
     </div>
     <%@include file="footer.jsp"%>

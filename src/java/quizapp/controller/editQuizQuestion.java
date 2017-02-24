@@ -64,6 +64,6 @@ public class editQuizQuestion extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("/quizapp/SelectModule");
+        response.sendRedirect("/2016-agileteam1/SelectModule");
     } 
 }

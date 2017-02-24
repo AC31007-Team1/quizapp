@@ -51,7 +51,7 @@ public class previewQuiz extends HttpServlet{
         questionContainer.setCorrect(quizQuestionAnswer);
         questionContainer.setIncorrect(quizQuestionIncorrect);
         session.setAttribute("QuestionContainer", questionContainer);
-        response.sendRedirect("/quizapp/editQuizQuestion");
+        response.sendRedirect("/2016-agileteam1/editQuizQuestion");
         
     }
 }
