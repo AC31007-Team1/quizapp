@@ -2,11 +2,12 @@ package quizapp.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LinkedList;
 
 public class Quiz {
-    
     private List quizList = new ArrayList();
     private List quizIDList = new ArrayList();
+
     private String quizID;
     private List quizQuestions = new ArrayList();
     private List quizCAnswers = new ArrayList();
