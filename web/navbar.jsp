@@ -31,6 +31,11 @@
                 <a class="nav-link" href="/quizapp/SelectModule">
                     <span class="ion-search" aria-hidden="true"></span> View Modules/Quizzes</a>
             </li>
+            
+            <li class="nav-item display-5">
+                <a class="nav-link" href="/quizapp/ViewStaffQuizzes">
+                    <span class="ion-heart" aria-hidden="true"></span> View My Quizzes</a>
+            </li>
             <%  }
             } else {
                 if (studentLogin != null) {
@@ -70,3 +75,7 @@
         </ul>
     </div>
 </nav>
+            
+            <br>
+            <br>
+            <br>

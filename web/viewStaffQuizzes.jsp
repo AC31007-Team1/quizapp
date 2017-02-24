@@ -8,24 +8,32 @@
 <body>
     <%@include file="navbar.jsp"%>
 
-    <div class="jumbotron">
-        <div style="margin: 10% 10% 10% 10%">
+    <div style="margin: 10% 10% 10% 10%">
+        <div class="jumbotron">
 
-            <h1>Your created Quizzes</h1>
+
+            <h1 class="display-1">My Quizzes</h1>
             <br>
 
             <%               // for (int i = 0; i <= 14; i++) { %>
-            <div class="col-12 center"><h2></h2></div>
+            <div class="col-12 center "><h2></h2></div>
             <form role="form" action="ViewStaffQuizzes" method="post">
-                <table border="1">
-                    <tr>
-                    </tr>
-                    <c:forEach items="${quizList}" var="listItem">
-                        <td>${listItem.qn}</td>
-                        <button type="submit" style="cursor: pointer;" name="Delete" value="${listItem.qid}"
-                                class="list-group-item list-group-item-action"><p style="text-align: center;">Quiz Name:${listItem.qn} Quiz id: ${listItem.qid} Delete Quiz</p></button>
+                <div class="container">
+                    <div class="row justify-content-start table table-striped">
+                        <c:forEach items="${quizList}" var="listItem">
+                            <div class="col-8">Quiz Name: ${listItem.qn} Quiz ID: ${listItem.qid}</div>
+                           <div class="col-2">
+                           <input checked data-toggle="toggle" type="checkbox">
+                           </div>
+                            <div class="col-2 justify-content-end">
+                                <button type="submit" style="cursor: pointer;" name="Delete" value="${listItem.qid}"
+                                        class="btn-danger display-4 btn justify-content-end" style="transform:translate(-100%,50%);">
+                                    <span class="ion-trash-b"></span></button><br><br>
+                            </div>
                         </c:forEach>
-                </table>
+                    </div>
+                </div>     
             </form>
-
-            <%@include file="footer.jsp"%>
+        </div>
+    </div>
+    <%@include file="footer.jsp"%>
