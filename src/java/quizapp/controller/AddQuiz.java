@@ -54,7 +54,7 @@ public class AddQuiz extends HttpServlet{
         
         try {
             initquiz.insertQuiz(quizname,module,staffID,created,available); 
-            response.sendRedirect("/quizapp");
+            response.sendRedirect("/2016-agileteam1");
         } catch (SQLException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {

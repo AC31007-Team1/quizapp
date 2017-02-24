@@ -36,7 +36,7 @@ public class CreateAccountSuccess extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("/quizapp");
+        response.sendRedirect("/2016-agileteam1");
     }
 
     @Override

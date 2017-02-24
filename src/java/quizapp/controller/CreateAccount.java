@@ -55,11 +55,11 @@ public class CreateAccount extends HttpServlet {
                 //acdStaff.setStaffData(uName, uEmail);
                 AddAccount staffRegModel = new AddAccount();
                 if (staffRegModel.insertStaffAccount(staffID, fName, lName, uEmail)) {
-                    response.sendRedirect("/quizapp/CreateAccountSuccess");
+                    response.sendRedirect("/2016-agileteam1/CreateAccountSuccess");
                     break;
                 }
                 else{
-                    response.sendRedirect("/quizapp/CreateAccountError");
+                    response.sendRedirect("/2016-agileteam1/CreateAccountError");
                     break;
                 }
             //student
@@ -69,10 +69,10 @@ public class CreateAccount extends HttpServlet {
                 //acdStudent.setStudentData(uName, uEmail, sMatric);
                 AddAccount studentRegModel = new AddAccount();
                 if (studentRegModel.insertStudentAccount()) {
-                    response.sendRedirect("/quizapp/CreateAccountSuccess");
+                    response.sendRedirect("/2016-agileteam1/CreateAccountSuccess");
                 }   break;
             default:
-                response.sendRedirect("/quizapp/CreateAccountError");
+                response.sendRedirect("/2016-agileteam1/CreateAccountError");
                 break;
         }
     }

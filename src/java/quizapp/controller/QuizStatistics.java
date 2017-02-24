@@ -50,7 +50,7 @@ public class QuizStatistics extends HttpServlet{
 
             session.setAttribute("ChosenQuizStatistics", chosenQuiz);
         
-        response.sendRedirect("/quizapp/QuizStatistics");
+        response.sendRedirect("/2016-agileteam1/QuizStatistics");
  
     }
     

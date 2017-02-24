@@ -15,25 +15,25 @@
             <%    if (staffLogin.getLoggedIn()) {
             %>
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/AccountProfile">
+                <a class="nav-link" href="/2016-agileteam1/AccountProfile">
                     <span class="ion-person" aria-hidden="true"></span> My Profile</a>
             </li>
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/LogoutStaff">
+                <a class="nav-link" href="/2016-agileteam1/LogoutStaff">
                     <span class="ion-log-out" aria-hidden="true"></span> Logout</a>
             </li>  
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/AddQuiz">
+                <a class="nav-link" href="/2016-agileteam1/AddQuiz">
                     <span class="ion-plus-round" aria-hidden="true"></span> Add Quiz</a>
             </li>  
 
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/SelectModule">
+                <a class="nav-link" href="/2016-agileteam1/SelectModule">
                     <span class="ion-search" aria-hidden="true"></span> View Modules/Quizzes</a>
             </li>
             
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/ViewStaffQuizzes">
+                <a class="nav-link" href="/2016-agileteam1/ViewStaffQuizzes">
                     <span class="ion-heart" aria-hidden="true"></span> View My Quizzes</a>
             </li>
             <%  }
@@ -41,30 +41,30 @@
                 if (studentLogin != null) {
                     if (studentLogin.getLoggedIn()) { %>  
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/AccountProfile">
+                <a class="nav-link" href="/2016-agileteam1/AccountProfile">
                     <span class="ion-person" aria-hidden="true"></span> My Profile</a>
             </li>
             <li class="nav-item display-5" >
-                <a class="nav-link" href="/quizapp/LogoutStudent">
+                <a class="nav-link" href="/2016-agileteam1/LogoutStudent">
                     <span class="ion-log-out" aria-hidden="true"></span> Logout</a>
             </li>
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/ViewQuizzes">
+                <a class="nav-link" href="/2016-agileteam1/ViewQuizzes">
                     <span class="ion-search" aria-hidden="true"></span> View Quizzes</a>
             </li>
             <%}
             } else {%>
 
             <li class="nav-item display-5">
-                <a class="nav-link " href="/quizapp/CreateAccount">
+                <a class="nav-link " href="/2016-agileteam1/CreateAccount">
                     <span class="ion-person-add" aria-hidden="true"></span> Create Account</a>
             </li>
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/StudentLogin">
+                <a class="nav-link" href="/2016-agileteam1/StudentLogin">
                     <span class="ion-ios-glasses-outline" aria-hidden="true"></span> Login As Student</a>
             </li>
             <li class="nav-item display-5">
-                <a class="nav-link" href="/quizapp/StaffLogin">
+                <a class="nav-link" href="/2016-agileteam1/StaffLogin">
                     <span class="ion-ios-book-outline" aria-hidden="true"></span> Login As Staff</a>
 
             </li>
