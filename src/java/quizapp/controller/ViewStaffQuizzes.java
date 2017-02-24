@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Quiz;
 import quizapp.bean.StaffLogin;
+import quizapp.model.DeleteStaffQuiz;
 import quizapp.model.FetchStaffQuizzes;
 import quizapp.model.StaffMember;
 
@@ -29,22 +30,36 @@ public class ViewStaffQuizzes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        gatherStaffQuizzes(staffLogin.getStaffID(),request,response);
+        gatherStaffQuizzes(staffLogin.getStaffID(), request, response);
     }
-    
+
     private void gatherStaffQuizzes(int sID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FetchStaffQuizzes sO = new FetchStaffQuizzes();
-        Quiz qBean;
-        qBean = sO.getQuizzes(sID);
-        request.setAttribute("quizBean",qBean);
+        request.setAttribute("quizList", sO.getQuizzes(sID));
         RequestDispatcher rd = request.getRequestDispatcher("/viewStaffQuizzes.jsp");
         rd.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String sss = request.getParameter("Delete");
+        int quizID = Integer.parseInt(sss);
+        DeleteStaffQuiz deleteStaffQuiz = new DeleteStaffQuiz();
+        boolean didItDelete;
+        didItDelete = deleteStaffQuiz.delete(quizID);
+        HttpSession session = request.getSession();
+        if (didItDelete) {
+            session.setAttribute("deleteQuizAttempt", quizID);
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        }
+
     }
 
     @Override

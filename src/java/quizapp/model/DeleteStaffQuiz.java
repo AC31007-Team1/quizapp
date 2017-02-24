@@ -10,47 +10,48 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.LinkedList;
-import quizapp.bean.StaffQuiz;
+import java.util.List;
 
+/**
+ *
+ * @author craigwatt
+ */
+public class DeleteStaffQuiz {
 
-public class FetchStaffQuizzes {
+    public boolean delete(int quizID) {
 
-    public LinkedList<StaffQuiz> getQuizzes(int staffID) {
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
         String dbName = "16agileteam1db";
         String userID = "16agileteam1";
         String password = "8320.at1.0238";
 
-        int qid = 0;
-        String qn = "sql error";
-        int qa = 0;
-        //timestamp
-        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
         }
-        //java.sql.timestamp
+
         Connection connection = null;
-        LinkedList<StaffQuiz> quizListForReturn = new LinkedList<StaffQuiz>();
-        String selectQuizQuery = "SELECT quiz_id, quiz_name, quiz_available, quiz_added FROM 16agileteam1db.quiz WHERE staff_id_number=" + staffID;
+
+        // module id from iain
+        String query1 = "DELETE FROM 16agileteam1db.quiz_answers WHERE quiz_id=" + quizID;
+        String query2 = "DELETE FROM 16agileteam1db.quiz_questions WHERE quiz_id =" + quizID;
+        String query3 = "DELETE FROM 16agileteam1db.quiz_stats WHERE quiz_id =" + quizID;
+        String query4 = "DELETE FROM 16agileteam1db.quiz WHERE quiz_id =" + quizID;
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(selectQuizQuery);
-            while(rs.next()) {
-                qid = rs.getInt("quiz_id");
-                qn = rs.getString("quiz_name");
-                qa = rs.getInt("quiz_available");
-                StaffQuiz tempQuiz = new StaffQuiz(qid,qn,qa);
-                quizListForReturn.add(tempQuiz);
-            }
+
+            statement.execute(query1);
+            statement.execute(query2);
+            statement.execute(query3);
+            statement.execute(query4);
             connection.close();
+
         } catch (SQLException e) {
             e.getMessage();
+            return false;
         }
-        return quizListForReturn;
+        return true;
     }
 }
