@@ -23,12 +23,18 @@
                             List quizQuestionInc3Answers = quiz.getQuizI3Answers();
                             List quizQuestionID = quiz.getQuizQuestionID();
                     %>
-            <h3>Question: <%=quizQuestionList.get(i)%></h3><form action="EditQuestion" method="post"><button type="submit" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button></form>
-            <p>Correct Answer <%=quizQuestionAnswers.get(i)%></p>
+            <h3>Question: <%=quizQuestionList.get(i)%></h3>
+            <p>Correct Answer: <%=quizQuestionAnswers.get(i)%></p>
             <p>Incorrect Answer: <%=quizQuestionInc1Answers.get(i)%></p>
             <p>Incorrect Answer: <%=quizQuestionInc2Answers.get(i)%></p>
             <p>Incorrect Answer: <%=quizQuestionInc3Answers.get(i)%></p>
-
+            <form action="previewQuiz" method="post"><button type="submit" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>
+                <input type="hidden" name="quizquestion" value="<%=quizQuestionList.get(i)%>">
+                <input type="hidden" name="quizquestionanswer" value="<%=quizQuestionAnswers.get(i)%>">
+                <input type="hidden" name="quizquestionincorrect1" value="<%=quizQuestionInc1Answers.get(i)%>">
+                <input type="hidden" name="quizquestionincorrect2" value="<%=quizQuestionInc2Answers.get(i)%>">
+                <input type="hidden" name="quizquestionincorrect3" value="<%=quizQuestionInc3Answers.get(i)%>">
+            </form>
             <br>
             <%}%>
 
@@ -37,7 +43,5 @@
     <%@include file="footer.jsp"%>
     
                             
-                %>
-        <h3>Questions: <%=quizQuestionList.get(i)%></h3><form action="EditQuestion" method="post"><button type="submit" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button></form>
-        <p>Correct Answer: <%=quizQuestionAnswers.get(i)%></p>
+               
 
