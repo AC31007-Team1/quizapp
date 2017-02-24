@@ -7,8 +7,16 @@ and open the template in the editor.
     Created on : 23-Feb-2017, 00:17:59
     Author     : Think
 */
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:100|Scope+One');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:300|Scope+One');
 
+@keyframes{
+    from{
+        
+    }
+}
+form.fix{
+    display:inline;
+}
 body{
     background: url('../src/background.png')no-repeat center center fixed;
     background-size: cover;
@@ -20,6 +28,7 @@ body{
 
 .display-1{
     font-family: 'Scope One', serif;
+    font-size: 72px;
  
 }
 
