@@ -13,19 +13,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import quizapp.bean.Quiz;
 
 /**
  *
  * @author iain
  */
-@WebServlet(name = "QuizStatistics", urlPatterns = {"/QuizStatistics", "/QuizStatistics/"})
+
 public class ProceedToQuizStart extends HttpServlet{
     
     
      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("addQuizQuestions.jsp");
-            rd.forward(request,response);
+        
     }
     
     @Override
@@ -42,7 +42,7 @@ public class ProceedToQuizStart extends HttpServlet{
         session.setAttribute("Quiz", quiz);
         session.setAttribute("QuizID", quiz.getQuizID());
         
-        RequestDispatcher rd = request.getRequestDispatcher("addQuizQuestions.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("StartQuiz.jsp");
             rd.forward(request,response);
     }
 }
