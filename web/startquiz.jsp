@@ -25,11 +25,12 @@
                     %>
             <form action="SubmitQuiz" method="post">
                 <h4>Question: <%=quizQuestionList.get(i)%></h4>
-                 <input type="radio" name="answer" value="correct<%=i%>" checked><%=quizQuestionAnswers.get(i)%><br>
-                 <input type="radio" name="answer" value="incorrect" checked><%=quizQuestionInc1Answers.get(i)%><br>
-                 <input type="radio" name="answer" value="incorrect" checked><%=quizQuestionInc2Answers.get(i)%><br>
-                 <input type="radio" name="answer" value="incorrect" checked><%=quizQuestionInc3Answers.get(i)%><br> 
+                 <input type="radio" name="answer" value="c<%=i%>"><%=quizQuestionAnswers.get(i)%><br>
+                 <input type="radio" name="answer" value="i"><%=quizQuestionInc1Answers.get(i)%><br>
+                 <input type="radio" name="answer" value="i"><%=quizQuestionInc2Answers.get(i)%><br>
+                 <input type="radio" name="answer" value="i"><%=quizQuestionInc3Answers.get(i)%><br> 
             </form>
+            <%}%>
         </div>
     </div>
     <%@include file="footer.jsp"%>

@@ -19,7 +19,7 @@
                 %>
             <form role="form" class="fix"  action="StartQuiz" method="post">
                     <h3 class='display-4'><%=quizList.get(i)%></h3>
-                    <button type="submit"  action="StartQuiz" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
+                    <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
                             class="btn btn-primary display-4 col-md-3">Start Quiz</button>            
             </form>
 
