@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.StaffLogin;
+import quizapp.bean.StudentLogin;
 import quizapp.bean.module;
 import quizapp.model.CreateQuiz;
 
@@ -39,15 +40,25 @@ public class SelectModule extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
             int modID = Integer.parseInt(request.getParameter("module"));
             module specificModule  = new module();
             specificModule.setModuleID(modID);
             HttpSession session = request.getSession();
-
+            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
+            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
             session.setAttribute("module", specificModule);
-        
-        response.sendRedirect("/2016-agileteam1/ViewQuizzes");
+        if (studentLogin!=null)
+        {
+            response.sendRedirect("/2016-agileteam1/StudentQuizSelect");
+        }
+        else if (staffLogin!=null)
+        {
+            response.sendRedirect("/2016-agileteam1/ViewQuizzes");
+        }
+        else
+        {
+            throw new IllegalStateException("No one was logged in, or both people were logged in somehow");
+        }
  
     }
     
