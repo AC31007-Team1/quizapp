@@ -47,11 +47,11 @@ public class SelectModule extends HttpServlet
             StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
             StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
             session.setAttribute("module", specificModule);
-        if (studentLogin.getLoggedIn())
+        if (studentLogin!=null)
         {
             response.sendRedirect("/2016-agileteam1/StudentQuizSelect");
         }
-        else if (staffLogin.getLoggedIn())
+        else if (staffLogin!=null)
         {
             response.sendRedirect("/2016-agileteam1/ViewQuizzes");
         }

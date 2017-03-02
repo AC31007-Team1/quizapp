@@ -30,7 +30,7 @@
 
             <form role="form" class="fix " action="Favourites" method="post">
                     <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-3">Pin to</button>
+                            class="btn btn-primary display-4 col-md-3">Pin to Favourites</button>
             </form>                
                             <br>
                         <br>

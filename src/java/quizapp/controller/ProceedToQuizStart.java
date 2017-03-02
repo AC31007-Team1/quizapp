@@ -19,7 +19,7 @@ import quizapp.bean.Quiz;
  *
  * @author iain
  */
-
+@WebServlet(name = "ProceedToQuizStart", urlPatterns = {"/ProceedToQuizStart"})
 public class ProceedToQuizStart extends HttpServlet{
     
     
