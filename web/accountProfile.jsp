@@ -10,7 +10,7 @@
         <h1 class="display-1">My Profile</h1>
         
         <h3 class="display-4">ID Number:
-            ${profile.getStaffID()}
+            ${profile.getID()}
         </h3>
         <h3 class="display-4">Name:
             ${profile.getfName()}

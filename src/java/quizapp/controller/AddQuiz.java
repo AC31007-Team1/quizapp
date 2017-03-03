@@ -47,7 +47,7 @@ public class AddQuiz extends HttpServlet{
         HttpSession session = request.getSession();
         StaffLogin lg = (StaffLogin) session.getAttribute("StaffLogin");
         //use int here please - craig
-        int staffID=lg.getStaffID();
+        int staffID=lg.getID();
         LocalDateTime created = LocalDateTime.now();
         int available = 0;
         CreateQuiz initquiz = new CreateQuiz();
