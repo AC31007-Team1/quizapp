@@ -11,30 +11,38 @@
     <div style="margin: 1% 10% 10% 10%">
     <div class="jumbotron">
         
-
-            <h1 class="display-1">Starting Quiz: </h1>
-            <br>
-            <div class="col-12 center"><h2></h2></div>
-            <%for (int i = 0; i < quiz.getQuizQuestions().size(); i++) {
+        <% 
                             List quizQuestionList = quiz.getQuizQuestions();
                             List quizQuestionAnswers = quiz.getQuizCAnswers();
                             List quizQuestionInc1Answers = quiz.getQuizI1Answers();
                             List quizQuestionInc2Answers = quiz.getQuizI2Answers();
                             List quizQuestionInc3Answers = quiz.getQuizI3Answers();
                             List quizQuestionID = quiz.getQuizQuestionID();
-                    %>
-            <form action="SubmitQuiz" method="post">
+                            int i = quiz.getQuizIndex();
+                            String id = quiz.getQuizID();
+        %>
+        
+
+            <h1 class="display-1">Starting Quiz: </h1>
+            <br>
+            <div class="col-12 center"><h2></h2></div>
+            
+            <% if(quiz.getQuizIndex() != quiz.getQuizQuestions().size()){ %>
+                <form action="SubmitQuizQuestion" method="post">
                 <h4>Question: <%=quizQuestionList.get(i)%></h4>
-                 <input type="radio" name="answer" value="c<%=i%>"><%=quizQuestionAnswers.get(i)%><br>
+                 <input type="radio" name="answer" value="c"><%=quizQuestionAnswers.get(i)%><br>
                  <input type="radio" name="answer" value="i"><%=quizQuestionInc1Answers.get(i)%><br>
                  <input type="radio" name="answer" value="i"><%=quizQuestionInc2Answers.get(i)%><br>
-                 <input type="radio" name="answer" value="i"><%=quizQuestionInc3Answers.get(i)%><br> 
-            </form>
+                 <input type="radio" name="answer" value="i"><%=quizQuestionInc3Answers.get(i)%><br>
+                 <input type="hidden" name="quizID" value="<%=id%>">
+                 <input type="hidden" name="quizIndex" value="<%=i%>">
+                 
+                 <br><br>
+                 <input type="submit" value="Submit Question" class="btn btn-primary display-4">
+            </form>          
+            <%} else {%>
+            <h1>You've reached the end of the line bud</h1>
             <%}%>
         </div>
     </div>
     <%@include file="footer.jsp"%>
-    
-                            
-               
-
