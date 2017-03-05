@@ -38,15 +38,14 @@ public class FetchStudentResults {
         }
         Connection connection = null;
         LinkedList<StudentQuizStat> statListForReturn = new LinkedList<StudentQuizStat>();
-        String selectStatsQuery = "SELECT quiz_id, quiz_score, date_taken FROM 16agileteam1db.student_statistics WHERE matriculation_number=" + matricN;
+        String selectStatsQuery = "SELECT student_statistics.quiz_id, quiz_score, date_taken, quiz_name FROM 16agileteam1db.student_statistics, 16agileteam1db.quiz WHERE matriculation_number=" + matricN;
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(selectStatsQuery);
             while(rs.next()) {
                 qid = rs.getInt("quiz_id");
-                //qn = rs.getString("quiz_name");
-                qn = "NOT SURE YET";
+                qn = rs.getString("quiz_name");
                 qs = rs.getInt("quiz_score");
                 
                 ts = rs.getTimestamp("date_taken");
