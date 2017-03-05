@@ -69,10 +69,10 @@ public class AddAccount {
             statement.execute(insertStudentTableSQL);
             statement2.execute(insertProfileTableSQL);
             connection.close();
-
+            return true;
         } catch (Exception e) {
             e.getMessage();
         }
-        return true;
+        return false;
     }
 }
