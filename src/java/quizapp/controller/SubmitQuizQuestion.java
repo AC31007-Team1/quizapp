@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Quiz;
+import quizapp.bean.StudentQuiz;
 import quizapp.model.*;
 
 /**
@@ -39,6 +40,26 @@ public class SubmitQuizQuestion extends HttpServlet {
         
         String quizID = request.getParameter("quizID");
         int quizIndex = Integer.parseInt(request.getParameter("quizIndex"));
+        String answer = request.getParameter("answer");
+        
+        
+        
+        StudentQuiz studentQuiz = new StudentQuiz();
+        
+        sq = (StudentQuiz) request.getParameter(sq);
+        
+        // where score summary is kept
+        if (answer.equals("c")) {
+            
+            
+            studentQuiz.setScoreTally(Integer.parseInt(session.getAttribute(score)));
+        }
+        
+        studentQuiz.setQuestionTally(quizIndex+1);
+        
+        session.setAttribute("scoreTally", );
+        session.setAttribute("questionTally", );
+        session.setAttribute("percentageScore", );
         
         Quiz quiz = new Quiz();
         PreviewQuiz previewQuiz = new PreviewQuiz();
@@ -53,6 +74,8 @@ public class SubmitQuizQuestion extends HttpServlet {
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
         
         session.setAttribute("Quiz", quiz);
+        
+        
         
         RequestDispatcher rd = request.getRequestDispatcher("startquiz.jsp");
         rd.forward(request, response);

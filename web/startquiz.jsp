@@ -41,6 +41,7 @@
                  <input type="submit" value="Submit Question" class="btn btn-primary display-4">
             </form>          
             <%} else {%>
+            <!-- There will be a button here that submits the current quiz bean to be updated in database and results calculated-->
             <h1>You've reached the end of the line bud</h1>
             <%}%>
         </div>
