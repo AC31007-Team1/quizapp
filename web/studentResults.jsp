@@ -20,6 +20,11 @@
                         </c:forEach>
                     </table>
                 </div>
+                <form action="PrintResults" method="post">  
+                    <div class="input-group">
+                    </div><br>
+                    <input type="submit" value="Print Results" class="btn btn-primary display-4">
+                </form>
             </div>
         </div>
     </div>
