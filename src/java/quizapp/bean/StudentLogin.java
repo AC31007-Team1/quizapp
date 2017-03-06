@@ -1,10 +1,19 @@
 package quizapp.bean;
 
 public class StudentLogin {
-    private String fName,lName,email;
-    private int studentID;
+    private int matricN, profileID;
+    private String fName,lName,email, soul;
     private boolean loggedIn = false;
     
+    public void setProfile(int matricN, int profileID, String fName, String lName, String email, String soul){
+        this.matricN=matricN;
+        this.profileID=profileID;
+        this.fName=fName;
+        this.lName=lName;
+        this.email=email;
+        this.soul=soul;
+        
+    }
     public void setLoginState(boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
@@ -21,12 +30,20 @@ public class StudentLogin {
         this.loggedIn = false;
     }
 
-    public int getStudentID() {
-        return studentID;
+    public int getID() {
+        return matricN;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
+    public void setMatricN(int matricN) {
+        this.matricN = matricN;
+    }
+    
+        public int getProfileID() {
+        return profileID;
+    }
+
+    public void setProfileID(int profileID) {
+        this.profileID = profileID;
     }
 
     public String getfName() {
@@ -51,5 +68,13 @@ public class StudentLogin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+        public String getSoul() {
+        return soul;
+    }
+
+    public void setSoul(String soul) {
+        this.soul = soul;
     }
 }

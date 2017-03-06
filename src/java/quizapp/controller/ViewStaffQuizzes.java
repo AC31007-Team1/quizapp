@@ -32,7 +32,7 @@ public class ViewStaffQuizzes extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        gatherStaffQuizzes(staffLogin.getStaffID(), request, response);
+        gatherStaffQuizzes(staffLogin.getID(), request, response);
     }
 
     private void gatherStaffQuizzes(int sID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
