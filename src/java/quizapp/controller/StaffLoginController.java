@@ -44,7 +44,8 @@ public class StaffLoginController extends HttpServlet {
             staffLogin.setStaffID(staffID);
 
             session.setAttribute("StaffLogin", staffLogin);
-            
+            //craig's who code
+            session.setAttribute("whoLog", "staff");
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());
@@ -62,6 +63,4 @@ public class StaffLoginController extends HttpServlet {
         }
     }
     
-    
-
 }
