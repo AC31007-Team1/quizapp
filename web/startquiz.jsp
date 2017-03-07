@@ -22,9 +22,6 @@
                             String id = quiz.getQuizID();
         %>
         
-
-            <h1 class="display-1">Starting Quiz: </h1>
-            <br>
             <div class="col-12 center"><h2></h2></div>
             
             <% if(quiz.getQuizIndex() != quiz.getQuizQuestions().size()){ %>
@@ -42,7 +39,11 @@
             </form>          
             <%} else {%>
             <!-- There will be a button here that submits the current quiz bean to be updated in database and results calculated-->
-            <h1>You've reached the end of the line bud</h1>
+            <form action="SubmitQuiz" method="post">
+                <h3>You've reached the end of the quiz</h3>
+                <br><br>
+                <input type="submit" value="Submit Quiz" class="btn btn-primary display-4">
+            </form>
             <%}%>
         </div>
     </div>

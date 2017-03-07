@@ -13,30 +13,30 @@ public class StudentQuiz {
     
     private int scoreTally = 0;
     private int questionTally = 0;
-    private int percentageScore = 0;
+    private double percentageScore = 0.00;
 
     public int getScoreTally() {
         return scoreTally;
     }
 
-    public void setScoreTally(int scoreTally) {
-        this.scoreTally = scoreTally;
+    public void setScoreTally() {
+        this.scoreTally++;
     }
 
     public int getQuestionTally() {
         return questionTally;
     }
 
-    public void setQuestionTally(int questionTally) {
-        this.questionTally = questionTally;
+    public void setQuestionTally() {
+        this.questionTally++;
     }
 
-    public int getPercentageScore() {
+    public double getPercentageScore() {
         return percentageScore;
     }
 
-    public void setPercentageScore(int percentageScore) {
-        this.percentageScore = percentageScore;
+    public void setPercentageScore() {
+        this.percentageScore = (scoreTally / questionTally);
     }
     
 }

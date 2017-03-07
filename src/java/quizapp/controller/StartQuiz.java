@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Quiz;
+import quizapp.bean.StudentQuiz;
 import quizapp.model.PreviewQuiz;
 
 /**
@@ -45,6 +46,9 @@ public class StartQuiz extends HttpServlet {
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
         
         session.setAttribute("Quiz", quiz);
+        
+        StudentQuiz studentQuiz = new StudentQuiz();
+        session.setAttribute("StudentQuiz", studentQuiz);
                 
         RequestDispatcher rd = request.getRequestDispatcher("startquiz.jsp");
         rd.forward(request, response);

@@ -38,28 +38,25 @@ public class SubmitQuizQuestion extends HttpServlet {
         
         HttpSession session = request.getSession();
         
+        StudentQuiz studentQuiz = (StudentQuiz) session.getAttribute("StudentQuiz");
+        
         String quizID = request.getParameter("quizID");
         int quizIndex = Integer.parseInt(request.getParameter("quizIndex"));
         String answer = request.getParameter("answer");
         
-        
-        
-        StudentQuiz studentQuiz = new StudentQuiz();
-        
-        sq = (StudentQuiz) request.getParameter(sq);
-        
         // where score summary is kept
         if (answer.equals("c")) {
+            studentQuiz.setScoreTally();
+            studentQuiz.setQuestionTally();
+            studentQuiz.setPercentageScore();
             
+            session.setAttribute("StudentQuiz", studentQuiz);
+        } else if (answer.equals("i")) {
+            studentQuiz.setQuestionTally();
+            studentQuiz.setPercentageScore();
             
-            studentQuiz.setScoreTally(Integer.parseInt(session.getAttribute(score)));
+            session.setAttribute("StudentQuiz", studentQuiz);
         }
-        
-        studentQuiz.setQuestionTally(quizIndex+1);
-        
-        session.setAttribute("scoreTally", );
-        session.setAttribute("questionTally", );
-        session.setAttribute("percentageScore", );
         
         Quiz quiz = new Quiz();
         PreviewQuiz previewQuiz = new PreviewQuiz();
@@ -74,8 +71,6 @@ public class SubmitQuizQuestion extends HttpServlet {
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
         
         session.setAttribute("Quiz", quiz);
-        
-        
         
         RequestDispatcher rd = request.getRequestDispatcher("startquiz.jsp");
         rd.forward(request, response);
