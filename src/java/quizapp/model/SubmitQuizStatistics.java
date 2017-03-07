@@ -6,15 +6,11 @@
 package quizapp.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  *
@@ -27,6 +23,7 @@ public class SubmitQuizStatistics {
     private int newAverage;
     private int newAttempts;
     private int newTotal;
+    private boolean activeTable = false;
     
     String driverName = "com.mysql.jdbc.Driver";
     String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -56,6 +53,7 @@ public class SubmitQuizStatistics {
             
             while(resultSet.next())
             {
+                activeTable = true;
                 newAverage = resultSet.getInt("avg_quiz_score");
                 newAttempts = resultSet.getInt("cumulative_quiz_attempts");
                 newTotal = resultSet.getInt("cumulative_quiz_total");
@@ -85,7 +83,20 @@ public class SubmitQuizStatistics {
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             
-            // need check somewhere to prevent row duplication e.g. if row exists do insert if not do update
+            if(activeTable) {
+                PreparedStatement pstmt = connection.prepareStatement(
+                "UPDATE quiz_stats SET avg_quiz_score = ?, cumulative_quiz_attempts = ?, cumulative_quiz_total = ? WHERE quiz_id = ?");
+                pstmt.setInt( 1, newAverage );
+                pstmt.setInt( 2, newAttempts ); 
+                pstmt.setInt(3, newTotal );
+                pstmt.setString( 4, quizID ); 
+            
+                pstmt.executeUpdate();
+            
+                connection.close();
+            
+            } else {
+                // need check somewhere to prevent row duplication e.g. if row exists do insert if not do update
             PreparedStatement pstmt = connection.prepareStatement(
             "INSERT INTO quiz_stats(quiz_id, avg_quiz_score, cumulative_quiz_attempts, cumulative_quiz_total) " + " values (?, ?, ?, ?)");
             pstmt.setString( 1, quizID );
@@ -96,7 +107,7 @@ public class SubmitQuizStatistics {
             pstmt.executeUpdate();
             
             connection.close();
-            
+            } 
         } catch (SQLException e) {
             e.getMessage();
         }
