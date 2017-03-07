@@ -50,9 +50,10 @@ public class AddPinned extends HttpServlet {
             response.sendRedirect("/2016-agileteam1");
         } catch (SQLException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(AddPinned.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-}
 }
