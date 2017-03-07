@@ -16,6 +16,16 @@ public class Quiz {
     private List quizI2Answers = new ArrayList();
     private List quizI3Answers = new ArrayList();
     private boolean edited;
+    
+    private int quizIndex = 0;
+
+    public int getQuizIndex() {
+        return quizIndex;
+    }
+
+    public void setQuizIndex(int quizIndex) {
+        this.quizIndex = quizIndex;
+    }
 
     public List getQuizCAnswers() {
         return quizCAnswers;
