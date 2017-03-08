@@ -28,7 +28,7 @@
                             class="btn btn-primary display-4 col-md-5">Print Friendly Results</button>
             </form>
 
-            <form role="form" class="fix " action="Favourites" method="post">
+            <form role="form" class="fix " action="AddPinned" method="post">
                     <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
                             class="btn btn-primary display-4 col-md-3">Pin to Favourites</button>
             </form>                
