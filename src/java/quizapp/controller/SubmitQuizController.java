@@ -57,7 +57,7 @@ public class SubmitQuizController extends HttpServlet {
             submitQuiz.enterResults();
             submitQuizStatistics.enterResults();
             
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("quizresult.jsp");
             rd.forward(request, response);
     }
 }
