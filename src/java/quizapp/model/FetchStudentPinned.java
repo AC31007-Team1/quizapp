@@ -35,7 +35,7 @@ public class FetchStudentPinned {
         LinkedList<Pinned> pinnedListForReturn = new LinkedList<Pinned>();
         Connection connection = null;
         LinkedList<String> quizID = new LinkedList<String>();
-        String selectQuizQuery = "SELECT quiz_id FROM 16agileteam1db.favorite WHERE student_id=" + studentID;
+        String selectQuizQuery = "SELECT quiz_id FROM 16agileteam1db.stu_fav WHERE matriculation_number=" + studentID;
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             Statement statement = connection.createStatement();
@@ -79,7 +79,7 @@ public class FetchStudentPinned {
                 String selectQuizQuery = "SELECT quiz_name FROM 16agileteam1db.quiz WHERE quiz_id=" + quizID.get(i);
                 ResultSet rs = statement.executeQuery(selectQuizQuery);
                 while (rs.next()) {
-                    quizName.add(rs.getInt("quiz_name"));
+                    quizName.add(rs.getString("quiz_name"));
                 }
             }
 

@@ -69,10 +69,10 @@ public class CreatePinned {
 
             Statement statement = connection.createStatement();
 
-            String query = "SELECT quiz_id FROM 16agileteam1db.stu_fav WHERE quiz_id=" + qi + " AND student_id=" + si;
+            String query = "SELECT fav_id FROM 16agileteam1db.stu_fav WHERE quiz_id=" + qi + " AND matriculation_number=" + si;
             ResultSet rs = statement.executeQuery(query);
 
-            if (rs == null) {
+            if (!rs.isBeforeFirst()) {
                 there = false;
             } else {
                 there = true;

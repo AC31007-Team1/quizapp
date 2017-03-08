@@ -12,7 +12,7 @@
         <div class="jumbotron">
 
 
-            <h1 class="display-1">My Quizzes</h1>
+            <h1 class="display-1">My Pinned</h1>
             <br>
 
             <%               // for (int i = 0; i <= 14; i++) { %>
@@ -21,17 +21,11 @@
             
                 <div class="container">
                     <div class="row table">
-                        <c:forEach items="${quizList}" var="listItem">
-                            <div class="col-6">Quiz Name: ${listItem.qn} Quiz ID: ${listItem.qid} Availability: ${listItem.qa}</div>
-                            <div class="col-1">
-                            <form role="form" action="ChangeAvailability" method="post">
-                              <button type="submit" name="Availability" value="${listItem.qid}"
-                                      class="btn display-4 btn-md btn-success">Availability?</button>
-                            </form>
-                            </div>
+                        <c:forEach items="${pinnedList}" var="listItem">
+                            <div class="col-6">Quiz Name: ${listItem.qn}; Quiz ID: ${listItem.qid}</div>
                             <div class="col-2 offset-md-1">
-                                <form role="form" action="ViewStaffQuizzes" method="post">
-                                <button type="submit" style="cursor: pointer;" name="Delete" value="${listItem.qid}"
+                                <form role="form" action="ViewPinned" method="post">
+                                <button type="submit" style="cursor: pointer;" name="DeletePinned" value="${listItem.qid}"
                                         class="btn-danger display-4 btn justify-content-end" style="transform:translate(-100%,50%);">
                                     <span class="ion-trash-b"></span></button><br><br></form>
                             </div>

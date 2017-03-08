@@ -34,7 +34,7 @@ public class DeleteStudentPinned {
         Connection connection = null;
 
         // module id from iain
-        String query = "DELETE FROM 16agileteam1db.st_fav WHERE quiz_id=" + quizID + " AND matriculation_number=" + studentID;
+        String query = "DELETE FROM 16agileteam1db.stu_fav WHERE quiz_id=" + quizID + " AND matriculation_number=" + studentID;
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             Statement statement = connection.createStatement();

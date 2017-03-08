@@ -22,7 +22,7 @@ import quizapp.model.DeleteStudentPinned;
  *
  * @author craigwatt
  */
-@WebServlet(name = "ViewPinned", urlPatterns = {"/VeiwPinned"})
+@WebServlet(name = "ViewPinned", urlPatterns = {"/ViewPinned"})
 public class ViewPinned extends HttpServlet {
 
     @Override
@@ -36,7 +36,7 @@ public class ViewPinned extends HttpServlet {
     private void gatherStudentPinned(int sID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FetchStudentPinned sP = new FetchStudentPinned();
         request.setAttribute("pinnedList", sP.getQuizzes(sID));
-        RequestDispatcher rd = request.getRequestDispatcher("/viewPinned.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/favourites.jsp");
         rd.forward(request, response);
     }
 
@@ -51,10 +51,10 @@ public class ViewPinned extends HttpServlet {
         boolean didItDelete = deleteStudentPinned.delete(quizID, studentLogin.getID());
         if (didItDelete) {
             session.setAttribute("deletePinnedAttempt", quizID);
-            RequestDispatcher rd = request.getRequestDispatcher("viewPinned.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("AccountProfile");
             rd.forward(request, response);
         }
 
