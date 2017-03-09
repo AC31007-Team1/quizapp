@@ -45,32 +45,33 @@ public class CreateAccount extends HttpServlet {
         String lName = request.getParameter("lastname");
         String uEmail = request.getParameter("email");
         String uSoul = request.getParameter("soulChoice");
-        
 
         switch (uSoul) {
             //staff
             case "0":
                 String staffID = request.getParameter("staffID");
+                //int staffID = Integer.parseInt(request.getParameter("matric"));
                 //AccountCreationData acdStaff = new AccountCreationData();
                 //acdStaff.setStaffData(uName, uEmail);
                 AddAccount staffRegModel = new AddAccount();
                 if (staffRegModel.insertStaffAccount(staffID, fName, lName, uEmail)) {
                     response.sendRedirect("/2016-agileteam1/CreateAccountSuccess");
                     break;
-                }
-                else{
+                } else {
                     response.sendRedirect("/2016-agileteam1/CreateAccountError");
                     break;
                 }
             //student
             case "1":
-                int sMatric = Integer.parseInt(request.getParameter("matric"));
+                String sMatric = request.getParameter("matric");
+                //int sMatric = Integer.parseInt(request.getParameter("matric"));
                 //AccountCreationData acdStudent = new AccountCreationData();
                 //acdStudent.setStudentData(uName, uEmail, sMatric);
                 AddAccount studentRegModel = new AddAccount();
-                if (studentRegModel.insertStudentAccount()) {
+                if (studentRegModel.insertStudentAccount(sMatric, fName, lName, uEmail)) {
                     response.sendRedirect("/2016-agileteam1/CreateAccountSuccess");
-                }   break;
+                }
+                break;
             default:
                 response.sendRedirect("/2016-agileteam1/CreateAccountError");
                 break;
@@ -80,5 +81,5 @@ public class CreateAccount extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "doGet (request forward to create Account JSP page.  doPost ()";
-    }// </editor-fold>
+    }
 }
