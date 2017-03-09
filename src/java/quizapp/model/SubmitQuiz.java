@@ -1,23 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
-/**
- *
- * @author Anthony
- */
 public class SubmitQuiz {
     
     private int studentMatricID;
@@ -54,7 +43,6 @@ public class SubmitQuiz {
             pstmt.setInt( 1, studentMatricID );
             pstmt.setString( 2, quizID ); 
             pstmt.setInt(3, quizScore );
-            java.sql.Date timeNow = new Date(Calendar.getInstance().getTime().getTime());
             pstmt.setTimestamp( 4, timestamp ); 
             
             pstmt.executeUpdate();
