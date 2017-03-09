@@ -72,5 +72,4 @@ public class AccountProfile extends HttpServlet {
     public String getServletInfo() {
         return "AccountProfile Servlet";
     }
-
 }
