@@ -29,14 +29,17 @@
                         </div><br>
                         <input type="submit" value="Edit Profile" class="btn btn-primary display-4">
                     </form>
+                    <% if (staffLogin != null) {
+                            if (!staffLogin.getLoggedIn()) { %>
                     <form action="StudentResults" method="get">  
                         <div class="input-group">
                         </div><br>
                         <input type="submit" value="View all Results" class="btn btn-primary display-4">
                     </form>
+                    <% }%>
                 </div>
                 <div class ="col-lg-6">
-                    
+
                 </div>
             </div>
         </div>
