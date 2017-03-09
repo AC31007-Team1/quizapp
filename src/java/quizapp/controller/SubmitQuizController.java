@@ -1,7 +1,6 @@
 package quizapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,27 +14,22 @@ import quizapp.bean.StudentQuiz;
 import quizapp.model.SubmitQuiz;
 import quizapp.model.SubmitQuizStatistics;
 
-/**
- *
- * @author Anthony
- */
 @WebServlet(name = "SubmitQuizController", urlPatterns = {"/SubmitQuiz"})
 public class SubmitQuizController extends HttpServlet {
-    
-    private int studentMatricID;
-    private String quizID;
-    private int quizScore;
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        //left blank intetionally
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        int studentMatricID;
+        String quizID;
+        int quizScore;
         
         HttpSession session = request.getSession();
         
@@ -51,13 +45,11 @@ public class SubmitQuizController extends HttpServlet {
         SubmitQuiz submitQuiz = new SubmitQuiz(studentMatricID, quizID, quizScore);
         SubmitQuizStatistics submitQuizStatistics = new SubmitQuizStatistics(quizID, quizScore);
         
-        
-            // change to submit complete form or view quiz results page?
             
-            submitQuiz.enterResults();
-            submitQuizStatistics.enterResults();
-            
-            RequestDispatcher rd = request.getRequestDispatcher("quizresult.jsp");
-            rd.forward(request, response);
+        submitQuiz.enterResults();
+        submitQuizStatistics.enterResults();
+
+        RequestDispatcher rd = request.getRequestDispatcher("quizresult.jsp");
+        rd.forward(request, response);
     }
 }
