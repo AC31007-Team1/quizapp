@@ -1,4 +1,5 @@
 <%@include file="header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--refactored to increase usability and normalize design-->
 <title>My Profile</title>
 </head>
@@ -36,7 +37,22 @@
                         </div><br>
                         <input type="submit" value="View all Results" class="btn btn-primary display-4">
                     </form>
-                    <% }%>
+                    <% }}%>
+                    <c:set var="log" value="${whoLog}"/>
+                    <c:choose>
+                        <c:when test="${log == 'staff'}">
+                        </c:when>
+                        <c:when test="${log == 'student'}">
+                            <form action="StudentResults" method="get">  
+                                <div class="input-group">
+                                </div><br>
+                                <input type="submit" value="View all Results" class="btn btn-primary display-4">
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            ${"backend error"}
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div class ="col-lg-6">
 
