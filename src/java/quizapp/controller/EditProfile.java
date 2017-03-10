@@ -68,16 +68,17 @@ public class EditProfile extends HttpServlet {
         ChangeProfileDetails changeProfile = new ChangeProfileDetails();
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
+        String email = request.getParameter("email");
 
         //changeProfile.updateProfile(first_name, last_name, slbean.getStaffID());
         if (session.getAttribute("whoLog").equals("staff")) {
             StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-            if (changeProfile.editStaffProfile(first_name, last_name, staffLogin.getID())) {
+            if (changeProfile.editStaffProfile(first_name, last_name, email, staffLogin.getID())) {
                 response.sendRedirect("/2016-agileteam1/AccountProfile");
             }
         } else if (session.getAttribute("whoLog").equals("student")) {
             StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-            if (changeProfile.editStudentProfile(first_name, last_name, studentLogin.getID())) {
+            if (changeProfile.editStudentProfile(first_name, last_name, email, studentLogin.getID())) {
                 response.sendRedirect("/2016-agileteam1/AccountProfile");
             }
         }
