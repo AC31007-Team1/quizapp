@@ -30,6 +30,14 @@
                         </div><br>
                         <input type="submit" value="Edit Profile" class="btn btn-primary display-4">
                     </form>
+                    <% if (staffLogin != null) {
+                            if (!staffLogin.getLoggedIn()) { %>
+                    <form action="StudentResults" method="get">  
+                        <div class="input-group">
+                        </div><br>
+                        <input type="submit" value="View all Results" class="btn btn-primary display-4">
+                    </form>
+                    <% }}%>
                     <c:set var="log" value="${whoLog}"/>
                     <c:choose>
                         <c:when test="${log == 'staff'}">
