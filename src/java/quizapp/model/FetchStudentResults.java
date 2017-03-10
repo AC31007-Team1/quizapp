@@ -38,7 +38,8 @@ public class FetchStudentResults {
         }
         Connection connection = null;
         LinkedList<StudentQuizStat> statListForReturn = new LinkedList<StudentQuizStat>();
-        String selectStatsQuery = "SELECT student_statistics.quiz_id, quiz_score, date_taken, quiz_name FROM 16agileteam1db.student_statistics, 16agileteam1db.quiz WHERE matriculation_number=" + matricN;
+        //String selectStatsQuery = "SELECT quiz.quiz_id, student_statistics.quiz_score, student_statistics.date_taken, quiz.quiz_name FROM 16agileteam1db.student_statistics, 16agileteam1db.quiz WHERE matriculation_number=" + matricN;
+        String selectStatsQuery = "SELECT student_statistics.quiz_id, quiz_name, quiz_score, date_taken FROM 16agileteam1db.student_statistics INNER JOIN 16agileteam1db.quiz ON 16agileteam1db.student_statistics.quiz_id=16agileteam1db.quiz.quiz_id WHERE matriculation_number =" + matricN;
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             Statement statement = connection.createStatement();

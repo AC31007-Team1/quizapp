@@ -65,13 +65,11 @@ public class AccountProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/accountProfile.jsp");
-        rd.forward(request, response);
+                response.sendRedirect("/2016-agileteam1/EditProfile");
     }
 
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "AccountProfile Servlet";
+    }
 }
