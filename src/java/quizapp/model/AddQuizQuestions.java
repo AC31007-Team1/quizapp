@@ -39,7 +39,7 @@ public class AddQuizQuestions {
     }
 
 
-    public void submitAnswers(String answerc, String[] answeri, String quizid) {
+    public void submitAnswers(String answerc, String[] answeri, String eAnswer, String quizid) {
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
         String dbName = "16agileteam1db";
@@ -71,7 +71,7 @@ public class AddQuizQuestions {
                 ID = rs.getInt(1);
             }
             
-            String query = "INSERT INTO quiz_answers(quiz_question_id, quiz_id, correct_answer, incorrect_answer_one, incorrect_answer_two, incorrect_answer_three)" + " VALUES(?, ?, ?, ?, ?, ?);"; // my sql statement
+            String query = "INSERT INTO quiz_answers(quiz_question_id, quiz_id, correct_answer, incorrect_answer_one, incorrect_answer_two, incorrect_answer_three, answer_ex)" + " VALUES(?, ?, ?, ?, ?, ?, ?);"; // my sql statement
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, ID);
@@ -81,6 +81,8 @@ public class AddQuizQuestions {
             for(int i = 0; i < 3; i++) {
                 preparedStatement.setString(i+4, answeri[i]);
             }
+            
+            preparedStatement.setString(7, eAnswer);
             preparedStatement.execute();
 
             connection.close();

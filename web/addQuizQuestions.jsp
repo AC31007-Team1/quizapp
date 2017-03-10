@@ -36,6 +36,9 @@
                         <div class="input-group">
                             <input type="text" class="form-control" name="answeri3" placeholder="You guessed it, another incorrect answer goes here." aria-describedby="basic-addon1">
                         </div><br>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="eAnswer" placeholder="Answer explanation" aria-describedby="basic-addon1">
+                        </div><br>
                         <input type="submit" value="Add question" class="btn btn-lg btn-primary">
                     </form>
                 </div>
