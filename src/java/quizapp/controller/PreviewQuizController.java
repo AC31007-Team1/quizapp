@@ -27,7 +27,7 @@ public class PreviewQuizController extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        
+
         String quizID = request.getParameter("quiz");
         
         Quiz quiz = new Quiz();
@@ -43,7 +43,7 @@ public class PreviewQuizController extends HttpServlet {
         session.setAttribute("Quiz", quiz);
         
         RequestDispatcher rd = request.getRequestDispatcher("previewQuiz.jsp");
-            rd.forward(request,response);
+        rd.forward(request,response);
     }
 
 

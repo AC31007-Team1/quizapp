@@ -9,7 +9,7 @@ import quizapp.bean.StaffLogin;
 
 public class ChangeProfileDetails {
 
-    public boolean editStaffProfile(String firstN, String lastN, int staffID) {
+    public boolean editStaffProfile(String firstN, String lastN, String email, int staffID) {
 
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -23,7 +23,10 @@ public class ChangeProfileDetails {
         }
 
         Connection connection = null;
-        String update_staff = "UPDATE 16agileteam1db.profile_details SET first_name = '" + firstN + "', last_name = '" + lastN + "' WHERE staff_id_number = " + staffID + ";";
+        String update_staff = "UPDATE 16agileteam1db.profile_details "
+                + "SET first_name = '" + firstN + "', last_name = '" 
+                + lastN + "' , email = '" + email  
+                + "' WHERE staff_id_number = " + staffID + ";";
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -40,7 +43,7 @@ public class ChangeProfileDetails {
         return true;
     }
 
-    public boolean editStudentProfile(String firstN, String lastN, int matricN) {
+    public boolean editStudentProfile(String firstN, String lastN, String email, int matricN) {
 
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -55,7 +58,10 @@ public class ChangeProfileDetails {
 
         Connection connection = null;
 
-        String update_student = "UPDATE 16agileteam1db.profile_details SET first_name = '" + firstN + "', last_name = '" + lastN + "' WHERE matriculation_number = " + matricN + ";";
+        String update_student = "UPDATE 16agileteam1db.profile_details "
+                + "SET first_name = '" + firstN + "', last_name = '" 
+                + lastN + "' , email = '" + email + 
+                "' WHERE matriculation_number = " + matricN + ";";
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
