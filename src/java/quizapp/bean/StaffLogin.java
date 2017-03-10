@@ -30,7 +30,7 @@ public class StaffLogin {
         this.loggedIn = false;
     }
 
-    public int getStaffID() {
+    public int getID() {
         return staffID;
     }
 

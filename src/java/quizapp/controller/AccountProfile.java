@@ -6,7 +6,6 @@
 package quizapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -16,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.StaffLogin;
+import quizapp.bean.StudentLogin;
 import quizapp.model.StaffMember;
+import quizapp.model.StudentMember;
 
 /**
  *
@@ -34,36 +35,41 @@ public class AccountProfile extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        
-        gatherProfile(staffLogin.getStaffID(),request,response);
+        if (session.getAttribute("whoLog").equals("staff")) {
+            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
+            gatherStaffProfile(staffLogin.getID(), request, response);
+        } else if (session.getAttribute("whoLog").equals("student")) {
+            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+            gatherStudentProfile(studentLogin.getID(), request, response);
+        }
     }
 
-    private void gatherProfile(int staffID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void gatherStaffProfile(int staffID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StaffMember sm = new StaffMember();
         StaffLogin slbean;
         slbean = sm.getProfile(staffID);
-        request.setAttribute("profile",slbean);
+        request.setAttribute("profile", slbean);
         RequestDispatcher rd = request.getRequestDispatcher("/accountProfile.jsp");
-        //request.setAttribute("sid", slbean.getStaffID());
-        //request.setAttribute("pid", slbean.getProfileID());
-        //request.setAttribute("fn", slbean.getfName());
-        //request.setAttribute("ln", slbean.getlName());
-        //request.setAttribute("em", slbean.getEmail());
-        //request.setAttribute("soul", slbean.getSoul());
-        
+        rd.forward(request, response);
+    }
+
+    private void gatherStudentProfile(int matricN, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        StudentMember sm = new StudentMember();
+        StudentLogin slbean;
+        slbean = sm.getProfile(matricN);
+        request.setAttribute("profile", slbean);
+        RequestDispatcher rd = request.getRequestDispatcher("/accountProfile.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("/2016-agileteam1");
+                response.sendRedirect("/2016-agileteam1/EditProfile");
     }
 
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "AccountProfile Servlet";
+    }
 }

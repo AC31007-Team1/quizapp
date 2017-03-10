@@ -41,11 +41,18 @@ public class QuizStatistics extends HttpServlet{
             ViewQuizStatistic viewQuiz = new ViewQuizStatistic();
             Queue<Integer> fillQueue = new LinkedList<Integer>();
             fillQueue= viewQuiz.getQuizzes(quizID);
-            chosenQuiz.setQuiz_id(fillQueue.poll());
-            chosenQuiz.setAvg_quiz_score(fillQueue.poll());
-            chosenQuiz.setCumulative_quiz_attempts(fillQueue.poll());
-            chosenQuiz.setCumulative_quiz_total(fillQueue.poll());
-            
+            if (fillQueue.size()>1)
+            {
+                chosenQuiz.setQuiz_id(fillQueue.poll());
+                chosenQuiz.setAvg_quiz_score(fillQueue.poll());
+                chosenQuiz.setCumulative_quiz_attempts(fillQueue.poll());
+                chosenQuiz.setCumulative_quiz_total(fillQueue.poll());
+                chosenQuiz.setNoresults(false);
+            }
+            else
+            {
+                chosenQuiz.setNoresults(true);
+            }
             HttpSession session = request.getSession();
 
             session.setAttribute("ChosenQuizStatistics", chosenQuiz);

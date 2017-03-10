@@ -13,6 +13,10 @@
 
             <div class="row marketing">
                 <div class="col-lg-6">
+                    <%if (chosenQuiz.getNoresults()==true)
+                    {%>
+                    <p>There are no statistics available for this quiz. A student has probably not taken this quiz yet!</p>
+                    <%}else{%>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -31,6 +35,7 @@
                             </tr>
                         </tbody>
                     </table>
+                            <%}%>
                 </div>
             </div>
         </div>
