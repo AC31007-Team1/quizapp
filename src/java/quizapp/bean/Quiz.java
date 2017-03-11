@@ -15,6 +15,15 @@ public class Quiz {
     private List quizI1Answers = new ArrayList();
     private List quizI2Answers = new ArrayList();
     private List quizI3Answers = new ArrayList();
+    private List quizEAnswers = new ArrayList();
+
+    public List getQuizEAnswers() {
+        return quizEAnswers;
+    }
+
+    public void setQuizEAnswers(List quizEAnswers) {
+        this.quizEAnswers = quizEAnswers;
+    }
     private boolean edited;
     
     private int quizIndex = 0;

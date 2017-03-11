@@ -14,15 +14,16 @@ public class PreviewQuiz {
     private final List incorrectQuizAnswer1 = new ArrayList();
     private final List incorrectQuizAnswer2 = new ArrayList();
     private final List incorrectQuizAnswer3 = new ArrayList();
+    private final List answerExplantion = new ArrayList();
     private final List quizIDList = new ArrayList();
     
+    private final String driverName = "com.mysql.jdbc.Driver";
+    private final String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+    private final String dbName = "16agileteam1db";
+    private final String userID = "16agileteam1";
+    private final String password = "8320.at1.0238";
+    
     public List getQuizQuestions(String quizID) {
-        
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
         
         try {
             Class.forName(driverName);
@@ -32,7 +33,7 @@ public class PreviewQuiz {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM quiz_questions WHERE quiz_id =" + quizID;
+        String query = "SELECT question FROM quiz_questions WHERE quiz_id =" + quizID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -55,12 +56,6 @@ public class PreviewQuiz {
     
     public List getQuizQuestionsAnswers(String quizID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -69,7 +64,7 @@ public class PreviewQuiz {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM quiz_answers WHERE quiz_id =" + quizID;
+        String query = "SELECT correct_answer FROM quiz_answers WHERE quiz_id =" + quizID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -92,12 +87,6 @@ public class PreviewQuiz {
     
     public List getQuizIncOne(String quizID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -106,7 +95,7 @@ public class PreviewQuiz {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM quiz_answers WHERE quiz_id =" + quizID;
+        String query = "SELECT incorrect_answer_one FROM quiz_answers WHERE quiz_id =" + quizID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -129,12 +118,6 @@ public class PreviewQuiz {
     
     public List getQuizIncTwo(String quizID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -143,7 +126,7 @@ public class PreviewQuiz {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM quiz_answers WHERE quiz_id =" + quizID;
+        String query = "SELECT incorrect_answer_two FROM quiz_answers WHERE quiz_id =" + quizID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -166,12 +149,6 @@ public class PreviewQuiz {
     
     public List getQuizIncThree(String quizID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -180,7 +157,7 @@ public class PreviewQuiz {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM quiz_answers WHERE quiz_id =" + quizID;
+        String query = "SELECT incorrect_answer_three FROM quiz_answers WHERE quiz_id =" + quizID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -203,12 +180,6 @@ public class PreviewQuiz {
     
     public List getQuestionID(String quizID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -217,7 +188,7 @@ public class PreviewQuiz {
         Connection connection = null;
 
         // module id from iain
-        String query = "SELECT * FROM quiz_questions WHERE quiz_id =" + quizID;
+        String query = "SELECT quiz_question_id FROM quiz_questions WHERE quiz_id =" + quizID;
 
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
@@ -236,5 +207,36 @@ public class PreviewQuiz {
         }
         
         return quizIDList;
+    }
+    
+    public List getAnswerExplanation(String quizID) {
+        
+        try {
+            Class.forName(driverName);
+        } catch (ClassNotFoundException e) {
+        }
+
+        Connection connection = null;
+
+        // module id from iain
+        String query = "SELECT answer_ex FROM quiz_answers WHERE quiz_id =" + quizID;
+
+        try {
+            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            while (resultSet.next()) {
+                answerExplantion.add(resultSet.getString("answer_ex"));
+            }
+
+            connection.close();
+            
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        
+        return answerExplantion;
     }
 }
