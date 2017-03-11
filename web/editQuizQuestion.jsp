@@ -11,7 +11,7 @@
 
             <%-- will also need to find a way to get the quiz ID when navigating to this page, perhaps set from the quiz.jsp page controller/model--%>
 
-            <h4 class="display-4"><%=questionContainer.getQuestion()%>. Choose your question's name, the correct and incorrect answer, and click "Add Question". <br>It's that easy!</h4>
+            <h4 class="display-4"><%=questionContainer.getQuestion()%></h4>
             <br>
             
 
@@ -38,7 +38,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" name="eAnswer" value="<%=questionContainer.getExplanation()%>" placeholder="Enter a explanation here." aria-describedby="basic-addon1">
                         </div><br>
-                        <input type="submit" value="Add question" class="btn btn-lg btn-primary">
+                        <input type="submit" value="Update Question" class="btn btn-lg btn-primary">
                     </form>
                 </div>
             </div>
