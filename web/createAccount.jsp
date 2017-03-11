@@ -26,7 +26,7 @@
                 <div class="input-group">
                     <input type="email" class="form-control" name="email" placeholder="staff@dundee.ac.uk" aria-describedby="basic-addon1">
                 </div><br>
-                <div class ="input-group">
+                <div class ="input-group ">
                     <select name ="soulChoice" class="form-control" id="selS" onchange="change(this)">
                         <option>Are you a staff member or student?</option>
                         <br/><br/>

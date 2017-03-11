@@ -8,8 +8,13 @@ You will probably want navbar.jsp as well.
 </head>
 
 <body>
-   <%@include file="navbar.jsp"%>
-   <div class="hero">
-       <div class="animated fadeInUp hero-text">CraigMC</div></div>
-   <%@include file="footer.jsp"%>
+    <%@include file="navbar.jsp"%>
+    <div style="margin: 1% 10% 10% 10%">
+        <div class="jumbotron" id="jumboindex">
+            <div class="">
+                <div class="animated fadeInUp hero-text">CraigMC</div>
+            </div>
+        </div>
+    </div>
+    <%@include file="footer.jsp"%>
 
