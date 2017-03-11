@@ -44,7 +44,6 @@ public class SubmitQuizController extends HttpServlet {
         
         SubmitQuiz submitQuiz = new SubmitQuiz(studentMatricID, quizID, quizScore);
         SubmitQuizStatistics submitQuizStatistics = new SubmitQuizStatistics(quizID, quizScore);
-        
             
         submitQuiz.enterResults();
         submitQuizStatistics.enterResults();

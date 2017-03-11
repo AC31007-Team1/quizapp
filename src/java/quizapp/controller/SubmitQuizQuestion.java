@@ -59,6 +59,7 @@ public class SubmitQuizQuestion extends HttpServlet {
         quiz.setQuizI2Answers(previewQuiz.getQuizIncTwo(quizID));
         quiz.setQuizI3Answers(previewQuiz.getQuizIncThree(quizID));
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
+        quiz.setQuizEAnswers(previewQuiz.getAnswerExplanation(quizID));
         
         session.setAttribute("Quiz", quiz);
         

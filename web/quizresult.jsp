@@ -16,6 +16,10 @@
             <div class="row marketing">
                 <div class="col-lg-6">
                     <h3>You scored: <%=studentQuiz.getScoreTally()%> out of a total <%=studentQuiz.getQuestionTally()%></h3>
+                    <% for(int i = 0; i < quiz.getQuizEAnswers().size(); i++) {%>
+                    <br><h3>Question <%=i+1%> Explanation</h3><br>
+                    <p><%=quiz.getQuizEAnswers().get(i)%></p>
+                    <%}%>
                 </div>
             </div>
         </div>
