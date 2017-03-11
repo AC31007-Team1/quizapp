@@ -42,6 +42,7 @@ public class editQuizQuestion extends HttpServlet {
         String[] incorrectAnswers = new String[3];
         String correctAnswer = request.getParameter("cAnswer");
         String question = request.getParameter("question");
+        String explanation = request.getParameter("eAnswer");
         for (int i=0;i<3;i++)
         {
             int a=i+1;
@@ -58,7 +59,7 @@ public class editQuizQuestion extends HttpServlet {
             Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            editQuizQuestion.updateQuizAnswers(correctAnswer, incorrectAnswers[0], incorrectAnswers[1], incorrectAnswers[2], questionContainer.getQuestionID());
+            editQuizQuestion.updateQuizAnswers(correctAnswer, incorrectAnswers[0], incorrectAnswers[1], incorrectAnswers[2], explanation, questionContainer.getQuestionID());
         } catch (SQLException ex) {
             Logger.getLogger(editQuizQuestion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
