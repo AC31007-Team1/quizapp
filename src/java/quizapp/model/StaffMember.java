@@ -51,6 +51,7 @@ public class StaffMember {
         try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
             
             ResultSet rs = statement.executeQuery(selectProfileQuery);
+            
             if (rs.next()) {
                 pid = rs.getInt("profile_id");
                 sid = rs.getInt("staff_id_number");
