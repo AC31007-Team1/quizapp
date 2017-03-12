@@ -41,7 +41,8 @@ public class AddPinned extends HttpServlet {
         CreatePinned pinned = new CreatePinned();
 
         pinned.insertPinned(quizID, studentID);
-        response.sendRedirect("index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
 
     }
 
