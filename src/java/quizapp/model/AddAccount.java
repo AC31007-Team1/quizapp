@@ -17,11 +17,11 @@ public class AddAccount {
         String insertProfileTableSQL = "INSERT INTO 16agileteam1db.profile_details(staff_id_number, first_name, last_name, email, soul) "
                 + "VALUES(" + staffID + ",'" + staffFN + "','" + staffLN + "','" + staffE + "','staff');";
 
-        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement(); Statement statement2 = connection.createStatement()) {
             
-            statement.addBatch(insertStaffTableSQL);
-            statement.addBatch(insertProfileTableSQL);
-            statement.executeBatch();
+            statement.execute(insertStaffTableSQL);
+            statement2.execute(insertProfileTableSQL);
+            connection.close();
             
             status = true;
             
@@ -40,11 +40,11 @@ public class AddAccount {
         String insertProfileTableSQL = "INSERT INTO 16agileteam1db.profile_details(matriculation_number, first_name, last_name, email, soul) "
                 + "VALUES(" + matricN + ",'" + studentFN + "','" + studentLN + "','" + studentE + "','student');";
         
-        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement(); Statement statement2 = connection.createStatement()) {
             
-            statement.addBatch(insertStudentTableSQL);
-            statement.addBatch(insertProfileTableSQL);
-            statement.executeBatch();
+            statement.execute(insertStudentTableSQL);
+            statement2.execute(insertProfileTableSQL);
+            connection.close();
             
             status = true;
             
