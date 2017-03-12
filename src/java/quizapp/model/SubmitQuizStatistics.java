@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.model;
 
 import java.sql.Connection;
@@ -12,10 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author Anthony
- */
 public class SubmitQuizStatistics {
     
     private String quizID;
@@ -25,11 +16,11 @@ public class SubmitQuizStatistics {
     private int newTotal;
     private boolean activeTable = false;
     
-    String driverName = "com.mysql.jdbc.Driver";
-    String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-    String dbName = "16agileteam1db";
-    String userID = "16agileteam1";
-    String password = "8320.at1.0238";
+    private String driverName = "com.mysql.jdbc.Driver";
+    private String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
+    private String dbName = "16agileteam1db";
+    private String userID = "16agileteam1";
+    private String password = "8320.at1.0238";
 
     public SubmitQuizStatistics(String quizID, int quizScore) {
         this.quizID = quizID;
@@ -67,7 +58,6 @@ public class SubmitQuizStatistics {
     }
     
     public void enterResults() {
-        // Average = sum / total
         
         getInitResults();
         
@@ -96,7 +86,6 @@ public class SubmitQuizStatistics {
                 connection.close();
             
             } else {
-                // need check somewhere to prevent row duplication e.g. if row exists do insert if not do update
             PreparedStatement pstmt = connection.prepareStatement(
             "INSERT INTO quiz_stats(quiz_id, avg_quiz_score, cumulative_quiz_attempts, cumulative_quiz_total) " + " values (?, ?, ?, ?)");
             pstmt.setString( 1, quizID );

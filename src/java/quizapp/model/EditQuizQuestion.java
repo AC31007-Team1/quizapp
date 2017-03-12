@@ -65,7 +65,7 @@ public class EditQuizQuestion {
         return false;
     }
     
-    public boolean updateQuizAnswers(String correctAnswer, String incorrectAnswer1, String incorrectAnswer2, String incorrectAnswer3, int questionID) throws SQLException, ParseException {
+    public boolean updateQuizAnswers(String correctAnswer, String incorrectAnswer1, String incorrectAnswer2, String incorrectAnswer3, String explanation, int questionID) throws SQLException, ParseException {
         
         //hide userID & password (shippable?)
         /*String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
@@ -88,12 +88,13 @@ public class EditQuizQuestion {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             
             PreparedStatement pstmt = connection.prepareStatement(
-            "UPDATE quiz_answers SET correct_answer=?, incorrect_answer_one=?, incorrect_answer_two=?, incorrect_answer_three=?"+ "WHERE quiz_question_id = ?");
+            "UPDATE quiz_answers SET correct_answer=?, incorrect_answer_one=?, incorrect_answer_two=?, incorrect_answer_three=?, answer_ex=?"+ "WHERE quiz_question_id = ?");
             pstmt.setString( 1, correctAnswer );
             pstmt.setString( 2, incorrectAnswer1 );
             pstmt.setString( 3, incorrectAnswer2 );
             pstmt.setString( 4, incorrectAnswer3 );
-            pstmt.setInt( 5, questionID );
+            pstmt.setString( 5, explanation);
+            pstmt.setInt( 6, questionID );
             
             
             pstmt.executeUpdate();

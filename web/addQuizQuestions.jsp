@@ -21,20 +21,23 @@
                     
                     <form action="SubmitQuestions" method="post">  
                         <div class="input-group">
-                            <input type="text" class="form-control" name="question" placeholder="Enter your question's name." aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="question" placeholder="Enter your question's name." aria-describedby="basic-addon1" required title="You enter a question!">
                         </div><br>
                      
                         <div class="input-group">
-                            <input type="text" class="form-control" name="cAnswer" placeholder="Enter your question's correct answer." aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="cAnswer" placeholder="Enter your question's correct answer." aria-describedby="basic-addon1" required title="You must define a correct answer!">
                         </div><br>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="answeri1" placeholder="Enter an incorrect answer." aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="answeri1" placeholder="Enter an incorrect answer." aria-describedby="basic-addon1" required title="You must enter an incorrect answer">
                         </div><br>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="answeri2" placeholder="Enter another incorrect answer." aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="answeri2" placeholder="Enter another incorrect answer." aria-describedby="basic-addon1" required title="You must enter an incorrect answer">
                         </div><br>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="answeri3" placeholder="You guessed it, another incorrect answer goes here." aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="answeri3" placeholder="You guessed it, another incorrect answer goes here." aria-describedby="basic-addon1" required title="You must enter an incorrect answer">
+                        </div><br>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="eAnswer" placeholder="Answer explanation" aria-describedby="basic-addon1" required title="You must enter an explanation of the answer">
                         </div><br>
                         <input type="submit" value="Add question" class="btn btn-lg btn-primary">
                     </form>
