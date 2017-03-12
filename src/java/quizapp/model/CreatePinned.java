@@ -1,86 +1,56 @@
 package quizapp.model;
 
-import java.sql.*;
-import java.text.ParseException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import quizpp.util.DatabaseManager;
 
 public class CreatePinned {
+    
+    private DatabaseManager db = new DatabaseManager();
+    boolean pinnedStatus = false;
 
-    public void AddPinned() {
-    }
+    public void insertPinned(String quizID, int studentID) {
+        
+        String query = "INSERT INTO 16agileteam1db.stu_fav (quiz_id, matriculation_number ) "
+                        + " values (?, ?)";
 
-    public boolean insertPinned(String quizID, int studentID) throws SQLException, ParseException {
+        boolean pinned = checkPinned(quizID, studentID);
+        
+        if (pinned) {
+            try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-        boolean already = isAlreadyPinned(quizID, studentID);
+                preparedStatement.setString(1, quizID);
+                preparedStatement.setInt(2, studentID);
 
-        if (already == false) {
-
-            String driverName = "com.mysql.jdbc.Driver";
-            String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-            String dbName = "16agileteam1db";
-            String userID = "16agileteam1";
-            String password = "8320.at1.0238";
-
-            try {
-                Class.forName(driverName);
-            } catch (ClassNotFoundException e) {
-            }
-            Connection connection = null;
-            try {
-                connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
-
-                PreparedStatement pstmt = connection.prepareStatement(
-                        "INSERT INTO 16agileteam1db.stu_fav (quiz_id, matriculation_number ) "
-                        + " values (?, ?)");
-                pstmt.setString(1, quizID);
-                pstmt.setInt(2, studentID);
-
-                pstmt.executeUpdate();
+                preparedStatement.executeUpdate();
 
                 connection.close();
-                return true;
 
-            } catch (SQLException e) {
-                e.getMessage();
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
             }
-            return false;
-        } else {
-            return false;
-
         }
-
     }
 
-    public boolean isAlreadyPinned(String qi, int si) {
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
+    public boolean checkPinned(String qi, int si) {
         
-        boolean there = true;
-
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
-
-            Statement statement = connection.createStatement();
-
-            String query = "SELECT fav_id FROM 16agileteam1db.stu_fav WHERE quiz_id=" + qi + " AND matriculation_number=" + si;
+        String query = "SELECT fav_id FROM 16agileteam1db.stu_fav WHERE quiz_id=" + qi + " AND matriculation_number=" + si;
+        
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement();) {
+            
             ResultSet rs = statement.executeQuery(query);
+            
+            pinnedStatus = !rs.isBeforeFirst();
 
-            if (!rs.isBeforeFirst()) {
-                there = false;
-            } else {
-                there = true;
-            }
+            connection.close();
 
-        } catch (SQLException e) {
-            e.getMessage();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
-        return there;
+        
+        return pinnedStatus;
     }
 }
