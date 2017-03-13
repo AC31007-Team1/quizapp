@@ -23,6 +23,7 @@
                             List quizQuestionInc3Answers = quiz.getQuizI3Answers();
                             List quizQuestionID = quiz.getQuizQuestionID();
                             List quizQuestionEx = quiz.getQuizEAnswers();
+                            List quizQuestionVideoUrls = quiz.getQuizVideoUrls();
                     %>
             <table class="table table-striped">
                 <thead class="thead-inverse">
@@ -56,6 +57,13 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
+            <%if (quizQuestionVideoUrls.get(i)!=""){%>
+                <iframe width="420" height="315"
+                    src="https://www.youtube.com/embed/<%=quizQuestionVideoUrls.get(i)%>">
+                </iframe> 
+                   %<}%>
+            
 
             <form action="previewQuiz" method="post"><button type="submit" style="cursor:pointer;" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>
                 <input type="hidden" name="quizquestion" value="<%=quizQuestionList.get(i)%>">
@@ -64,6 +72,7 @@
                 <input type="hidden" name="quizquestionincorrect2" value="<%=quizQuestionInc2Answers.get(i)%>">
                 <input type="hidden" name="quizquestionincorrect3" value="<%=quizQuestionInc3Answers.get(i)%>">
                 <input type="hidden" name="quizExplantion" value="<%=quizQuestionEx.get(i)%>">
+                <input type="hidden" name="quizVideoUrl" value="<%=quizQuestionVideoUrls.get(i)%>">
             </form>
             <br>
             <%}%>

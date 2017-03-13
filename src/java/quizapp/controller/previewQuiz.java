@@ -39,7 +39,8 @@ public class previewQuiz extends HttpServlet{
         int quizQuestionID = Integer.parseInt(request.getParameter("quizquestionid"));
         String quizQuestion = request.getParameter("quizquestion");
         String quizQuestionAnswer = request.getParameter("quizquestionanswer");
-        String quizQuestionExplanation = request.getParameter("quizExplantion");
+        String quizQuestionExplanation = request.getParameter("quizExplanation");
+        String quizQuestionVideoUrl = request.getParameter("quizVideoUrl");
         List quizQuestionIncorrect = new ArrayList();
         for (int i=1;i<4;i++)
         {
@@ -52,6 +53,7 @@ public class previewQuiz extends HttpServlet{
         questionContainer.setCorrect(quizQuestionAnswer);
         questionContainer.setIncorrect(quizQuestionIncorrect);
         questionContainer.setExplanation(quizQuestionExplanation);
+        questionContainer.setVideoUrl(quizQuestionVideoUrl);
         session.setAttribute("QuestionContainer", questionContainer);
         response.sendRedirect("/2016-agileteam1/editQuizQuestion");
         

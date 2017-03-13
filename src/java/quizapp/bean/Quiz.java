@@ -7,6 +7,7 @@ import java.util.LinkedList;
 public class Quiz {
     private List quizList = new ArrayList();
     private List quizIDList = new ArrayList();
+    
 
     private String quizID;
     private List quizQuestionID = new ArrayList();
@@ -16,6 +17,7 @@ public class Quiz {
     private List quizI2Answers = new ArrayList();
     private List quizI3Answers = new ArrayList();
     private List quizEAnswers = new ArrayList();
+    private List quizVideoUrls = new ArrayList();
 
     public List getQuizEAnswers() {
         return quizEAnswers;
@@ -116,7 +118,11 @@ public class Quiz {
         this.edited = edited;
     }
 
-    
-    
-    
+    public List getQuizVideoUrls() {
+        return quizVideoUrls;
+    }
+
+    public void setQuizVideoUrls(List quizVideoUrls) {
+        this.quizVideoUrls = quizVideoUrls;
+    }
 }

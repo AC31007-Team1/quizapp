@@ -18,6 +18,7 @@ public class QuestionContainer {
     private String question;
     private int questionID;
     private String explanation;
+    private String videoUrl;
 
     public String getExplanation() {
         return explanation;
@@ -58,6 +59,14 @@ public class QuestionContainer {
     public void setQuestionID(int questionID) {
         this.questionID = questionID;
     }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
     
-    
+   
 }

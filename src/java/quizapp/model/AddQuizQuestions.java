@@ -11,14 +11,15 @@ public class AddQuizQuestions {
     
     private DatabaseManager db = new DatabaseManager();
 
-    public void submitQuestion(String question, String quizid) {
+    public void submitQuestion(String question, String quizid, String videoUrl) {
         
-        String query = "INSERT INTO quiz_questions(quiz_id, question)" + "VALUES(?, ?)";
+        String query = "INSERT INTO quiz_questions(quiz_id, question, video_url)" + "VALUES(?, ?, ?)";
         
         try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             
             preparedStatement.setString(1, quizid);
             preparedStatement.setString(2, question);
+            preparedStatement.setString(3, videoUrl);
 
             preparedStatement.execute();
 
@@ -50,7 +51,6 @@ public class AddQuizQuestions {
             for(int i = 0; i < 3; i++) {
                 preparedStatement.setString(i+4, answeri[i]);
             }
-            
             preparedStatement.setString(7, eAnswer);
             preparedStatement.execute();
 
