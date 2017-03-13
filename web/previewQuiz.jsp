@@ -24,12 +24,39 @@
                             List quizQuestionID = quiz.getQuizQuestionID();
                             List quizQuestionEx = quiz.getQuizEAnswers();
                     %>
-            <h3>Question: <%=quizQuestionList.get(i)%></h3>
+            <table class="table table-striped">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>
+                            <h3 class="display-5">Question: <%=quizQuestionList.get(i)%></h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
             <p>Correct Answer: <%=quizQuestionAnswers.get(i)%></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
             <p>Incorrect Answer: <%=quizQuestionInc1Answers.get(i)%></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>                     
             <p>Incorrect Answer: <%=quizQuestionInc2Answers.get(i)%></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
             <p>Incorrect Answer: <%=quizQuestionInc3Answers.get(i)%></p>
-            <p>Answer Explanation: <%=quizQuestionEx.get(i)%></p>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
             <form action="previewQuiz" method="post"><button type="submit" style="cursor:pointer;" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>
                 <input type="hidden" name="quizquestion" value="<%=quizQuestionList.get(i)%>">
                 <input type="hidden" name="quizquestionanswer" value="<%=quizQuestionAnswers.get(i)%>">

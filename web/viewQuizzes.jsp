@@ -20,17 +20,17 @@
             <form role="form" class="fix"  action="PreviewQuiz" method="post">
                     <h3 class='display-4'><%=quizList.get(i)%></h3>
                     <button type="submit"  action="PreviewQuiz" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-3">Preview Quiz</button>            
+                            class="btn btn-primary display-4 col-md-4">Preview Quiz</button>            
             </form>
 
             <form role="form" class="fix "action="AddQuizQuestions" method="post">
                     <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-5">Add Quiz Questions</button>
+                            class="btn btn-primary display-4 col-md-3">Add Quiz Questions</button>
             </form>
 
             <form role="form"class="fix " action="QuizStatistics" method="post">
                     <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-3">View Quiz Statistics</button>
+                            class="btn btn-primary display-4 col-md-4">View Quiz Statistics</button>
 
             </form>
                         

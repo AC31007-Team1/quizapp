@@ -14,8 +14,9 @@
                 ${profile.getID()}
             </h3>
             <h3 class="display-4">Name:
-                ${profile.getfName()}
-                ${profile.getlName()}
+
+                ${profile.getfName()} ${profile.getlName()}
+
             </h3>
             <h3 class="display-4">Email:
                 ${profile.getEmail()} 
@@ -60,5 +61,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>

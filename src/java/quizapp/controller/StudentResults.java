@@ -20,10 +20,9 @@ import quizapp.bean.StudentQuizStat;
 import quizapp.model.FetchStudentResults;
 import quizapp.model.StudentMember;
 
-/**
- *
- * @author craigwatt
- */
+/*
+    @author craigwatt
+*/
 @WebServlet(name = "StudentResults", urlPatterns = {"/StudentResults"})
 public class StudentResults extends HttpServlet {
 
@@ -61,6 +60,7 @@ public class StudentResults extends HttpServlet {
     private void gatherStudentResults(int matricN, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FetchStudentResults fsr = new FetchStudentResults();
         request.setAttribute("statList", fsr.getStudentStats(matricN));
+        
         RequestDispatcher rd = request.getRequestDispatcher("/studentResults.jsp");
         rd.forward(request, response);
     }

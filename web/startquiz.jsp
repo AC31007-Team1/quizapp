@@ -27,10 +27,12 @@
             <% if(quiz.getQuizIndex() != quiz.getQuizQuestions().size()){ %>
                 <form action="SubmitQuizQuestion" method="post">
                 <h4>Question: <%=quizQuestionList.get(i)%></h4>
-                 <input type="radio" name="answer" value="c" checked><%=quizQuestionAnswers.get(i)%><br>
-                 <input type="radio" name="answer" value="i"><%=quizQuestionInc1Answers.get(i)%><br>
-                 <input type="radio" name="answer" value="i"><%=quizQuestionInc2Answers.get(i)%><br>
-                 <input type="radio" name="answer" value="i"><%=quizQuestionInc3Answers.get(i)%><br>
+
+                <button type="radio" class="btn btn-primary mg col-lg-12 row" name="answer" value="c"><%=quizQuestionAnswers.get(i)%></button>
+                <button type="radio" class="btn btn-success mg col-lg-12 row" name="answer" value="i"><%=quizQuestionInc1Answers.get(i)%></button>
+                <button type="radio" class="btn btn-danger mg col-lg-12 row"  name="answer" value="i"><%=quizQuestionInc2Answers.get(i)%></button>
+                <button type="radio" class="btn btn-warning mg col-lg-12 row" name="answer" value="i"><%=quizQuestionInc3Answers.get(i)%></button>
+
                  <input type="hidden" name="quizID" value="<%=id%>">
                  <input type="hidden" name="quizIndex" value="<%=i%>">
                  
@@ -46,5 +48,5 @@
             </form>
             <%}%>
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>

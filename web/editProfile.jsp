@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>
 
 <!--refactored to increase usability and normalize design-->
-<title>My Profile</title>
+<title>Edit Profile</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>     
@@ -27,15 +27,18 @@
             </h3>
 
             <div class="row marketing">
-                <div class="col-lg-6">
+                <div class="">
                     <form action="EditProfile" method="post">  
                         <div class="input-group">
-                            <input type="text" class="form-control" name = "first_name" id="first_name"  value="${profile.getfName()}"  placeholder="Edit First Name" aria-describedby="basic-addon1"> 
-                            <br/>
-                            <input type="text" class="form-control" name = "last_name" id="last_name"  value="${profile.getlName()}"  placeholder="Edit Last Name" aria-describedby="basic-addon1">
-                            <br/>
-                            <input type="text" class="form-control" name = "email" id="email"  value="${profile.getEmail()}"  placeholder="Edit Last Name" aria-describedby="basic-addon1">
-                        </div><br>
+                            <span class="input-group-addon">First Name: </span><input type="text" class="form-control" name = "first_name" id="first_name"  value="${profile.getfName()}"  placeholder="Edit First Name" aria-describedby="basic-addon1"> 
+                        </div><br/>
+                        <div class="input-group">
+                            <span class="input-group-addon">Last Name: </span><input type="text" class="form-control" name = "last_name" id="last_name"  value="${profile.getlName()}"  placeholder="Edit Last Name" aria-describedby="basic-addon1">
+                        </div><br/>
+                        <div class="input-group">
+                            
+                            <span class="input-group-addon">Email: </span><input type="text" class="form-control" name = "email" id="email"  value="${profile.getEmail()}"  placeholder="Edit Last Name" aria-describedby="basic-addon1">
+                        </div><br/>
                         <input type="submit" value="Update" class="btn btn-lg btn-primary">
                     </form>
                 </div>
@@ -44,5 +47,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>
