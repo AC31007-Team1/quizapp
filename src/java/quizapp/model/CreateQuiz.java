@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 

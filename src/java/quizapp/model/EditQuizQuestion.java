@@ -3,7 +3,7 @@ package quizapp.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 
 public class EditQuizQuestion {
     

@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 
 public class SubmitQuiz {
     

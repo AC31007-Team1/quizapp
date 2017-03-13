@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.LinkedList;
 import quizapp.bean.StudentQuizStat;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 
 public class FetchStudentResults {
     

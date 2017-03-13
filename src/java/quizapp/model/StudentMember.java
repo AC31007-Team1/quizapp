@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import quizapp.bean.StudentLogin;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 
 public class StudentMember {
 

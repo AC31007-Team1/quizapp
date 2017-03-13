@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 
 public class AddQuizQuestions {
     

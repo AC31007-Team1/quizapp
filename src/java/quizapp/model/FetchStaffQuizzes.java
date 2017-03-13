@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import quizapp.bean.StaffQuiz;
-import quizpp.util.DatabaseManager;
+import quizapp.util.DatabaseManager;
 
 public class FetchStaffQuizzes {
     

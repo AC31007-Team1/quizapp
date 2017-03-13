@@ -1,4 +1,4 @@
-package quizpp.util;
+package quizapp.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
