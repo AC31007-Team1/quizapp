@@ -41,7 +41,7 @@
                 <div id="matric_div" style="display: none;">
                     <input type="number" class="form-control" name="matric" placeholder="Matriculation Number" aria-describedby="basic-addon1">
                 </div><br>
-                <input type="submit" value="Create Account" class="display-4 btn btn btn-primary">
+                    <input type="submit" value="Create Account" class="display-4 btn btn btn-primary">
             </form>
         </div>
     </div>
@@ -64,7 +64,8 @@
         }
     </script>
     </div>
-     </div>
+     
+    <%@include file="footer.jsp"%>
 
 
 

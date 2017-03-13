@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@include file="header.jsp"%>
   <!--refactored to increase usability and normalize design-->
-<title>Quizzes</title>
+<title>View Quizzes</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>
@@ -38,6 +38,6 @@
                         <br>
         <%}%>
     </div>
-    </div>
+    
 
         <%@include file="footer.jsp"%>
