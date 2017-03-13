@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,17 +12,13 @@ import quizapp.bean.Quiz;
 import quizapp.bean.StudentQuiz;
 import quizapp.model.*;
 
-/**
- *
- * @author Anthony
- */
 @WebServlet(name = "SubmitQuizQuestion", urlPatterns = {"/SubmitQuizQuestion"})
 public class SubmitQuizQuestion extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        // left blank intetionally
     }
 
    
@@ -45,13 +35,13 @@ public class SubmitQuizQuestion extends HttpServlet {
         String answer = request.getParameter("answer");
         
         // where score summary is kept
-        if (answer.equals("c")) {
+        if ("c".equals(answer)) {
             studentQuiz.setScoreTally();
             studentQuiz.setQuestionTally();
             studentQuiz.setPercentageScore();
             
             session.setAttribute("StudentQuiz", studentQuiz);
-        } else if (answer.equals("i")) {
+        } else if ("i".equals(answer)) {
             studentQuiz.setQuestionTally();
             studentQuiz.setPercentageScore();
             
@@ -69,6 +59,7 @@ public class SubmitQuizQuestion extends HttpServlet {
         quiz.setQuizI2Answers(previewQuiz.getQuizIncTwo(quizID));
         quiz.setQuizI3Answers(previewQuiz.getQuizIncThree(quizID));
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
+        quiz.setQuizEAnswers(previewQuiz.getAnswerExplanation(quizID));
         
         session.setAttribute("Quiz", quiz);
         

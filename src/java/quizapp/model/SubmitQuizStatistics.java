@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import quizapp.util.DatabaseManager;
 
-/**
- *
- * @author Anthony
- */
 public class SubmitQuizStatistics {
+    
+    private DatabaseManager db = new DatabaseManager();
     
     private String quizID;
     private int quizScore;
@@ -24,12 +17,6 @@ public class SubmitQuizStatistics {
     private int newAttempts;
     private int newTotal;
     private boolean activeTable = false;
-    
-    String driverName = "com.mysql.jdbc.Driver";
-    String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-    String dbName = "16agileteam1db";
-    String userID = "16agileteam1";
-    String password = "8320.at1.0238";
 
     public SubmitQuizStatistics(String quizID, int quizScore) {
         this.quizID = quizID;
@@ -37,17 +24,10 @@ public class SubmitQuizStatistics {
     } 
     
     public void getInitResults() {
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             
-            Statement statement = connection.createStatement();
-            
-            String query = "SELECT * FROM quiz_stats WHERE quiz_id=" + quizID;
+        String query = "SELECT * FROM quiz_stats WHERE quiz_id=" + quizID;
+        
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
             
             ResultSet resultSet = statement.executeQuery(query);
             
@@ -61,13 +41,12 @@ public class SubmitQuizStatistics {
             
             connection.close();
             
-        } catch (SQLException e) {
-            e.getMessage();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
     }
     
     public void enterResults() {
-        // Average = sum / total
         
         getInitResults();
         
@@ -75,41 +54,23 @@ public class SubmitQuizStatistics {
         newAttempts++;
         newAverage = (newTotal/newAttempts);
         
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
+        String query = "UPDATE quiz_stats SET avg_quiz_score = ?, cumulative_quiz_attempts = ?, cumulative_quiz_total = ? WHERE quiz_id = ?";
+        
+        try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             
             if(activeTable) {
-                PreparedStatement pstmt = connection.prepareStatement(
-                "UPDATE quiz_stats SET avg_quiz_score = ?, cumulative_quiz_attempts = ?, cumulative_quiz_total = ? WHERE quiz_id = ?");
-                pstmt.setInt( 1, newAverage );
-                pstmt.setInt( 2, newAttempts ); 
-                pstmt.setInt(3, newTotal );
-                pstmt.setString( 4, quizID ); 
-            
-                pstmt.executeUpdate();
-            
-                connection.close();
-            
-            } else {
-                // need check somewhere to prevent row duplication e.g. if row exists do insert if not do update
-            PreparedStatement pstmt = connection.prepareStatement(
-            "INSERT INTO quiz_stats(quiz_id, avg_quiz_score, cumulative_quiz_attempts, cumulative_quiz_total) " + " values (?, ?, ?, ?)");
-            pstmt.setString( 1, quizID );
-            pstmt.setInt( 2, newAverage ); 
-            pstmt.setInt(3, newAttempts );
-            pstmt.setInt( 4, newTotal ); 
-            
-            pstmt.executeUpdate();
+                preparedStatement.setInt( 1, newAverage ); 
+                preparedStatement.setInt( 2, newAttempts );
+                preparedStatement.setInt( 3, newTotal );
+                preparedStatement.setString( 4, quizID );
+                
+                preparedStatement.executeUpdate();
             
             connection.close();
-            } 
-        } catch (SQLException e) {
-            e.getMessage();
+            }
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
     }
 }

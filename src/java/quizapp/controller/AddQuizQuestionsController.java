@@ -12,8 +12,6 @@ import quizapp.bean.*;
 
 @WebServlet(name = "AddQuizQuestions", urlPatterns = {"/AddQuizQuestions", "/AddQuizQuestions/"})
 public class AddQuizQuestionsController extends HttpServlet{
-    public AddQuizQuestionsController() {
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

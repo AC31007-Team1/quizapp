@@ -1,7 +1,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-  <!--refactored to increase usability and normalize design-->
+
 <title>Quizzes</title>
 </head>
 
@@ -11,11 +11,8 @@
     <div style="margin: 10% 10% 10% 10%">
         <div class="jumbotron">
 
-
             <h1 class="display-1">My Pinned</h1>
             <br>
-
-            <%               // for (int i = 0; i <= 14; i++) { %>
 
             <div class="col-12 center "><h2></h2></div>
             

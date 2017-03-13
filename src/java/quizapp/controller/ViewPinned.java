@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.controller;
 
 import java.io.IOException;
@@ -18,10 +13,6 @@ import quizapp.bean.StudentLogin;
 import quizapp.model.FetchStudentPinned;
 import quizapp.model.DeleteStudentPinned;
 
-/**
- *
- * @author craigwatt
- */
 @WebServlet(name = "ViewPinned", urlPatterns = {"/ViewPinned"})
 public class ViewPinned extends HttpServlet {
 
@@ -43,12 +34,18 @@ public class ViewPinned extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpSession session = request.getSession();
+        
         String sss = request.getParameter("DeletePinned");
         int quizID = Integer.parseInt(sss);
-        HttpSession session = request.getSession();
+        
         DeleteStudentPinned deleteStudentPinned = new DeleteStudentPinned();
+        
         StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-        boolean didItDelete = deleteStudentPinned.delete(quizID, studentLogin.getID());
+        
+        boolean didItDelete = deleteStudentPinned.deletePinned(quizID, studentLogin.getID());
+        
         if (didItDelete) {
             session.setAttribute("deletePinnedAttempt", quizID);
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -57,12 +54,5 @@ public class ViewPinned extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("AccountProfile");
             rd.forward(request, response);
         }
-
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

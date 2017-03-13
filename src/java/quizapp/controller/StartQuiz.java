@@ -1,7 +1,6 @@
 package quizapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +12,13 @@ import quizapp.bean.Quiz;
 import quizapp.bean.StudentQuiz;
 import quizapp.model.PreviewQuiz;
 
-/**
- *
- * @author Anthony
- */
 @WebServlet(name = "StartQuiz", urlPatterns = {"/StartQuiz"})
 public class StartQuiz extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // left blank intetionally
     }
 
     
@@ -44,6 +40,7 @@ public class StartQuiz extends HttpServlet {
         quiz.setQuizI2Answers(previewQuiz.getQuizIncTwo(quizID));
         quiz.setQuizI3Answers(previewQuiz.getQuizIncThree(quizID));
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
+        quiz.setQuizEAnswers(previewQuiz.getAnswerExplanation(quizID));
         
         session.setAttribute("Quiz", quiz);
         
