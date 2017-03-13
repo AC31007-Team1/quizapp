@@ -57,10 +57,10 @@ public class ViewStaffQuizzes extends HttpServlet {
         HttpSession session = request.getSession();
         if (didItDelete) {
             session.setAttribute("deleteQuizAttempt", quizID);
-            RequestDispatcher rd = request.getRequestDispatcher("/viewStaffQuizzes.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("/viewStaffQuizzes.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         }
 
