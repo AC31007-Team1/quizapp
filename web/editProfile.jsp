@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>
 
 <!--refactored to increase usability and normalize design-->
-<title>My Profile</title>
+<title>Edit Profile</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>     
@@ -46,5 +46,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>

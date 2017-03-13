@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="/2016-agileteam1">
-        <img src="src/University_of_Dundee_logo.svg.png"height="25px"width="20px" style="position:relative;bottom:5px;"> 
+        <img id="icon" src="src/University_of_Dundee_logo.svg.png"height="25px"width="20px" style="position:relative;bottom:5px;"onmouseover="this.src='src/src_1.gif'"onmouseout="this.src='src/University_of_Dundee_logo.svg.png'"> 
         CraigMC</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">

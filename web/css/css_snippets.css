@@ -12,39 +12,39 @@ and open the template in the editor.
 @keyframes neon{
     0%
     {
-        text-shadow: 0 0 15px red, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     12.5%
     {
-        text-shadow: 0 0 15px green, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px green, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     25%
     {
-        text-shadow: 0 0 15px blue, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px blue, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     37.5%
     {
-        text-shadow: 0 0 15px yellow, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px yellow, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     50%
     {
-        text-shadow: 0 0 15px magenta, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px magenta, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     62.5%
     {
-        text-shadow: 0 0 15px cyan, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px cyan, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     75%
     {
-        text-shadow: 0 0 15px white, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px white, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     82.5%
     {
-        text-shadow: 0 0 15px black, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px black, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     100%
     {
-        text-shadow: 0 0 15px red, 5px 3px 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
     }
     
 }
@@ -115,7 +115,8 @@ body.night{
 
 #jumboindex
 {
-    background: black;
+    background: transparent;
+    box-shadow: none;
 }
 
 .nav-link
@@ -129,6 +130,7 @@ body.night{
     box-shadow: 0 0 5px black;
     border-radius: 5px;
     transition: 0.5s;
+    text-decoration: underline;
 }
 
 .btn
@@ -140,9 +142,11 @@ body.night{
 {
     box-shadow: 0 0 10px black;
     transition: 0.25s;
+    text-decoration: underline;
 }
 
 .mg
 {
     margin: 5px;
 }
+

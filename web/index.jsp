@@ -15,6 +15,6 @@ You will probably want navbar.jsp as well.
                 <div class="animated fadeInUp hero-text">CraigMC</div>
             </div>
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>
 
