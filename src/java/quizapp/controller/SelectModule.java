@@ -37,6 +37,7 @@ public class SelectModule extends HttpServlet
         RequestDispatcher rd = request.getRequestDispatcher("SelectModule.jsp");
         rd.forward(request, response);
     }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
