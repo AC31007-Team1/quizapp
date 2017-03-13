@@ -53,16 +53,33 @@
                         <td>
             <p>Incorrect Answer: <%=quizQuestionInc3Answers.get(i)%></p>
 
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+            <p>Answer Explanation: <%=quizQuestionEx.get(i)%></p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="text-align:center;"><b>Associated Video</b></p>
+
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <br>
-            <%if (quizQuestionVideoUrls.get(i)!=""){%>
-                <iframe width="420" height="315"
+            <div style="text-align:center;width:100%;">
+                <%if (quizQuestionVideoUrls.get(i)!=null && !quizQuestionVideoUrls.get(i).toString().isEmpty()){%>
+                
+                <iframe width="640" height="360"
                     src="https://www.youtube.com/embed/<%=quizQuestionVideoUrls.get(i)%>">
                 </iframe> 
-                   %<}%>
+                
+                   <%}else{%>
+                   <p>No video for this question</p><%}%>
+                  </div> 
+            
             
 
             <form action="previewQuiz" method="post"><button type="submit" style="cursor:pointer;" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>

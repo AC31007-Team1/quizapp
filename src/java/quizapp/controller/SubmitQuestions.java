@@ -36,7 +36,7 @@ public class SubmitQuestions extends HttpServlet{
         for(int i = 1; i < 4; i++) {
             iAnswer[i-1] = request.getParameter("answeri" + i);
         }
-        if (videoUrl!="")
+        if (!videoUrl.isEmpty())
         {
             newUrl = convertToID(videoUrl);
         }
