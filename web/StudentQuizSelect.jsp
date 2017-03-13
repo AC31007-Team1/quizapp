@@ -10,9 +10,11 @@
     <div class="jumbotron">
 
 
+        <% if(quiz.isQuizSet()) { %>
         <h1 class="display-1">Select a Quiz:</h1>
         <br>
         <div class=""><h2></h2></div>
+        
                 <%            for (int i = 0; i < quiz.getQuizIDList().size(); i++) {
                         List quizList = quiz.getQuizList();
                         List quizIdList = quiz.getQuizIDList();
@@ -29,6 +31,11 @@
             </form>                
                             <br>
                         <br>
+        <%}
+            } else {%>
+            <h1 class="display-1">There are no quizzes to display!</h1>
+        <br>
+        <div class=""><h2></h2></div>
         <%}%>
     </div>
     
