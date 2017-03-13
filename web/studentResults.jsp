@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--refactored to increase usability and normalize design-->
-<title>Student"yournamehere" Results</title>
+<title>${profile.getfName()}'s Results</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>     
@@ -9,13 +9,21 @@
         <div class="jumbotron ">
             <div class="row marketing">
                 <div class="col-lg-12">
-                    <table style="width:100%">                 
+                    <table class="table table-striped"style="width:100%"> 
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>Quiz ID</th>
+                                <th>Quiz Name</th>
+                                <th>Score</th>
+                                <th>Time Completed</th>
+                            </tr>
+                        </thead>
                         <c:forEach items="${statList}" var="listItem">
                             <tr>
-                                <th>${listItem.qid}</th>
-                                <th>${listItem.qn}</th>
-                                <th>${listItem.qs}</th>
-                                <th>${listItem.dt}</th>
+                                <td>${listItem.qid}</td>
+                                <td>${listItem.qn}</td>
+                                <td>${listItem.qs}</td>
+                                <td>${listItem.dt}</td>
                             </tr>
                         </c:forEach>
                     </table>

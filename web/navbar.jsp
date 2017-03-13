@@ -50,7 +50,7 @@
             </li>
             <li class="nav-item display-5">
                 <a class="nav-link" href="/2016-agileteam1/SelectModule" data-toggle="tooltip" data-placement="bottom" title="All quizzes and modules available currently are displayed here!">
-                    <span class="ion-search" aria-hidden="true"></span> View Quizzes</a>
+                    <span class="ion-search" aria-hidden="true"></span> Select a Quiz</a>
             </li>
 
             <%}

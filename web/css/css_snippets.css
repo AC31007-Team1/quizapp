@@ -134,6 +134,15 @@ body.night{
 .btn
 {
     box-shadow: 0 0 5px black;
-    
+    cursor: pointer;
+}
+.btn:hover
+{
+    box-shadow: 0 0 10px black;
+    transition: 0.25s;
 }
 
+.mg
+{
+    margin: 5px;
+}
