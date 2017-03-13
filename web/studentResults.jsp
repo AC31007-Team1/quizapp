@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--refactored to increase usability and normalize design-->
-<title>${profile.getfName()}'s Results</title>
+<title>Your Results</title>
 </head>
 <body>
     <%@include file="navbar.jsp"%>     

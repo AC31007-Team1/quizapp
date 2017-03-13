@@ -1,4 +1,4 @@
-<%@page import="java.util.LinkedList"%>
+    <%@page import="java.util.LinkedList"%>
 <%@include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--refactored to increase usability and normalize design-->
@@ -24,10 +24,10 @@
                     <c:forEach items="${quizList}" var="listItem">
                         <div class="col-6">Quiz Name: ${listItem.qn} Quiz ID: ${listItem.qid} Availability: ${listItem.qa}</div>
 
-                        <div class="col-1">
+                        <div class="col-3">
                             <form role="form" action="ChangeAvailability" method="post">
                                 <button type="submit" name="Availability" value="${listItem.qid}"
-                                        class="btn display-4 btn-md btn-success">Availability?</button>
+                                        class="btn display-4 btn-md btn-success">Change Availability</button>
                             </form>
                         </div>
                         <div class="col-2 offset-md-1">
@@ -41,5 +41,5 @@
             </div>     
 
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>

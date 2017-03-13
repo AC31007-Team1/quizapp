@@ -20,17 +20,12 @@
             <form role="form" class="fix"  action="StartQuiz" method="post">
                     <h3 class='display-4'><%=quizList.get(i)%></h3>
                     <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-3">Start Quiz</button>            
-            </form>
-
-            <form role="form" class="fix "action="PrintFriendlyResults" method="post">
-                    <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-5">Print Friendly Results</button>
+                            class="btn btn-primary display-4 col-md-6">Start Quiz</button>            
             </form>
 
             <form role="form" class="fix " action="AddPinned" method="post">
                     <button type="submit" style="cursor: pointer;" name="quiz" value="<%=quizIdList.get(i)%>"
-                            class="btn btn-primary display-4 col-md-3">Pin to Favourites</button>
+                            class="btn btn-primary display-4 col-md-6">Pin to Favourites</button>
             </form>                
                             <br>
                         <br>
