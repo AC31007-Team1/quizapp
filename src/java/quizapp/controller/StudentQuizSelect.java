@@ -40,6 +40,11 @@ public class StudentQuizSelect extends HttpServlet{
             
             quiz.setQuizList(quizzes);
             quiz.setQuizIDList(quizzesID);
+            quiz.setQuizSet(true);
+            
+            session.setAttribute("Quiz", quiz);
+        } else {
+            Quiz quiz = new Quiz();
             
             session.setAttribute("Quiz", quiz);
         }
