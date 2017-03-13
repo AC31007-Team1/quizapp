@@ -37,7 +37,9 @@ public class DeleteStaffQuiz {
         String query1 = "DELETE FROM 16agileteam1db.quiz_answers WHERE quiz_id=" + quizID;
         String query2 = "DELETE FROM 16agileteam1db.quiz_questions WHERE quiz_id =" + quizID;
         String query3 = "DELETE FROM 16agileteam1db.quiz_stats WHERE quiz_id =" + quizID;
-        String query4 = "DELETE FROM 16agileteam1db.quiz WHERE quiz_id =" + quizID;
+        String query4 = "DELETE FROM 16agileteam1db.student_statistics WHERE quiz_id =" + quizID;
+        String query5 = "DELETE FROM 16agileteam1db.stu_fav WHERE quiz_id =" + quizID;
+        String query6 = "DELETE FROM 16agileteam1db.quiz WHERE quiz_id =" + quizID;
         try {
             connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
             Statement statement = connection.createStatement();
@@ -46,6 +48,8 @@ public class DeleteStaffQuiz {
             statement.execute(query2);
             statement.execute(query3);
             statement.execute(query4);
+            statement.execute(query5);
+            statement.execute(query6);
             connection.close();
 
         } catch (SQLException e) {
