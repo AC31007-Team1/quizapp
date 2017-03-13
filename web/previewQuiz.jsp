@@ -54,10 +54,16 @@
 
                         </td>
                     </tr>
+                    <tr>
+                        <td class="bg-info" style="color: white; text-shadow: 0 0 2px black;">
+            <p>Answer Explanation: <%=quizQuestionEx.get(i)%></p>
+
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
-            <form action="previewQuiz" method="post"><button type="submit" style="cursor:pointer;" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-link">Edit Question</button>
+            <form action="previewQuiz" method="post"><button type="submit" style="cursor:pointer;" name="quizquestionid" value="<%=quizQuestionID.get(i)%>" class="btn btn-primary">Edit Question</button>
                 <input type="hidden" name="quizquestion" value="<%=quizQuestionList.get(i)%>">
                 <input type="hidden" name="quizquestionanswer" value="<%=quizQuestionAnswers.get(i)%>">
                 <input type="hidden" name="quizquestionincorrect1" value="<%=quizQuestionInc1Answers.get(i)%>">
@@ -69,7 +75,7 @@
             <%}%>
 
         </div>
-    </div>
+    
     <%@include file="footer.jsp"%>
     
                             

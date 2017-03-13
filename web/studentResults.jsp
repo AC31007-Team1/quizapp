@@ -8,6 +8,7 @@
     <div style="margin: 1% 10% 10% 10%">
         <div class="jumbotron ">
             <div class="row marketing">
+                <h1 class="display-1">All of My Results</h1>
                 <div class="col-lg-12">
                     <table class="table table-striped"style="width:100%"> 
                         <thead class="thead-inverse">
