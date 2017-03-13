@@ -19,6 +19,7 @@ public class ViewQuizzesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         ViewQuizzes viewQuizzes = new ViewQuizzes();
         
         HttpSession session = request.getSession();
@@ -33,10 +34,14 @@ public class ViewQuizzesController extends HttpServlet {
             quiz.setQuizList(quizzes);
             quiz.setQuizIDList(quizzesID);
             
+            quiz.setQuizSet(true);
+            
+            session.setAttribute("Quiz", quiz);
+        } else {
+            Quiz quiz = new Quiz();
+            
             session.setAttribute("Quiz", quiz);
         }
-        
-        System.out.println(quizzes);
         
         RequestDispatcher rd = request.getRequestDispatcher("viewQuizzes.jsp");
             rd.forward(request, response);
