@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.controller;
 
 import javax.servlet.RequestDispatcher;
@@ -15,18 +10,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletConfig;
 import quizapp.bean.StudentLogin;
 import quizapp.model.CreatePinned;
 
 @WebServlet(name = "AddPinned", urlPatterns = {"/AddPinned", "/AddPinned/"})
 public class AddPinned extends HttpServlet {
 
-    public AddPinned() {
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,21 +29,20 @@ public class AddPinned extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String quizID = request.getParameter("quiz");
+        
         HttpSession session = request.getSession();
+        
+        String quizID = request.getParameter("quiz");
+        
         StudentLogin lg = (StudentLogin) session.getAttribute("StudentLogin");
+        
         int studentID = lg.getID();
 
         CreatePinned pinned = new CreatePinned();
 
-        try {
-            pinned.insertPinned(quizID, studentID);
-            response.sendRedirect("index.jsp");
-        } catch (SQLException ex) {
-            Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(AddPinned.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        pinned.insertPinned(quizID, studentID);
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
 
     }
 

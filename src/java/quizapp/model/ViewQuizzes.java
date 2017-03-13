@@ -1,92 +1,57 @@
 package quizapp.model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import quizapp.util.DatabaseManager;
 
 public class ViewQuizzes {
+    
+    private DatabaseManager db = new DatabaseManager();
     
     private List quizList = new ArrayList();
     private List quizIDList = new ArrayList();
     
-    
     public List getQuizzes(int moduleID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-
-        Connection connection = null;
-
-        // module id from iain
         String query = "SELECT * FROM Quiz WHERE module_id =" + moduleID;
-
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
-            Statement statement = connection.createStatement();
+        
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(query);
             
             while (resultSet.next()) {
                 quizList.add(resultSet.getString("quiz_name"));
             }
-
-            connection.close();
             
-        } catch (SQLException e) {
-            e.getMessage();
+            connection.close();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
-        
         return quizList;
     }
     
     public List getQuizzesID(int moduleID) {
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-
-        Connection connection = null;
-
-        // module id from iain
         String query = "SELECT * FROM Quiz WHERE module_id =" + moduleID ;
-
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
-            Statement statement = connection.createStatement();
-
+   
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+            
             ResultSet resultSet = statement.executeQuery(query);
             
             while (resultSet.next()) {
                 quizIDList.add(resultSet.getInt("quiz_id"));
             }
-
+            
             connection.close();
             
-        } catch (SQLException e) {
-            e.getMessage();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
-        
         return quizIDList;
-    }
-    
-    
+    } 
 }

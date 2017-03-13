@@ -1,13 +1,16 @@
 package quizapp.model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import quizapp.util.DatabaseManager;
 
 public class SubmitQuiz {
+    
+    private DatabaseManager db = new DatabaseManager();
+    private boolean status = false;
     
     private int studentMatricID;
     private String quizID;
@@ -24,36 +27,27 @@ public class SubmitQuiz {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         sdf.format(timestamp);
         
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
+        String query = "INSERT INTO student_statistics(matriculation_number, quiz_id, quiz_score, date_taken) " + " values (?, ?, ?, ?)";
         
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
+        try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             
-            PreparedStatement pstmt = connection.prepareStatement(
-            "INSERT INTO student_statistics(matriculation_number, quiz_id, quiz_score, date_taken) " + " values (?, ?, ?, ?)");
-            pstmt.setInt( 1, studentMatricID );
-            pstmt.setString( 2, quizID ); 
-            pstmt.setInt(3, quizScore );
-            pstmt.setTimestamp( 4, timestamp ); 
+            preparedStatement.setInt( 1, studentMatricID );
+            preparedStatement.setString( 2, quizID ); 
+            preparedStatement.setInt(3, quizScore );
+            preparedStatement.setTimestamp( 4, timestamp ); 
             
-            pstmt.executeUpdate();
+            preparedStatement.executeUpdate();
+            
+            status = true;
             
             connection.close();
-            return false;
             
-        } catch (SQLException e) {
-            e.getMessage();
+        } catch (ClassNotFoundException | SQLException e) {
+            status = false;
+            e.printStackTrace();
         }
-        return true;
+        
+        return status;
     }
     
 }
