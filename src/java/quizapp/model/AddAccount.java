@@ -1,76 +1,58 @@
 package quizapp.model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import quizapp.util.DatabaseManager;
 
 public class AddAccount {
-
-    public AddAccount() {
-    }
+    
+    private DatabaseManager db = new DatabaseManager();
+    private boolean status = false;
 
     public boolean insertStaffAccount(String staffID, String staffFN, String staffLN, String staffE) {
-        String driverName = "com.mysql.jdbc.Driver";
-        //hide userID & password (shippable?)
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-        Connection connection = null;
-        Statement statement = null;
-        Statement statement2 = null;
-
+        
         String insertStaffTableSQL = "INSERT INTO 16agileteam1db.staff "
                 + "VALUES(" + staffID + ");";
         String insertProfileTableSQL = "INSERT INTO 16agileteam1db.profile_details(staff_id_number, first_name, last_name, email, soul) "
                 + "VALUES(" + staffID + ",'" + staffFN + "','" + staffLN + "','" + staffE + "','staff');";
 
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
-            statement = connection.createStatement();
-            statement2 = connection.createStatement();
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+            
             statement.execute(insertStaffTableSQL);
-            statement2.execute(insertProfileTableSQL);
+            statement.execute(insertProfileTableSQL);
             connection.close();
-            return true;
-        } catch (SQLException e) {
-            e.getMessage();
+            
+            status = true;
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            status = false;
+            e.printStackTrace();
         }
-        return false;
+        
+        return status;
     }
 
-    public boolean insertStudentAccount() {
-        String driverName = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/";
-        String dbName = "16agileteam1db";
-        String userID = "16agileteam1";
-        String password = "8320.at1.0238";
-        try {
-            Class.forName(driverName);
-        } catch (ClassNotFoundException e) {
-        }
-
-        Connection connection = null;
-        Statement statement = null;
-        try {
-            connection = DriverManager.getConnection(connectionUrl + dbName, userID, password);
-            statement = connection.createStatement();
-            String query = "";
-            /**
-             * PreparedStatement preparedStatement =
-             * connection.prepareStatement(query);
-             * preparedStatement.setString(1, "1");
-             * preparedStatement.setString(2, question);
-             * preparedStatement.execute();
-             */
+    public boolean insertStudentAccount(String matricN, String studentFN, String studentLN, String studentE) {
+        
+        String insertStudentTableSQL = "INSERT INTO 16agileteam1db.student (matriculation_number) "
+                + "VALUES(" + matricN + ");";
+        String insertProfileTableSQL = "INSERT INTO 16agileteam1db.profile_details(matriculation_number, first_name, last_name, email, soul) "
+                + "VALUES(" + matricN + ",'" + studentFN + "','" + studentLN + "','" + studentE + "','student');";
+        
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+            
+            statement.execute(insertStudentTableSQL);
+            statement.execute(insertProfileTableSQL);
             connection.close();
-
-        } catch (Exception e) {
-            e.getMessage();
+            
+            status = true;
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            status = false;
+            e.printStackTrace();
         }
-        return true;
+        
+        return status;
     }
 }

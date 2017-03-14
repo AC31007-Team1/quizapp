@@ -4,7 +4,7 @@
 </head>
 <body>
     <%@include file="navbar.jsp"%>
-    <br>
+    
 <div style="margin: 1% 10% 10% 10%">
 
         <div class="jumbotron">
@@ -15,7 +15,7 @@
                 <div class="col-lg-6">
                     <form action="StaffLogin" method="post">  
                         <div class="input-group">
-                            <input type="text" class="form-control" name="staffID" placeholder="Staff ID Number" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" name="staffID" placeholder="Staff ID Number" aria-describedby="basic-addon1">
                         </div><br>
                         <input type="submit" value="Log In" class="btn btn-primary display-4">
                     </form>

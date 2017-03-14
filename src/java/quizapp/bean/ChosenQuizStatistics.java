@@ -12,6 +12,15 @@ package quizapp.bean;
 public class ChosenQuizStatistics {
 
     private int quiz_id,avg_quiz_score,cumulative_quiz_attempts,cumulative_quiz_total;
+    private boolean noresults;
+
+    public boolean getNoresults() {
+        return noresults;
+    }
+
+    public void setNoresults(boolean noresults) {
+        this.noresults = noresults;
+    }
 
     public int getQuiz_id() {
         return quiz_id;

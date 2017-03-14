@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.controller;
 
 import javax.servlet.RequestDispatcher;
@@ -13,24 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.ServletConfig;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.Staff;
+import quizapp.bean.UserLogin;
 import quizapp.model.CreateQuiz;
 
 
 @WebServlet(name = "AddQuiz", urlPatterns = {"/AddQuiz", "/AddQuiz/"})
 public class AddQuiz extends HttpServlet{
-    public AddQuiz() {
-}
-    
-@Override
-    public void init(ServletConfig config) throws ServletException {
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,28 +27,26 @@ public class AddQuiz extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String quizname = request.getParameter("quizname");
-        int module = Integer.parseInt(request.getParameter("module"));
-        HttpSession session = request.getSession();
-        StaffLogin lg = (StaffLogin) session.getAttribute("StaffLogin");
-        //use int here please - craig
-        int staffID=lg.getStaffID();
-        LocalDateTime created = LocalDateTime.now();
-        int available = 0;
+        
         CreateQuiz initquiz = new CreateQuiz();
         
-        try {
-            initquiz.insertQuiz(quizname,module,staffID,created,available); 
-            response.sendRedirect("/2016-agileteam1");
-        } catch (SQLException ex) {
-            Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
+        HttpSession session = request.getSession();
+        UserLogin lg = (UserLogin) session.getAttribute("whoLog");
+        
+        int module = Integer.parseInt(request.getParameter("module"));
+        int staffID=lg.getID();
+        int available = 0;
+        
+        String quizname = request.getParameter("quizname");
+        
+        LocalDateTime created = LocalDateTime.now();
+        
+        if(initquiz.insertQuiz(quizname,module,staffID,created,available)) {
+            response.sendRedirect("/2016-agileteam1/");
+        } else {
+            // UPDATE WITH ERROR PAGE
+            response.sendRedirect("/2016-agileteam1/");
         }
-        
-        
- 
     }
-
 }
 

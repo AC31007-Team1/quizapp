@@ -1,5 +1,5 @@
 <%@include file="header.jsp"%>
-<title>Staff Login</title>
+<title>Quiz Statistics</title>
 </head>
   <!--refactored to increase usability and normalize design-->
 <body>
@@ -13,6 +13,10 @@
 
             <div class="row marketing">
                 <div class="col-lg-6">
+                    <%if (chosenQuiz.getNoresults()==true)
+                    {%>
+                    <p class="display-4">There are no statistics available for this quiz. <br/>A student has probably not taken this quiz yet!</p>
+                    <%}else{%>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -31,6 +35,7 @@
                             </tr>
                         </tbody>
                     </table>
+                            <%}%>
                 </div>
             </div>
         </div>

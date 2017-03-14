@@ -9,10 +9,44 @@ and open the template in the editor.
 */
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:300|Scope+One');
 
-@keyframes{
-    from{
-        
+@keyframes neon{
+    0%
+    {
+        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black;
     }
+    12.5%
+    {
+        text-shadow: 0 0 15px green, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    25%
+    {
+        text-shadow: 0 0 15px blue, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    37.5%
+    {
+        text-shadow: 0 0 15px yellow, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    50%
+    {
+        text-shadow: 0 0 15px magenta, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) , 0 0 25px black;
+    }
+    62.5%
+    {
+        text-shadow: 0 0 15px cyan, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    75%
+    {
+        text-shadow: 0 0 15px white, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    82.5%
+    {
+        text-shadow: 0 0 15px black, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    100%
+    {
+        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
+    }
+    
 }
 .hero
 {
@@ -24,8 +58,9 @@ and open the template in the editor.
 .hero-text{
     color:white;
     font-family: 'Pacifico', cursive;
-    font-size: 128pt;
-    text-shadow: 5px 3px 0px rgba(150, 150, 150, 1);
+    font-size: 10vw;
+    text-shadow: 0 0 15px red, 5px 3px 0px rgba(150, 150, 150, 1) ;
+    animation: neon 60s infinite;
     text-align: center;
 }
 .fix{
@@ -33,8 +68,8 @@ and open the template in the editor.
 }
 
 body{
-      background: url('../src/background.png')no-repeat center center fixed;
-      background-size: cover;
+    background: url('../src/background.png')no-repeat center center fixed;
+    background-size: cover;
 }
 body.day{
     background-color: skyblue;
@@ -51,7 +86,7 @@ body.night{
 .display-1{
     font-family: 'Scope One', serif;
     font-size: 72px;
- 
+
 }
 
 .display-4{
@@ -66,4 +101,69 @@ body.night{
 #elementToMove{
     -webkit-transition: left 1s ease;
     transition: left 1s ease;
+}
+
+.navbar
+{
+    box-shadow: 0 0 5px black;
+}
+
+.jumbotron
+{
+    box-shadow: 0 0 10px black;
+}
+
+#jumboindex
+{
+    background: transparent;
+    box-shadow: none;
+}
+
+.nav-link
+{
+    padding: 5px;
+}
+
+.nav-link:hover
+{
+    background-color: darkslateblue;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+    transition: 0.5s;
+    text-decoration: underline;
+}
+
+.btn
+{
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+}
+.btn:hover
+{
+    box-shadow: 0 0 10px black;
+    transition: 0.25s;
+    text-decoration: underline;
+}
+
+.mg
+{
+    margin: 5px;
+}
+
+.breadcrumb
+{
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    
+    bottom: 1%;
+    left: 1%;
+    
+}
+.breadcrumb-top
+{
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    
+    top: 10%;
+    right: 1%;
 }

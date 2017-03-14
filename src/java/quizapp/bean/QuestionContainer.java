@@ -17,6 +17,16 @@ public class QuestionContainer {
     private String correct;
     private String question;
     private int questionID;
+    private String explanation;
+    private String videoUrl;
+
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
 
     public List getIncorrect() {
         return incorrect;
@@ -49,6 +59,14 @@ public class QuestionContainer {
     public void setQuestionID(int questionID) {
         this.questionID = questionID;
     }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
     
-    
+   
 }
