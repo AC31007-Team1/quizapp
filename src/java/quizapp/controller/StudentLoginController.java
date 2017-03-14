@@ -13,6 +13,7 @@ import quizapp.bean.UserLogin;
 import quizapp.bean.modulecount;
 import quizapp.model.FetchModules;
 import quizapp.model.StudentMember;
+import quizapp.model.UserMember;
 
 @WebServlet(name = "StudentLogin", urlPatterns = {"/StudentLogin"})
 public class StudentLoginController extends HttpServlet {
@@ -30,23 +31,15 @@ public class StudentLoginController extends HttpServlet {
 
         String sss = request.getParameter("studentID");
         int studentID = Integer.parseInt(sss);
-        StudentMember studentMember = new StudentMember();
-
-        boolean isStudent = studentMember.isValidStudent(studentID);
+        UserMember um = new StudentMember();
         HttpSession session = request.getSession();
 
-        if (isStudent) {
-            Student student = new Student(studentID);
-
-            student.setLoggedIn();
-            //VV now not required
-            //student.setMatricN(studentID);
-
-            session.setAttribute("StudentLogin", student);
-            //craig's who code
+        if (um.isValid(studentID)) {
             UserLogin userLogin = new Student(studentID);
-            //WhoLoggedIn wli=new StudentWhoLog();
+            userLogin.setLoggedIn();
             session.setAttribute("whoLog", userLogin);
+            session.setAttribute("UserMember", um);
+
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());

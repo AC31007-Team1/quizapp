@@ -13,6 +13,7 @@ import quizapp.bean.UserLogin;
  */
 public abstract class UserMember {
     
-        public abstract boolean isValid();
+        public abstract boolean isValid(int ID);
         public abstract UserLogin getProfile(int ID);
+        public abstract boolean changeProfile(String firstN, String lastN, String email, int ID);
 }

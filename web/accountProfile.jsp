@@ -32,9 +32,7 @@
                         </div><br>
                         <input type="submit" value="Edit Profile" class="btn btn-primary display-4">
                     </form>
-
-                    //code was here
-                    
+                  
                     <c:set var="log" value="${whoLog}"/>
                     <c:choose>
                         <c:when test="${log.getUserType() == 'Staff'}">

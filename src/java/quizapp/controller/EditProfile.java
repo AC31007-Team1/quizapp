@@ -32,7 +32,7 @@ public class EditProfile extends HttpServlet {
         HttpSession session = request.getSession();
         UserLogin userLogin = (UserLogin) session.getAttribute("whoLog");
         UserMember um = (UserMember) session.getAttribute("UserMember");
-        gatherProfile(um, userLogin.getID(), request, response);        
+        gatherProfile(um, userLogin.getID(), request, response);
     }
 
     private void gatherProfile(UserMember um, int ID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,28 +42,19 @@ public class EditProfile extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/editProfile.jsp");
         rd.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        ChangeProfileDetails changeProfile = new ChangeProfileDetails();
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
         String email = request.getParameter("email");
-        //HERE
-        //changeProfile.updateProfile(first_name, last_name, slbean.getStaffID());
-        if (session.getAttribute("whoLog").equals("staff")) {
-            Staff staff = (Staff) session.getAttribute("StaffLogin");
-            if (changeProfile.editStaffProfile(first_name, last_name, email, staff.getID())) {
-                response.sendRedirect("/2016-agileteam1/AccountProfile");
-            }
-        } else if (session.getAttribute("whoLog").equals("student")) {
-            Student student = (Student) session.getAttribute("StudentLogin");
-            if (changeProfile.editStudentProfile(first_name, last_name, email, student.getID())) {
-                response.sendRedirect("/2016-agileteam1/AccountProfile");
-            }
-        }
+
+        UserLogin userLogin = (UserLogin) session.getAttribute("whoLog");
+        UserMember um = (UserMember) session.getAttribute("UserMember");
+        um.changeProfile(first_name, last_name, email, userLogin.getID());
+        response.sendRedirect("/2016-agileteam1/AccountProfile");
     }
 
     @Override

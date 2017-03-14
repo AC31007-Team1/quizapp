@@ -32,26 +32,15 @@ public class StaffLoginController extends HttpServlet {
 
         String sss = request.getParameter("staffID");
         int staffID = Integer.parseInt(sss);
-        StaffMember staffMember = new StaffMember();
-
-        boolean isStaff = staffMember.isValidStaff(staffID);
+        UserMember um = new StaffMember();
         HttpSession session = request.getSession();
 
-        if (isStaff) {
-            //StaffLogin staffLogin = new StaffLogin();
-            Staff staff = new Staff(staffID);
-            staff.setLoggedIn();
-            //VV NOT required now
-            staff.setStaffID(staffID);
-
-            //craig's who code
+        if (um.isValid(staffID)) {
             UserLogin userLogin = new Staff(staffID);
-            //WhoLoggedIn wli=new StaffWhoLog();
+            userLogin.setLoggedIn();
             session.setAttribute("whoLog", userLogin);
-
-            UserMember um = new StaffMember();
             session.setAttribute("UserMember", um);
-            
+
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());

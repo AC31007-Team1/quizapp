@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import quizapp.bean.Student;
+import quizapp.bean.UserLogin;
 import quizapp.model.CreatePinned;
 
 @WebServlet(name = "AddPinned", urlPatterns = {"/AddPinned", "/AddPinned/"})
@@ -34,7 +35,7 @@ public class AddPinned extends HttpServlet {
         
         String quizID = request.getParameter("quiz");
         
-        Student lg = (Student) session.getAttribute("StudentLogin");
+        UserLogin lg = (UserLogin) session.getAttribute("whoLog");
         
         int studentID = lg.getID();
 
