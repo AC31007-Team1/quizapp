@@ -4,40 +4,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.Staff;
+import quizapp.bean.UserLogin;
 import quizapp.util.DatabaseManager;
 
-public class StaffMember {
+public class StaffMember extends UserMember{
     
     private DatabaseManager db = new DatabaseManager();
     
-    public boolean isValidStaff(int staffID) {
-
-        boolean isStaff = false;
-
-        String getStaffID = "SELECT staff_id_number FROM 16agileteam1db.profile_details WHERE staff_id_number=" + staffID;
-        
-        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
-            
-            ResultSet resultSet = statement.executeQuery(getStaffID);
-
-            if (resultSet.next()) {
-                isStaff = true;
-                System.out.println("LoggedIn");
-            } else {
-                System.out.println("Failed to login");
-                isStaff = false;
-            }
-            
-            connection.close();
-            
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return isStaff;
-    }
-
-    public StaffLogin getProfile(int staffID) {
+    public UserLogin getProfile(int staffID) {
 
         int pid = 0;
         int sid = 0;
@@ -67,8 +42,53 @@ public class StaffMember {
             e.printStackTrace();
         }
 
-        StaffLogin slforReturn = new StaffLogin();
+        UserLogin slforReturn = new Staff(staffID);
         slforReturn.setProfile(sid, pid, fn, ln, em, soul);
         return slforReturn;
+    }
+
+    public boolean isValid(int staffID) {
+
+        boolean isStaff = false;
+
+        String getStaffID = "SELECT staff_id_number FROM 16agileteam1db.profile_details WHERE staff_id_number=" + staffID;
+        
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+            
+            ResultSet resultSet = statement.executeQuery(getStaffID);
+
+            if (resultSet.next()) {
+                isStaff = true;
+                System.out.println("LoggedIn");
+            } else {
+                System.out.println("Failed to login");
+                isStaff = false;
+            }
+            
+            connection.close();
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return isStaff;
+    }
+
+    public boolean changeProfile(String firstN, String lastN, String email, int staffID) {
+
+        String update_staff = "UPDATE 16agileteam1db.profile_details "
+                + "SET first_name = '" + firstN + "', last_name = '" 
+                + lastN + "' , email = '" + email  
+                + "' WHERE staff_id_number = " + staffID + ";";
+        
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+            
+            statement.execute(update_staff);
+            
+            connection.close();
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }

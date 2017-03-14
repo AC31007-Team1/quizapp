@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.UserLogin;
 
-@WebServlet(name = "LogoutStaff", urlPatterns = {"/LogoutStaff"})
-public class LogoutStaff extends HttpServlet {
+@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
+public class Logout extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        staffLogin.setLoggedOut();
+        UserLogin userLogin = (UserLogin) session.getAttribute("whoLog");
+        userLogin.setLoggedOut();
         session.invalidate();
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);

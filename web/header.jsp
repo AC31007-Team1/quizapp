@@ -11,8 +11,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <link rel="stylesheet" href="css/css_snippets.css">
         <%
-            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+            UserLogin userLogin = (UserLogin) session.getAttribute("whoLog");
             modulecount modfinder = (modulecount) session.getAttribute("modulecount");
             module specificModule = (module) session.getAttribute("module");
             Quiz quiz = (Quiz) session.getAttribute("Quiz");

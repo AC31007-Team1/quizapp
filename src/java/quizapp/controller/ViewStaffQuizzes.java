@@ -14,11 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.Quiz;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.UserLogin;
 import quizapp.model.DeleteStaffQuiz;
 import quizapp.model.FetchStaffQuizzes;
-import quizapp.model.StaffMember;
 
 /**
  *
@@ -31,8 +29,8 @@ public class ViewStaffQuizzes extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-        gatherStaffQuizzes(staffLogin.getID(), request, response);
+        UserLogin userLogin = (UserLogin) session.getAttribute("whoLog");
+        gatherStaffQuizzes(userLogin.getID(), request, response);
     }
 
     private void gatherStaffQuizzes(int sID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

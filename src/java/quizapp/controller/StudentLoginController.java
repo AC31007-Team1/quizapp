@@ -1,7 +1,6 @@
 package quizapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
+import quizapp.bean.UserLogin;
 import quizapp.bean.modulecount;
 import quizapp.model.FetchModules;
 import quizapp.model.StudentMember;
+import quizapp.model.UserMember;
 
 @WebServlet(name = "StudentLogin", urlPatterns = {"/StudentLogin"})
 public class StudentLoginController extends HttpServlet {
@@ -30,20 +31,15 @@ public class StudentLoginController extends HttpServlet {
 
         String sss = request.getParameter("studentID");
         int studentID = Integer.parseInt(sss);
-        StudentMember studentMember = new StudentMember();
-
-        boolean isStudent = studentMember.isValidStudent(studentID);
+        UserMember um = new StudentMember();
         HttpSession session = request.getSession();
 
-        if (isStudent) {
-            StudentLogin studentLogin = new StudentLogin();
+        if (um.isValid(studentID)) {
+            UserLogin userLogin = new Student(studentID);
+            userLogin.setLoggedIn();
+            session.setAttribute("whoLog", userLogin);
+            session.setAttribute("UserMember", um);
 
-            studentLogin.setLoggedIn();
-            studentLogin.setMatricN(studentID);
-
-            session.setAttribute("StudentLogin", studentLogin);
-            //craig's who code
-            session.setAttribute("whoLog", "student");
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());
