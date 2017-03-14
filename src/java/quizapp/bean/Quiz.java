@@ -6,7 +6,6 @@ import java.util.List;
 public class Quiz {
     private List quizList = new ArrayList();
     private List quizIDList = new ArrayList();
-    
     private List quizQuestionID = new ArrayList();
     private List quizQuestions = new ArrayList();
     private List quizCAnswers = new ArrayList();
@@ -14,15 +13,12 @@ public class Quiz {
     private List quizI2Answers = new ArrayList();
     private List quizI3Answers = new ArrayList();
     private List quizEAnswers = new ArrayList();
-    
+    private List quizVideoUrls = new ArrayList();
     private boolean edited;
-    
     private int quizIndex = 0;
-
     private String quizID;
-    
     private boolean quizSet = false;
-
+  
     public boolean isQuizSet() {
         return quizSet;
     }
@@ -127,7 +123,11 @@ public class Quiz {
         this.edited = edited;
     }
 
-    
-    
-    
+    public List getQuizVideoUrls() {
+        return quizVideoUrls;
+    }
+
+    public void setQuizVideoUrls(List quizVideoUrls) {
+        this.quizVideoUrls = quizVideoUrls;
+    }
 }
