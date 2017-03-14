@@ -1,13 +1,19 @@
 package quizapp.bean;
 
-abstract class UserLogin {
+public abstract class UserLogin {
 
     public int profileID;
     public String fName, lName, email, soul;
     public boolean loggedIn = false;
 
+    public abstract String getUserType();
+
     public void setLoginState(boolean loggedIn) {
         this.loggedIn = loggedIn;
+    }
+
+    public int getID() {
+        return 0;
     }
 
     public void setLoggedIn() {
