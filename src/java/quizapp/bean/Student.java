@@ -21,10 +21,11 @@ public class Student extends UserLogin {
     public int getID() {
         return matricN;
     }
+
     public void setStaffID(int staffID) {
         this.matricN = staffID;
     }
-    
+
     public void setProfile(int matricN, int profileID, String fName, String lName, String email, String soul) {
         this.matricN = matricN;
         this.profileID = profileID;
@@ -32,5 +33,12 @@ public class Student extends UserLogin {
         this.lName = lName;
         this.email = email;
         this.soul = soul;
+    }
+
+    String type = "Student";
+
+    @Override
+    public String getUserType() {
+        return type;
     }
 }
