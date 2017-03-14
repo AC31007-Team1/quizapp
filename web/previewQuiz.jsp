@@ -72,7 +72,7 @@
             <div style="text-align:center;width:100%;">
                 <%if (quizQuestionVideoUrls.get(i)!=null && !quizQuestionVideoUrls.get(i).toString().isEmpty()){%>
                 
-                <iframe width="640" height="360"
+                <iframe style="width:35vw;height:20vw" width="640" height="360"
                     src="https://www.youtube.com/embed/<%=quizQuestionVideoUrls.get(i)%>">
                 </iframe> 
                 

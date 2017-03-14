@@ -10,14 +10,15 @@ public class EditQuizQuestion {
     private DatabaseManager db = new DatabaseManager();
     private boolean status = false;
     
-    public boolean updateQuizQuestions(String question, int questionID) {
+    public boolean updateQuizQuestions(String question, int questionID, String videourl) {
         
-        String query = "UPDATE quiz_questions SET question=? " + "WHERE quiz_question_id = ?";
+        String query = "UPDATE quiz_questions SET question=?, video_url=? " + "WHERE quiz_question_id = ?";
         
         try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             
             preparedStatement.setString( 1, question );
             preparedStatement.setInt( 2, questionID );
+            preparedStatement.setString( 3, videourl );
             
             preparedStatement.executeUpdate();
             

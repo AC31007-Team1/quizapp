@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import quizapp.bean.Quiz;
 
 import quizapp.model.AddQuizQuestions;
+import quizapp.util.VideoUtils;
 
 @WebServlet(name = "SubmitQuestions", urlPatterns = {"/SubmitQuestions", "/SubmitQuestions/"})
 public class SubmitQuestions extends HttpServlet{
@@ -38,7 +39,8 @@ public class SubmitQuestions extends HttpServlet{
         }
         if (!videoUrl.isEmpty())
         {
-            newUrl = convertToID(videoUrl);
+            VideoUtils vidutil = new VideoUtils();
+            newUrl = vidutil.convertToID(videoUrl);
         }
         else
         {
@@ -52,17 +54,5 @@ public class SubmitQuestions extends HttpServlet{
 
         response.sendRedirect("addQuizQuestions.jsp");
     }
-    public String convertToID(String url)
-    {
-        String pattern = "(?<=watch\\?v=|/videos/|embed\\/)[^#\\&\\?]*";
-        Pattern compiledPattern = Pattern.compile(pattern);
-        Matcher matcher = compiledPattern.matcher(url);
-        if(matcher.find()){
-            return matcher.group();
-        }
-        else
-        {
-            return "";
-        }
-    }
+    
 }

@@ -41,6 +41,7 @@ public class previewQuiz extends HttpServlet{
         String quizQuestionAnswer = request.getParameter("quizquestionanswer");
         String quizQuestionExplanation = request.getParameter("quizExplanation");
         String quizQuestionVideoUrl = request.getParameter("quizVideoUrl");
+        String appendedVideoUrl = "https://www.youtube.com/watch?v=" + quizQuestionVideoUrl;
         List quizQuestionIncorrect = new ArrayList();
         for (int i=1;i<4;i++)
         {
@@ -53,7 +54,7 @@ public class previewQuiz extends HttpServlet{
         questionContainer.setCorrect(quizQuestionAnswer);
         questionContainer.setIncorrect(quizQuestionIncorrect);
         questionContainer.setExplanation(quizQuestionExplanation);
-        questionContainer.setVideoUrl(quizQuestionVideoUrl);
+        questionContainer.setVideoUrl(appendedVideoUrl);
         session.setAttribute("QuestionContainer", questionContainer);
         response.sendRedirect("/2016-agileteam1/editQuizQuestion");
         

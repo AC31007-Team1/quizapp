@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.QuestionContainer;
 import quizapp.model.EditQuizQuestion;
+import quizapp.util.VideoUtils;
 
 @WebServlet(name = "editQuizQuestion", urlPatterns = {"/editQuizQuestion", "/editQuizQuestion/"})
 public class editQuizQuestion extends HttpServlet {
@@ -29,7 +30,17 @@ public class editQuizQuestion extends HttpServlet {
         String correctAnswer = request.getParameter("cAnswer");
         String question = request.getParameter("question");
         String explanation = request.getParameter("eAnswer");
-        
+        String videoUrl = request.getParameter("videourl");
+        String newUrl;
+        if (!videoUrl.isEmpty())
+        {
+            VideoUtils vidutil = new VideoUtils();
+            newUrl = vidutil.convertToID(videoUrl);
+        }
+        else
+        {
+            newUrl=videoUrl;
+        }
         for (int i=0;i<3;i++)
         {
             int a=i+1;
@@ -40,7 +51,7 @@ public class editQuizQuestion extends HttpServlet {
         QuestionContainer questionContainer = (QuestionContainer) session.getAttribute("QuestionContainer");
         EditQuizQuestion editQuizQuestion = new EditQuizQuestion();
         
-        editQuizQuestion.updateQuizQuestions(question,questionContainer.getQuestionID());
+        editQuizQuestion.updateQuizQuestions(question,questionContainer.getQuestionID(),newUrl);
         editQuizQuestion.updateQuizAnswers(correctAnswer, incorrectAnswers[0], incorrectAnswers[1], incorrectAnswers[2], explanation, questionContainer.getQuestionID());
         
         response.sendRedirect("/2016-agileteam1/ViewQuizzes");
