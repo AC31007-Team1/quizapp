@@ -21,10 +21,11 @@ public class Staff extends UserLogin {
     public int getID() {
         return staffID;
     }
+
     public void setStaffID(int staffID) {
         this.staffID = staffID;
     }
-    
+
     public void setProfile(int staffID, int profileID, String fName, String lName, String email, String soul) {
         this.staffID = staffID;
         this.profileID = profileID;
@@ -32,5 +33,12 @@ public class Staff extends UserLogin {
         this.lName = lName;
         this.email = email;
         this.soul = soul;
+    }
+
+    String type = "Staff";
+
+    @Override
+    public String getUserType() {
+        return type;
     }
 }
