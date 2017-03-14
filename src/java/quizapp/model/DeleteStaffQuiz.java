@@ -16,7 +16,9 @@ public class DeleteStaffQuiz {
         String query1 = "DELETE FROM 16agileteam1db.quiz_answers WHERE quiz_id=" + quizID;
         String query2 = "DELETE FROM 16agileteam1db.quiz_questions WHERE quiz_id =" + quizID;
         String query3 = "DELETE FROM 16agileteam1db.quiz_stats WHERE quiz_id =" + quizID;
-        String query4 = "DELETE FROM 16agileteam1db.quiz WHERE quiz_id =" + quizID;
+        String query4 = "DELETE FROM 16agileteam1db.student_statistics WHERE quiz_id =" + quizID;
+        String query5 = "DELETE FROM 16agileteam1db.stu_fav WHERE quiz_id =" + quizID;
+        String query6 = "DELETE FROM 16agileteam1db.quiz WHERE quiz_id =" + quizID;
         
         try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
             
@@ -24,6 +26,8 @@ public class DeleteStaffQuiz {
             statement.addBatch(query2);
             statement.addBatch(query3);
             statement.addBatch(query4);
+            statement.addBatch(query5);
+            statement.addBatch(query6);
             
             statement.executeBatch();
             

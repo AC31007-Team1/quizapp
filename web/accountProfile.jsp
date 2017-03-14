@@ -50,15 +50,18 @@
                                 </div><br>
                                 <input type="submit" value="View all Results" class="btn btn-primary display-4">
                             </form>
+                            <form action="ViewPinned" method="get">  
+                                <div class="input-group">
+                                </div><br>
+                                <input type="submit" value="View My Favourites" class="btn btn-primary display-4">
+                            </form>
                         </c:when>
                         <c:otherwise>
                             ${"backend error"}
                         </c:otherwise>
                     </c:choose>
-                </div>
-                <div class ="col-lg-6">
-
-                </div>
+                </div><br/>
+          
             </div>
         </div>
     

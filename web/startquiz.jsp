@@ -51,9 +51,9 @@
             <%} else {%>
             <!-- There will be a button here that submits the current quiz bean to be updated in database and results calculated-->
             <form action="SubmitQuiz" method="post">
-                <h3>You've reached the end of the quiz</h3>
+                <h3>Quiz Complete!</h3>
                 <br><br>
-                <input type="submit" value="Submit Quiz" class="btn btn-primary display-4">
+                <input type="submit" value="Finish Quiz" class="btn btn-primary display-4">
             </form>
             <%}%>
         </div>

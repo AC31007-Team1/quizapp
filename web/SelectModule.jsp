@@ -8,7 +8,7 @@
 <%@include file="header.jsp"%>
 
 <title>
-    QuizMe
+    Select a Module
 </title>
 </head>
 <body>

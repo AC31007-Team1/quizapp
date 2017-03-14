@@ -4,7 +4,7 @@
 </head>
 <body>
     <%@include file="navbar.jsp"%>
-    <br>
+    
 <div style="margin: 1% 10% 10% 10%">
 
         <div class="jumbotron">

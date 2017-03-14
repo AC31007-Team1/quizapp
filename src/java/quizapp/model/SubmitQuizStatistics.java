@@ -31,8 +31,7 @@ public class SubmitQuizStatistics {
             
             ResultSet resultSet = statement.executeQuery(query);
             
-            while(resultSet.next())
-            {
+            while(resultSet.next()) {
                 activeTable = true;
                 newAverage = resultSet.getInt("avg_quiz_score");
                 newAttempts = resultSet.getInt("cumulative_quiz_attempts");
@@ -54,9 +53,10 @@ public class SubmitQuizStatistics {
         newAttempts++;
         newAverage = (newTotal/newAttempts);
         
-        String query = "UPDATE quiz_stats SET avg_quiz_score = ?, cumulative_quiz_attempts = ?, cumulative_quiz_total = ? WHERE quiz_id = ?";
+        String queryInsert = "INSERT INTO quiz_stats(quiz_id, avg_quiz_score, cumulative_quiz_attempts, cumulative_quiz_total) VALUES(?, ?, ?, ?)";
+        String queryUpdate = "UPDATE quiz_stats SET avg_quiz_score = ?, cumulative_quiz_attempts = ?, cumulative_quiz_total = ? WHERE quiz_id = ?";
         
-        try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(queryUpdate)) {
             
             if(activeTable) {
                 preparedStatement.setInt( 1, newAverage ); 
@@ -68,7 +68,23 @@ public class SubmitQuizStatistics {
             
             connection.close();
             }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        
+        try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(queryInsert)) {
             
+            if(!activeTable) {
+                preparedStatement.setString( 1, quizID );
+                preparedStatement.setInt( 2, newAverage ); 
+                preparedStatement.setInt( 3, newAttempts );
+                preparedStatement.setInt( 4, newTotal );
+                
+                
+                preparedStatement.executeUpdate();
+            
+            connection.close();
+            }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
