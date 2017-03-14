@@ -13,12 +13,11 @@
     <link rel="stylesheet" href="css/error.css">
     </head>
     <body>
-        <div>
+        <div class='center'>
+            
             <p>
-                oh. oh no. something has gone terribly wrong here. you shouldn't be seeing any of this. this is where we build the website. could you do me a favour and contact someone, let them figure out how to fix this? thanks.
-            </p>
-            <p>
-                <a href="/2016-agileteam1/">Return to the Homepage.</a>
+                Things have gone wrong here. You'd probably be better going home.
+                <br/><a href="/2016-agileteam1/">Return to the Homepage.</a>
             </p>
         </div>
         

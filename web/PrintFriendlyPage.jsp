@@ -15,7 +15,7 @@
 
 </style>
 </head>
-<body>
+<body style='background-image: none;'>
     <h1>Your Quiz Results</h1>
     <br>
     <table>
