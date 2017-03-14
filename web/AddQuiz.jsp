@@ -72,8 +72,7 @@
                         document.getElementById('whentext').style.display = 'inline';
                     } else {
                         document.getElementById('whentext').style.display = 'none';
-                    }
-                    ;
+                    };
                 };
             </script>
 

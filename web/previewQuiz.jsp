@@ -55,7 +55,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="bg-info" style="color: white; text-shadow: 0 0 2px black;">
+                        <td class="bg-primary" style="color: white; text-shadow: 0 0 2px black;">
             <p>Answer Explanation: <%=quizQuestionEx.get(i)%></p>
 
                         </td>

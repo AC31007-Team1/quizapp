@@ -12,39 +12,39 @@ and open the template in the editor.
 @keyframes neon{
     0%
     {
-        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black;
     }
     12.5%
     {
-        text-shadow: 0 0 15px green, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px green, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     25%
     {
-        text-shadow: 0 0 15px blue, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px blue, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     37.5%
     {
-        text-shadow: 0 0 15px yellow, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px yellow, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     50%
     {
-        text-shadow: 0 0 15px magenta, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px magenta, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) , 0 0 25px black;
     }
     62.5%
     {
-        text-shadow: 0 0 15px cyan, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px cyan, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     75%
     {
-        text-shadow: 0 0 15px white, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px white, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     82.5%
     {
-        text-shadow: 0 0 15px black, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px black, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     100%
     {
-        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1) ;
+        text-shadow: 0 0 15px red, 0.4vw 0.2vw 0px rgba(150, 150, 150, 1), 0 0 25px black ;
     }
     
 }
@@ -150,3 +150,20 @@ body.night{
     margin: 5px;
 }
 
+.breadcrumb
+{
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    
+    bottom: 1%;
+    left: 1%;
+    
+}
+.breadcrumb-top
+{
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    
+    top: 10%;
+    right: 1%;
+}
