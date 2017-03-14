@@ -18,16 +18,25 @@
                             List quizQuestionInc2Answers = quiz.getQuizI2Answers();
                             List quizQuestionInc3Answers = quiz.getQuizI3Answers();
                             List quizQuestionID = quiz.getQuizQuestionID();
+                            List quizQuestionVideoUrl = quiz.getQuizVideoUrls();
                             int i = quiz.getQuizIndex();
                             String id = quiz.getQuizID();
         %>
         
             <div class="col-12 center"><h2></h2></div>
             
-            <% if(quiz.getQuizIndex() != quiz.getQuizQuestions().size()){ %>
+            <% if(quiz.getQuizIndex() != quiz.getQuizQuestions().size()){ %>  
                 <form action="SubmitQuizQuestion" method="post">
+                <div style="text-align:center;width:100%;">    
                 <h4>Question: <%=quizQuestionList.get(i)%></h4>
-
+                <%if (quizQuestionVideoUrl.get(i)!=null && !quizQuestionVideoUrl.get(i).toString().isEmpty()){%>
+                <br>
+                <iframe style="width:35vw;height:20vw" width="640" height="360"
+                    src="https://www.youtube.com/embed/<%=quizQuestionVideoUrl.get(i)%>" allowfullscreen>
+                
+                </iframe><br><br><%}%> 
+                    <br>
+                </div>
                 <button type="radio" class="btn btn-primary mg col-lg-12 row" name="answer" value="c"><%=quizQuestionAnswers.get(i)%></button>
                 <button type="radio" class="btn btn-success mg col-lg-12 row" name="answer" value="i"><%=quizQuestionInc1Answers.get(i)%></button>
                 <button type="radio" class="btn btn-danger mg col-lg-12 row"  name="answer" value="i"><%=quizQuestionInc2Answers.get(i)%></button>

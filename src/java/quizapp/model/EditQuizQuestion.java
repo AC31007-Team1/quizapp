@@ -17,9 +17,8 @@ public class EditQuizQuestion {
         try(Connection connection = db.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             
             preparedStatement.setString( 1, question );
-            preparedStatement.setInt( 2, questionID );
-            preparedStatement.setString( 3, videourl );
-            
+            preparedStatement.setString( 2, videourl );
+            preparedStatement.setInt( 3, questionID );
             preparedStatement.executeUpdate();
             
             status = true;

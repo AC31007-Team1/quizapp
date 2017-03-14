@@ -41,7 +41,11 @@ public class previewQuiz extends HttpServlet{
         String quizQuestionAnswer = request.getParameter("quizquestionanswer");
         String quizQuestionExplanation = request.getParameter("quizExplanation");
         String quizQuestionVideoUrl = request.getParameter("quizVideoUrl");
-        String appendedVideoUrl = "https://www.youtube.com/watch?v=" + quizQuestionVideoUrl;
+        String appendedVideoUrl=""; 
+        if (quizQuestionVideoUrl!=null && !quizQuestionVideoUrl.isEmpty())
+        {
+            appendedVideoUrl = "https://www.youtube.com/watch?v=" + quizQuestionVideoUrl;
+        }
         List quizQuestionIncorrect = new ArrayList();
         for (int i=1;i<4;i++)
         {

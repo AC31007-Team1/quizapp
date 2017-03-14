@@ -41,6 +41,7 @@ public class StartQuiz extends HttpServlet {
         quiz.setQuizI3Answers(previewQuiz.getQuizIncThree(quizID));
         quiz.setQuizQuestionID(previewQuiz.getQuestionID(quizID));
         quiz.setQuizEAnswers(previewQuiz.getAnswerExplanation(quizID));
+        quiz.setQuizVideoUrls(previewQuiz.getVideoUrl(quizID));
         
         session.setAttribute("Quiz", quiz);
         
