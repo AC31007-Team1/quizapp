@@ -5,9 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import quizapp.bean.Staff;
+import quizapp.bean.UserLogin;
 import quizapp.util.DatabaseManager;
 
-public class StaffMember {
+public class StaffMember extends UserMember{
     
     private DatabaseManager db = new DatabaseManager();
     
@@ -37,7 +38,7 @@ public class StaffMember {
         return isStaff;
     }
 
-    public Staff getProfile(int staffID) {
+    public UserLogin getProfile(int staffID) {
 
         int pid = 0;
         int sid = 0;
@@ -67,8 +68,13 @@ public class StaffMember {
             e.printStackTrace();
         }
 
-        Staff slforReturn = new Staff(staffID);
+        UserLogin slforReturn = new Staff(staffID);
         slforReturn.setProfile(sid, pid, fn, ln, em, soul);
         return slforReturn;
+    }
+
+    @Override
+    public boolean isValid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

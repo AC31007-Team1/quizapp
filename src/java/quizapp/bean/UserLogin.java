@@ -67,4 +67,13 @@ public abstract class UserLogin {
     public void setSoul(String soul) {
         this.soul = soul;
     }
+
+    public void setProfile(int ID, int profileID, String fName, String lName, String email, String soul) {
+        //this.staffID = staffID;
+        this.profileID = 0;
+        this.fName = "0";
+        this.lName = "0";
+        this.email = "0";
+        this.soul = "0";
+    }
 }

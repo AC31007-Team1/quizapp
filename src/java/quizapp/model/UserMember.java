@@ -5,10 +5,14 @@
  */
 package quizapp.model;
 
+import quizapp.bean.UserLogin;
+
 /**
  *
  * @author craigwatt
  */
-public class UserMember {
+public abstract class UserMember {
     
+        public abstract boolean isValid();
+        public abstract UserLogin getProfile(int ID);
 }

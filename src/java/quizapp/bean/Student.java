@@ -35,10 +35,8 @@ public class Student extends UserLogin {
         this.soul = soul;
     }
 
-    String type = "Student";
-
     @Override
     public String getUserType() {
-        return type;
+        return "Student";
     }
 }

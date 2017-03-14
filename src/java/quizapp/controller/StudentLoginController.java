@@ -1,7 +1,6 @@
 package quizapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Student;
+import quizapp.bean.UserLogin;
 import quizapp.bean.modulecount;
 import quizapp.model.FetchModules;
 import quizapp.model.StudentMember;
@@ -44,7 +44,9 @@ public class StudentLoginController extends HttpServlet {
 
             session.setAttribute("StudentLogin", student);
             //craig's who code
-            session.setAttribute("whoLog", "student");
+            UserLogin userLogin = new Student(studentID);
+            //WhoLoggedIn wli=new StudentWhoLog();
+            session.setAttribute("whoLog", userLogin);
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();
             modfinder.setSize(fetchmod.returnModuleCount());

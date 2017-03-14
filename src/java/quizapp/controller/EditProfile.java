@@ -7,7 +7,6 @@ package quizapp.controller;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Staff;
 import quizapp.bean.Student;
+import quizapp.bean.UserLogin;
 import quizapp.model.ChangeProfileDetails;
-import quizapp.model.StaffMember;
-import quizapp.model.StudentMember;
+import quizapp.model.UserMember;
 
 /**
  *
@@ -31,37 +30,19 @@ public class EditProfile extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("whoLog").equals("staff")) {
-            Staff staff = (Staff) session.getAttribute("StaffLogin");
-            gatherStaffProfile(staff, request, response);
-        } else if (session.getAttribute("whoLog").equals("student")) {
-            Student student = (Student) session.getAttribute("StudentLogin");
-            gatherStudentProfile(student, request, response);
-        }
-        /**
-         * switch (session.getAttribute("whoLog")) { case "staff": statements //
-         * they are executed if variable == c1 break; case "student": statements
-         * // they are executed if variable == c2 break; default: statements //
-         * they are executed if none of the above case is satisfied break; }
-         */
+        UserLogin userLogin = (UserLogin) session.getAttribute("whoLog");
+        UserMember um = (UserMember) session.getAttribute("UserMember");
+        gatherProfile(um, userLogin.getID(), request, response);        
     }
 
-    private void gatherStaffProfile(Staff staff, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StaffMember sm = new StaffMember();
-        staff = sm.getProfile(staff.getID());
-        request.setAttribute("profile", staff);
+    private void gatherProfile(UserMember um, int ID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserLogin slbean;
+        slbean = um.getProfile(ID);
+        request.setAttribute("profile", slbean);
         RequestDispatcher rd = request.getRequestDispatcher("/editProfile.jsp");
         rd.forward(request, response);
     }
-
-    private void gatherStudentProfile(Student student, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StudentMember sm = new StudentMember();
-        student = sm.getProfile(student.getID());
-        request.setAttribute("profile", student);
-        RequestDispatcher rd = request.getRequestDispatcher("/editProfile.jsp");
-        rd.forward(request, response);
-    }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -70,7 +51,7 @@ public class EditProfile extends HttpServlet {
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
         String email = request.getParameter("email");
-
+        //HERE
         //changeProfile.updateProfile(first_name, last_name, slbean.getStaffID());
         if (session.getAttribute("whoLog").equals("staff")) {
             Staff staff = (Staff) session.getAttribute("StaffLogin");

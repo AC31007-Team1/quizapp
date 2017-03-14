@@ -35,10 +35,7 @@ public class Staff extends UserLogin {
         this.soul = soul;
     }
 
-    String type = "Staff";
-
-    @Override
     public String getUserType() {
-        return type;
+        return "Staff";
     }
 }
