@@ -57,7 +57,7 @@
             } else {%>
 
             <li class="nav-item display-5">
-                <a class="nav-link " href="/2016-agileteam1/CreateAccount" data-toggle="tooltip" data-placement="bottom" title="This lets you start creating or doing quizzes!">
+                <a class="nav-link " href="/2016-agileteam1/CreateAccount" data-toggle="tooltip" data-placement="bottom" title="Create an Account!">
                     <span class="ion-person-add" aria-hidden="true"></span> Create Account</a>
             </li>
             <li class="nav-item display-5">
