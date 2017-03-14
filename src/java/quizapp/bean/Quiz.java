@@ -125,9 +125,5 @@ public class Quiz {
 
     public void setEdited(boolean edited) {
         this.edited = edited;
-    }
-
-    
-    
-    
+    } 
 }
