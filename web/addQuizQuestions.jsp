@@ -39,6 +39,9 @@
                         <div class="input-group">
                             <input type="text" class="form-control" name="eAnswer" placeholder="Answer explanation" aria-describedby="basic-addon1" required title="You must enter an explanation of the answer">
                         </div><br>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="videourl" placeholder="Enter a youtube url (optional)" aria-describedby="basic-addon1">
+                        </div><br>
                         <input type="submit" value="Add question" class="btn btn-lg btn-primary">
                     </form>
                 </div>

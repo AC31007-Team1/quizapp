@@ -19,6 +19,7 @@ public class PreviewQuiz {
     private final List incorrectQuizAnswer3 = new ArrayList();
     private final List answerExplantion = new ArrayList();
     private final List quizIDList = new ArrayList();
+    private final List quizUrlList = new ArrayList();
     
     public List getQuizQuestions(String quizID) {
         
@@ -159,5 +160,24 @@ public class PreviewQuiz {
             e.printStackTrace();
         }
         return answerExplantion;
+    }
+    
+    public List getVideoUrl(String quizID) {
+        String query = "SELECT video_url FROM quiz_questions WHERE quiz_id =" + quizID;
+
+        try(Connection connection = db.getConnection(); Statement statement = connection.createStatement()) {
+            
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            while (resultSet.next()) {
+                quizUrlList.add(resultSet.getString("video_url"));
+            }
+            
+            connection.close();
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return quizUrlList;
     }
 }

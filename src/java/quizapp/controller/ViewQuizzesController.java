@@ -25,8 +25,8 @@ public class ViewQuizzesController extends HttpServlet {
         HttpSession session = request.getSession();
         
         module specificModule = (module) session.getAttribute("module");
-        List quizzes = viewQuizzes.getQuizzes(specificModule.getModuleID());
-        List quizzesID = viewQuizzes.getQuizzesID(specificModule.getModuleID());
+        List quizzes = viewQuizzes.getStaffQuizzes(specificModule.getModuleID());
+        List quizzesID = viewQuizzes.getStaffQuizzesID(specificModule.getModuleID());
         
         if(!quizzes.isEmpty()) {
             Quiz quiz = new Quiz();

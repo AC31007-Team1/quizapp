@@ -38,6 +38,9 @@
                         <div class="input-group">
                             <input type="text" class="form-control" name="eAnswer" value="<%=questionContainer.getExplanation()%>" placeholder="Enter a explanation here." aria-describedby="basic-addon1">
                         </div><br>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="videourl" value="<%=questionContainer.getVideoUrl()%>" placeholder="Enter a youtube url here." aria-describedby="basic-addon1">
+                        </div><br>
                         <input type="submit" value="Update Question" class="btn btn-lg btn-primary">
                     </form>
                 </div>

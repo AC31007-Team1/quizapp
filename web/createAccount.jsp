@@ -36,7 +36,8 @@
                     </select>
                 </div>
                 <div id="staffID_div" style="display: none;">
-                    <input type="text" class="form-control" name="staffID" placeholder="Staff ID Number" aria-describedby="basic-addon1">
+                    <br/>
+                    <input type="number" class="form-control" name="staffID" placeholder="Staff ID Number" aria-describedby="basic-addon1">
                 </div><br>
                 <div id="matric_div" style="display: none;">
                     <input type="number" class="form-control" name="matric" placeholder="Matriculation Number" aria-describedby="basic-addon1">
