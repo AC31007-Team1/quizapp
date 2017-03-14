@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp.controller;
 
 import java.io.IOException;
@@ -18,10 +13,6 @@ import quizapp.bean.Quiz;
 import quizapp.bean.module;
 import quizapp.model.ViewQuizzes;
 
-/**
- *
- * @author Iain
- */
 @WebServlet(name = "StudentQuizSelect", urlPatterns = {"/StudentQuizSelect", "/StudentQuizSelect/"})
 public class StudentQuizSelect extends HttpServlet{
     @Override
@@ -32,8 +23,8 @@ public class StudentQuizSelect extends HttpServlet{
         HttpSession session = request.getSession();
         
         module specificModule = (module) session.getAttribute("module");
-        List quizzes = viewQuizzes.getQuizzes(specificModule.getModuleID());
-        List quizzesID = viewQuizzes.getQuizzesID(specificModule.getModuleID());
+        List quizzes = viewQuizzes.getStuQuizzes(specificModule.getModuleID());
+        List quizzesID = viewQuizzes.getStuQuizzesID(specificModule.getModuleID());
         
         if(!quizzes.isEmpty()) {
             Quiz quiz = new Quiz();
