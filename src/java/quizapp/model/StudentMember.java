@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 import quizapp.util.DatabaseManager;
 
 public class StudentMember {
@@ -37,7 +37,7 @@ public class StudentMember {
         return isStudent;
     }
     
-    public StudentLogin getProfile(int matricN) {
+    public Student getProfile(int matricN) {
         
         int pid = 0;
         int mN = 0;
@@ -67,7 +67,7 @@ public class StudentMember {
             e.printStackTrace();
         }
       
-        StudentLogin slforReturn = new StudentLogin();
+        Student slforReturn = new Student(matricN);
         slforReturn.setProfile(mN, pid, fn, ln, em, soul);
         return slforReturn;
     }

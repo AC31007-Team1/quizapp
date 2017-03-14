@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 
 @WebServlet(name = "LogoutStudent", urlPatterns = {"/LogoutStudent"})
 public class LogoutStudent extends HttpServlet {
@@ -17,8 +17,8 @@ public class LogoutStudent extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-        studentLogin.setLoggedOut();
+        Student student = (Student) session.getAttribute("StudentLogin");
+        student.setLoggedOut();
         session.invalidate();
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);

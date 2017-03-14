@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Quiz;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 import quizapp.bean.StudentQuiz;
 import quizapp.model.SubmitQuiz;
 import quizapp.model.SubmitQuizStatistics;
@@ -35,9 +35,9 @@ public class SubmitQuizController extends HttpServlet {
         
         Quiz quiz = (Quiz) session.getAttribute("Quiz");
         StudentQuiz studentQuiz = (StudentQuiz) session.getAttribute("StudentQuiz");
-        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+        Student student = (Student) session.getAttribute("StudentLogin");
         
-        studentMatricID = studentLogin.getID();
+        studentMatricID = student.getID();
         quizID = quiz.getQuizID();
         //possible that this isn't getting the right result?
         quizScore = studentQuiz.getScoreTally();

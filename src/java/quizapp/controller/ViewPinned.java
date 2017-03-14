@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 import quizapp.model.FetchStudentPinned;
 import quizapp.model.DeleteStudentPinned;
 
@@ -20,8 +20,8 @@ public class ViewPinned extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-        gatherStudentPinned(studentLogin.getID(), request, response);
+        Student student = (Student) session.getAttribute("StudentLogin");
+        gatherStudentPinned(student.getID(), request, response);
     }
 
     private void gatherStudentPinned(int sID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,9 +42,9 @@ public class ViewPinned extends HttpServlet {
         
         DeleteStudentPinned deleteStudentPinned = new DeleteStudentPinned();
         
-        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+        Student student = (Student) session.getAttribute("StudentLogin");
         
-        boolean didItDelete = deleteStudentPinned.deletePinned(quizID, studentLogin.getID());
+        boolean didItDelete = deleteStudentPinned.deletePinned(quizID, student.getID());
         
         if (didItDelete) {
             session.setAttribute("deletePinnedAttempt", quizID);

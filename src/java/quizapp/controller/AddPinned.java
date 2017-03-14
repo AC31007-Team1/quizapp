@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 import quizapp.model.CreatePinned;
 
 @WebServlet(name = "AddPinned", urlPatterns = {"/AddPinned", "/AddPinned/"})
@@ -34,7 +34,7 @@ public class AddPinned extends HttpServlet {
         
         String quizID = request.getParameter("quiz");
         
-        StudentLogin lg = (StudentLogin) session.getAttribute("StudentLogin");
+        Student lg = (Student) session.getAttribute("StudentLogin");
         
         int studentID = lg.getID();
 

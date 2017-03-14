@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Staff;
+import quizapp.bean.Student;
 import quizapp.bean.module;
 import quizapp.model.CreateQuiz;
 
@@ -45,14 +45,14 @@ public class SelectModule extends HttpServlet
             module specificModule  = new module();
             specificModule.setModuleID(modID);
             HttpSession session = request.getSession();
-            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
+            Staff staff = (Staff) session.getAttribute("StaffLogin");
+            Student student = (Student) session.getAttribute("StudentLogin");
             session.setAttribute("module", specificModule);
-        if (studentLogin!=null)
+        if (student!=null)
         {
             response.sendRedirect("/2016-agileteam1/StudentQuizSelect");
         }
-        else if (staffLogin!=null)
+        else if (staff!=null)
         {
             response.sendRedirect("/2016-agileteam1/ViewQuizzes");
         }

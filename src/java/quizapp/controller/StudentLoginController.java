@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 import quizapp.bean.modulecount;
 import quizapp.model.FetchModules;
 import quizapp.model.StudentMember;
@@ -36,12 +36,13 @@ public class StudentLoginController extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (isStudent) {
-            StudentLogin studentLogin = new StudentLogin();
+            Student student = new Student(studentID);
 
-            studentLogin.setLoggedIn();
-            studentLogin.setMatricN(studentID);
+            student.setLoggedIn();
+            //VV now not required
+            //student.setMatricN(studentID);
 
-            session.setAttribute("StudentLogin", studentLogin);
+            session.setAttribute("StudentLogin", student);
             //craig's who code
             session.setAttribute("whoLog", "student");
             modulecount modfinder = new modulecount();

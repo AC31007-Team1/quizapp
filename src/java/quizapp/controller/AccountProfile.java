@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Staff;
+import quizapp.bean.Student;
 import quizapp.model.StaffMember;
 import quizapp.model.StudentMember;
 
@@ -36,17 +36,17 @@ public class AccountProfile extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("whoLog").equals("staff")) {
-            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-            gatherStaffProfile(staffLogin.getID(), request, response);
+            Staff staff = (Staff) session.getAttribute("StaffLogin");
+            gatherStaffProfile(staff.getID(), request, response);
         } else if (session.getAttribute("whoLog").equals("student")) {
-            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-            gatherStudentProfile(studentLogin.getID(), request, response);
+            Student student = (Student) session.getAttribute("StudentLogin");
+            gatherStudentProfile(student.getID(), request, response);
         }
     }
 
     private void gatherStaffProfile(int staffID, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StaffMember sm = new StaffMember();
-        StaffLogin slbean;
+        Staff slbean;
         slbean = sm.getProfile(staffID);
         request.setAttribute("profile", slbean);
         RequestDispatcher rd = request.getRequestDispatcher("/accountProfile.jsp");
@@ -55,7 +55,7 @@ public class AccountProfile extends HttpServlet {
 
     private void gatherStudentProfile(int matricN, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StudentMember sm = new StudentMember();
-        StudentLogin slbean;
+        Student slbean;
         slbean = sm.getProfile(matricN);
         request.setAttribute("profile", slbean);
         RequestDispatcher rd = request.getRequestDispatcher("/accountProfile.jsp");

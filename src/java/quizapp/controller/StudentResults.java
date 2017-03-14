@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Staff;
+import quizapp.bean.Student;
 import quizapp.bean.StudentQuizStat;
 import quizapp.model.FetchStudentResults;
 import quizapp.model.StudentMember;
@@ -48,12 +48,13 @@ public class StudentResults extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("whoLog").equals("staff")) {
-            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
+            //REFACTORED
+            Staff staff = (Staff) session.getAttribute("StaffLogin");
             //shouldn't be the case
             //gatherStaffProfile(staffLogin.getID(), request, response);
         } else if (session.getAttribute("whoLog").equals("student")) {
-            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-            gatherStudentResults(studentLogin.getID(), request, response);
+            Student student = (Student) session.getAttribute("StudentLogin");
+            gatherStudentResults(student.getID(), request, response);
         }
     }
 

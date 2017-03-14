@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.Staff;
 import quizapp.bean.modulecount;
 import quizapp.model.FetchModules;
 import quizapp.model.StaffMember;
@@ -38,13 +38,14 @@ public class StaffLoginController extends HttpServlet {
         HttpSession session = request.getSession();
           
         if(isStaff){
-            StaffLogin staffLogin = new StaffLogin();
-            
-            staffLogin.setLoggedIn();
-            staffLogin.setStaffID(staffID);
+            //StaffLogin staffLogin = new StaffLogin();
+            Staff staff = new Staff(staffID);
+            staff.setLoggedIn();
+            //VV NOT required now
+            staff.setStaffID(staffID);
 
-            session.setAttribute("StaffLogin", staffLogin);
-            //craig's who code
+            session.setAttribute("StaffLogin", staff);
+            //craig's who code 
             session.setAttribute("whoLog", "staff");
             modulecount modfinder = new modulecount();
             FetchModules fetchmod = new FetchModules();

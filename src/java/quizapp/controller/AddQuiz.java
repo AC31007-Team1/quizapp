@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.Staff;
 import quizapp.model.CreateQuiz;
 
 
@@ -30,7 +30,7 @@ public class AddQuiz extends HttpServlet{
         CreateQuiz initquiz = new CreateQuiz();
         
         HttpSession session = request.getSession();
-        StaffLogin lg = (StaffLogin) session.getAttribute("StaffLogin");
+        Staff lg = (Staff) session.getAttribute("StaffLogin");
         
         int module = Integer.parseInt(request.getParameter("module"));
         int staffID=lg.getID();

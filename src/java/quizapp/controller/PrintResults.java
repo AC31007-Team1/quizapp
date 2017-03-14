@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import quizapp.bean.Quiz;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Student;
 import quizapp.model.FetchStudentResults;
 
 /**
@@ -32,8 +32,8 @@ public class PrintResults extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FetchStudentResults fsr = new FetchStudentResults();
         HttpSession session = request.getSession();
-        StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-        request.setAttribute("statList", fsr.getStudentStats(studentLogin.getID()));
+        Student student = (Student) session.getAttribute("StudentLogin");
+        request.setAttribute("statList", fsr.getStudentStats(student.getID()));
         RequestDispatcher rd = request.getRequestDispatcher("PrintFriendlyPage.jsp");
         rd.forward(request,response);
     }

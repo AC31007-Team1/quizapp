@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import quizapp.bean.StaffLogin;
-import quizapp.bean.StudentLogin;
+import quizapp.bean.Staff;
+import quizapp.bean.Student;
 import quizapp.model.ChangeProfileDetails;
 import quizapp.model.StaffMember;
 import quizapp.model.StudentMember;
@@ -28,35 +28,36 @@ import quizapp.model.StudentMember;
 public class EditProfile extends HttpServlet {
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-
-    }
-
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("whoLog").equals("staff")) {
-            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-            gatherStaffProfile(staffLogin, request, response);
+            Staff staff = (Staff) session.getAttribute("StaffLogin");
+            gatherStaffProfile(staff, request, response);
         } else if (session.getAttribute("whoLog").equals("student")) {
-            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-            gatherStudentProfile(studentLogin, request, response);
+            Student student = (Student) session.getAttribute("StudentLogin");
+            gatherStudentProfile(student, request, response);
         }
+        /**
+         * switch (session.getAttribute("whoLog")) { case "staff": statements //
+         * they are executed if variable == c1 break; case "student": statements
+         * // they are executed if variable == c2 break; default: statements //
+         * they are executed if none of the above case is satisfied break; }
+         */
     }
 
-    private void gatherStaffProfile(StaffLogin staffLogin, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void gatherStaffProfile(Staff staff, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StaffMember sm = new StaffMember();
-        staffLogin = sm.getProfile(staffLogin.getID());
-        request.setAttribute("profile", staffLogin);
+        staff = sm.getProfile(staff.getID());
+        request.setAttribute("profile", staff);
         RequestDispatcher rd = request.getRequestDispatcher("/editProfile.jsp");
         rd.forward(request, response);
     }
 
-    private void gatherStudentProfile(StudentLogin studentLogin, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void gatherStudentProfile(Student student, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StudentMember sm = new StudentMember();
-        studentLogin = sm.getProfile(studentLogin.getID());
-        request.setAttribute("profile", studentLogin);
+        student = sm.getProfile(student.getID());
+        request.setAttribute("profile", student);
         RequestDispatcher rd = request.getRequestDispatcher("/editProfile.jsp");
         rd.forward(request, response);
     }
@@ -72,13 +73,13 @@ public class EditProfile extends HttpServlet {
 
         //changeProfile.updateProfile(first_name, last_name, slbean.getStaffID());
         if (session.getAttribute("whoLog").equals("staff")) {
-            StaffLogin staffLogin = (StaffLogin) session.getAttribute("StaffLogin");
-            if (changeProfile.editStaffProfile(first_name, last_name, email, staffLogin.getID())) {
+            Staff staff = (Staff) session.getAttribute("StaffLogin");
+            if (changeProfile.editStaffProfile(first_name, last_name, email, staff.getID())) {
                 response.sendRedirect("/2016-agileteam1/AccountProfile");
             }
         } else if (session.getAttribute("whoLog").equals("student")) {
-            StudentLogin studentLogin = (StudentLogin) session.getAttribute("StudentLogin");
-            if (changeProfile.editStudentProfile(first_name, last_name, email, studentLogin.getID())) {
+            Student student = (Student) session.getAttribute("StudentLogin");
+            if (changeProfile.editStudentProfile(first_name, last_name, email, student.getID())) {
                 response.sendRedirect("/2016-agileteam1/AccountProfile");
             }
         }

@@ -10,9 +10,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <%
-                if (staffLogin != null) {%>
+                if (staff != null) {%>
 
-            <%    if (staffLogin.getLoggedIn()) {
+            <%    if (staff.getLoggedIn()) {
             %>
             <li class="nav-item display-5">
                 <a class="nav-link" href="/2016-agileteam1/AccountProfile" data-toggle="tooltip" data-placement="bottom" title="Everything we know about you! Which isn't much!">
@@ -38,8 +38,8 @@
             </li>
             <%  }
             } else {
-                if (studentLogin != null) {
-                    if (studentLogin.getLoggedIn()) { %>  
+                if (student != null) {
+                    if (student.getLoggedIn()) { %>  
             <li class="nav-item display-5">
                 <a class="nav-link" href="/2016-agileteam1/AccountProfile" data-toggle="tooltip" data-placement="bottom" title="Your Information, and how you've done on quizzes so far!">
                     <span class="ion-person" aria-hidden="true"></span> My Profile</a>

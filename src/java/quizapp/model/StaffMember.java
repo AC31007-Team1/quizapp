@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import quizapp.bean.StaffLogin;
+import quizapp.bean.Staff;
 import quizapp.util.DatabaseManager;
 
 public class StaffMember {
@@ -37,7 +37,7 @@ public class StaffMember {
         return isStaff;
     }
 
-    public StaffLogin getProfile(int staffID) {
+    public Staff getProfile(int staffID) {
 
         int pid = 0;
         int sid = 0;
@@ -67,7 +67,7 @@ public class StaffMember {
             e.printStackTrace();
         }
 
-        StaffLogin slforReturn = new StaffLogin();
+        Staff slforReturn = new Staff(staffID);
         slforReturn.setProfile(sid, pid, fn, ln, em, soul);
         return slforReturn;
     }

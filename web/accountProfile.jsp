@@ -32,8 +32,8 @@
                         </div><br>
                         <input type="submit" value="Edit Profile" class="btn btn-primary display-4">
                     </form>
-                    <% if (staffLogin != null) {
-                            if (!staffLogin.getLoggedIn()) { %>
+                    <% if (staff != null) {
+                            if (!staff.getLoggedIn()) { %>
                     <form action="StudentResults" method="get">  
                         <div class="input-group">
                         </div><br>
