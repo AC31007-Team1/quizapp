@@ -55,14 +55,14 @@
 
                     </td>
                     </tr>
-                    <tr>
+                    <tr class='bg-primary'>
                         <td>
             <p>Answer Explanation: <%=quizQuestionEx.get(i)%></p>
 
                         </td>
                     </tr>
                     <tr>
-                        <td class="bg-primary" style="color: white; text-shadow: 0 0 2px black;">
+                        <td class="bg-success" style="color: white; text-shadow: 0 0 2px black;">
                             <p style="text-align:center;"><b>Associated Video</b></p>
 
                         </td>

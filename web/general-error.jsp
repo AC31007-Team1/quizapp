@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>WE MESSED UP!</title>
+        <title>! PC CURSED !</title>
     <link rel="stylesheet" href="css/error.css">
     </head>
     <body>

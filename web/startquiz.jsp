@@ -44,10 +44,7 @@
 
                  <input type="hidden" name="quizID" value="<%=id%>">
                  <input type="hidden" name="quizIndex" value="<%=i%>">
-                 
-                 <br><br>
-                 <input type="submit" value="Submit Question" class="btn btn-primary display-4">
-            </form>          
+          </form>          
             <%} else {%>
             <!-- There will be a button here that submits the current quiz bean to be updated in database and results calculated-->
             <form action="SubmitQuiz" method="post">
